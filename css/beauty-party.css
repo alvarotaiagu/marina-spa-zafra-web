@@ -1,0 +1,18 @@
+/* Módulo «Beauty Party» (data-modulo="beauty-party"), en Estética general. Su web lo
+   tiene como bloque aparte, no como línea de carta. Se quita con scripts/quitar-beauty-party.mjs. */
+.beauty-party { background: var(--tierra); color: var(--cal); display: grid; gap: 40px; padding: var(--sec) var(--lado); }
+@media (min-width: 900px) { .beauty-party { grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: center; } }
+.beauty-party .titulo-sec { margin-top: 14px; }
+.beauty-party__texto > p:not(.eti):not(.beauty-party__precio) { color: var(--texto-osc); max-width: 44ch; margin-top: 12px; }
+.beauty-party__precio { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.beauty-party__precio .precio { font: 300 clamp(3rem, 7vw, 4.6rem)/1 var(--serif); }
+.beauty-party__precio > span:not(.precio) { font-size: .9rem; color: var(--texto-osc); }
+.beauty-party__incluye { border: 1px solid rgba(212, 175, 55, .35); padding: clamp(24px, 3.4vw, 40px); }
+.beauty-party__incluye ul { margin: 16px 0 26px; display: grid; gap: 10px; }
+.beauty-party__incluye li { display: flex; gap: 12px; align-items: baseline; color: var(--texto-osc); }
+.beauty-party__incluye li::before { content: ""; width: 14px; height: 1px; background: var(--oro); flex: none; transform: translateY(-4px); }
+html.has-motion .beauty-party.js-listo:not(.es-visible) .beauty-party__incluye li { opacity: 0; transform: translateY(10px); }
+html.has-motion .beauty-party.es-visible .beauty-party__incluye li { transition: opacity .6s var(--curva), transform .6s var(--curva); }
+html.has-motion .beauty-party.es-visible .beauty-party__incluye li:nth-child(2) { transition-delay: .08s; }
+html.has-motion .beauty-party.es-visible .beauty-party__incluye li:nth-child(3) { transition-delay: .16s; }
+html.has-motion .beauty-party.es-visible .beauty-party__incluye li:nth-child(4) { transition-delay: .24s; }

@@ -1,0 +1,13 @@
+{
+ "fuente": "marinaspa.es/estetica-general-zafra, bloque «Beauty Party en Zafra» (no es un <article>, por eso no está en carta.json)",
+ "titulo": "Beauty Party en Zafra",
+ "lema": "Una celebración diferente",
+ "precio": "62€",
+ "porPersona": "por persona",
+ "minimo": 4,
+ "maximo": 10,
+ "entradilla": "¡Para disfrutar con las amigas! Mínimo 4 personas, máximo 10 personas.",
+ "incluye": ["Cocktail de bienvenida", "Masaje corporal (30 min)", "Belleza iluminadora facial", "Maquillaje exprés"],
+ "boton": "Reservar fiesta",
+ "mensaje": "Hola, me gustaría reservar una Beauty Party"
+}

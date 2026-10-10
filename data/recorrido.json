@@ -1,0 +1,14 @@
+{
+ "fuente": "Rótulos del vídeo de su web (assets/video/tour.mp4, 27,6 s). Tiempos del boceto aprobado.",
+ "fin": 22,
+ "estancias": [
+  { "nombre": "Bienvenida", "t": 0 },
+  { "nombre": "A tu centro", "t": 2 },
+  { "nombre": "Marcas", "t": 6 },
+  { "nombre": "Rituales", "t": 10 },
+  { "nombre": "Mesa de cortesía", "t": 12 },
+  { "nombre": "Faciales", "t": 14 },
+  { "nombre": "Corporales", "t": 18 },
+  { "nombre": "Bienestar", "t": 20 }
+ ]
+}

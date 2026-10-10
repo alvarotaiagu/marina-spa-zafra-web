@@ -1,0 +1,9 @@
+/* Módulo «opinión» (data-modulo="opinion"): la cita de Ana M., literal y con su nombre,
+   como en su web. Sin nota ni recuento. Se quita con scripts/quitar-opinion.mjs. */
+.opinion { background: var(--cal); color: var(--noche); text-align: center; padding: var(--sec) var(--lado); }
+.opinion__loto { margin: 0 auto 26px; width: 40px; }
+.opinion__cita p { font: italic 300 clamp(1.7rem, 3.4vw, 2.7rem)/1.24 var(--serif); max-width: 30ch; margin: 0 auto; }
+.opinion__autora { font: 700 .72rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--piedra); margin: 22px 0 16px; }
+.opinion .enlace-oro { font-size: .9rem; color: var(--noche); }
+html.has-motion .opinion__cita .op-p { color: #D6D3D1; transition: color .6s; }
+html.has-motion .opinion__cita .op-p.es-on { color: var(--noche); }

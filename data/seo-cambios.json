@@ -1,0 +1,13 @@
+{
+ "nota": "Cambios sobre data/paginas.json (lo que posiciona hoy). Todo lo demás se copia literal. Si Álvaro quiere deshacer uno, se borra aquí y se pasa construir.mjs.",
+ "cambios": [
+  { "url": "/centro-estetica-zafra", "campo": "title", "valor": "Sobre nosotros | Centro de estética en Zafra | Marina Spa", "regla": "3 · sin superlativos que no se puedan probar («El Mejor Centro…»)" },
+  { "url": "/tratamientos-corporales-zafra", "campo": "description", "valor": "Mejora tu silueta en nuestro centro de estética de Zafra. Maderoterapia, criolipólisis, presoterapia y planes de adelgazamiento personalizados.", "regla": "3 · «en el mejor centro de estética de Zafra» → «en nuestro centro de estética de Zafra»" },
+  { "url": "/indiba-zafra", "campo": "description", "valor": "Centro certificado Indiba® en Zafra. Tratamientos de radiofrecuencia regenerativa para lifting facial, reducción de grasa y bienestar en Marina Spa.", "regla": "3 · «Centro oficial Indiba» → «Centro certificado Indiba®», como dice su página de El centro" },
+  { "url": "/depilacion-fotodepilacion-zafra", "campo": "description", "valor": "Depilación en Zafra: fotodepilación, cera y diseño de cejas con hilo. Tu centro de belleza de confianza en C. Reyes Huertas.", "regla": "4 · «Láser fotodepilación» → «fotodepilación» (su tarifa la llama así)" },
+  { "url": "/contacto", "campo": "title", "valor": "Contacto y reservas | Centro de estética en Zafra | Marina Spa", "regla": "hoy repite el título de inicio" },
+  { "url": "/aviso-legal", "campo": "title", "valor": "Aviso legal | Centro de estética en Zafra | Marina Spa", "regla": "hoy repite el título de inicio" },
+  { "url": "/politica-privacidad", "campo": "title", "valor": "Política de privacidad | Centro de estética en Zafra | Marina Spa", "regla": "hoy repite el título de inicio" },
+  { "url": "/politica-cookies", "campo": "title", "valor": "Política de cookies | Centro de estética en Zafra | Marina Spa", "regla": "hoy repite el título de inicio" }
+ ]
+}

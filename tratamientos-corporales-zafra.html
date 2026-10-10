@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--
+  Marina Spa · C. Reyes Huertas, 8 · 06300 Zafra (Badajoz) · 644 79 90 00
+  Concepto: «Bóveda». El centro está bajo bóvedas de ladrillo de medio punto, con
+  un portón claveteado, velas y penumbra cálida; su marca es un loto dorado de
+  línea fina. La web es entrar ahí: oscura donde se siente, clara donde se lee,
+  las fotos en arcos de medio punto con filete dorado y el loto como la luz.
+
+  Generado por scripts/construir.mjs desde data/*.json: no se edita a mano.
+  Módulos que se pueden quitar: opinión, Beauty Party, cinta y recorrido (README).
+-->
+<!-- ═══ [MANDO DE MAQUETA] AVISO: esta maqueta lleva un mando de demostración
+     (abajo a la izquierda, solo con ?revision en la URL) que cambia entre dos
+     densidades («Bóveda» y «Sobria») y lista los avisos pendientes. NO DEBE VIAJAR
+     A marinaspa.es: node scripts/quitar-mando.mjs <destino>
+     fin del bloque [MANDO DE MAQUETA] ═══ -->
+<html lang="es" class="sin-js densidad-boveda">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tratamientos Corporales Zafra | Remodelación y Celulitis | Marina Spa</title>
+<meta name="description" content="Mejora tu silueta en nuestro centro de estética de Zafra. Maderoterapia, criolipólisis, presoterapia y planes de adelgazamiento personalizados.">
+<link rel="canonical" href="https://marinaspa.es/tratamientos-corporales-zafra">
+<meta name="theme-color" content="#1C1917">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MARINA SPA">
+<meta property="og:title" content="Tratamientos Corporales Zafra | Remodelación y Celulitis | Marina Spa">
+<meta property="og:description" content="Mejora tu silueta en nuestro centro de estética de Zafra. Maderoterapia, criolipólisis, presoterapia y planes de adelgazamiento personalizados.">
+<meta property="og:url" content="https://marinaspa.es/tratamientos-corporales-zafra">
+<meta property="og:image" content="https://marinaspa.es/assets/og-marina-spa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preload" href="assets/fuentes/cormorant-garamond-300-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/lato-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css?v=f9301735">
+<script>
+/* Bloqueante a propósito: la clase de JS, la cortina (una vez por visita) y la
+   densidad de la maqueta se resuelven antes del primer pintado. */
+(function () {
+  var h = document.documentElement, vista = null;
+  h.classList.remove('sin-js');
+  h.classList.add('con-js');
+  try { vista = sessionStorage.getItem('ms-visita'); sessionStorage.setItem('ms-visita', '1'); } catch (e) {}
+  var conCortina = false;
+  if (!conCortina) h.classList.add('sin-cortina');
+  if (!conCortina && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    h.classList.add('entrada');
+    /* sin cortina, el loto de la portada florece: solo si aún no se formó en esta visita */
+    try { if (!sessionStorage.getItem('ms-loto')) h.classList.add('florece'); } catch (e) {}
+  }
+  /* red de seguridad: si main.js no llega, la cortina se va igual */
+  setTimeout(function () { h.classList.add('cortina-fuera'); }, 6500);
+  /* [MANDO DE MAQUETA] la densidad guardada solo cuenta en modo revisión (?revision) */
+  if (!/[?&]revision\b/.test(location.search)) return;
+  try {
+    var d = localStorage.getItem('ms-densidad');
+    if (d === 'sobria' || d === 'boveda') { h.classList.remove('densidad-boveda', 'densidad-sobria'); h.classList.add('densidad-' + d); }
+  } catch (e) {}
+  /* fin del bloque [MANDO DE MAQUETA] */
+})();
+</script>
+<noscript><style>.cortina{display:none!important}</style></noscript>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "@id": "https://marinaspa.es/tratamientos-corporales-zafra#service",
+ "name": "Tratamientos Corporales Zafra",
+ "url": "https://marinaspa.es/tratamientos-corporales-zafra",
+ "description": "Mejora tu silueta en nuestro centro de estética de Zafra. Maderoterapia, criolipólisis, presoterapia y planes de adelgazamiento personalizados.",
+ "serviceType": "Corporales",
+ "provider": {
+  "@type": "DaySpa",
+  "@id": "https://marinaspa.es/#beautysalon",
+  "name": "Marina Spa"
+ },
+ "areaServed": {
+  "@type": "City",
+  "name": "Zafra"
+ },
+ "hasOfferCatalog": {
+  "@type": "OfferCatalog",
+  "name": "Corporales",
+  "itemListElement": [
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Envoltura de Algas | Cura Detox",
+     "description": "Sumérgete en una experiencia de bienestar profunda, donde la riqueza mineral y el alto poder de penetración de las algas ayudan a drenar y desintoxicar el organismo, eliminando desechos y favoreciendo la relajación total. El tratamiento se completa con una bañera de hidromasaje, potenciando sus beneficios revitalizantes."
+    },
+    "priceCurrency": "EUR",
+    "price": 45
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Tratamiento Body Sculpt",
+     "description": "Favorece la pérdida de grasa, remodela y tonifica. (Bono 6 curas: 180€ | 10 curas: 350€)"
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Maderoterapia",
+     "description": "Elimina la grasa acumulada en abdomen, muslos y caderas. (Bono 8 sesiones: 388€)"
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Presoterapia",
+     "description": "Estimula y mejora la circulación. Esto suele conllevar otros efectos positivos, como la mejora de la oxigenación, el tono y la firmeza de la piel. (Bono 10 sesiones: 100€)"
+    },
+    "priceCurrency": "EUR",
+    "price": 15
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Criolipólisis + Presoterapia",
+     "description": "Este tratamiento destruye las células adiposas de la grasa localizada. Se trata de definir la figura aplicando frío intenso."
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Indiba Corporal",
+     "description": "Tecnología que actúa en profundidad, beneficiando a todas las células mediante la activación de fibroblastos, colágeno y elastina."
+    },
+    "priceCurrency": "EUR",
+    "price": 60
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Wonder",
+     "description": "Tonifica tus músculos y quema grasa. (Bono 4 sesiones: 200€ | 8 sesiones: 320€)"
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Rollation",
+     "description": "Tratamiento anticelulítico y remodelador que se basa en un concepto de amasamiento dérmico-muscular fisio-activo."
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Programa Integral Personalizado",
+     "description": "10 sesiones de acción global sobre grasas profundas y superficiales, remodela la silueta y reduce la celulitis. 1 zona: 450€ | 2 zonas: 700€."
+    },
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+     "@type": "PriceSpecification",
+     "minPrice": 450,
+     "priceCurrency": "EUR"
+    }
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Mantenimiento Corporal"
+    },
+    "priceCurrency": "EUR",
+    "price": 59
+   }
+  ]
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://marinaspa.es/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Tratamientos",
+   "item": "https://marinaspa.es/#tratamientos"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Corporales",
+   "item": "https://marinaspa.es/tratamientos-corporales-zafra"
+  }
+ ]
+}
+</script>
+</head>
+<body class="pagina-area pagina-corporales">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><mask id="m-lat0i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M296.0 386.0C280.6 313.2 219.8 223.4 158.0 182.0C165.2 260.4 225.9 350.2 296.0 386.0Z" fill="#000"/><path d="M302.0 384.0C311.4 302.7 278.0 189.2 226.0 126.0C207.0 210.1 240.4 323.6 302.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat0d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M340.0 386.0C410.1 350.2 470.8 260.4 478.0 182.0C416.2 223.4 355.4 313.2 340.0 386.0Z" fill="#000"/><path d="M334.0 384.0C395.6 323.6 429.0 210.1 410.0 126.0C358.0 189.2 324.6 302.7 334.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat1i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M302.0 384.0C311.4 302.7 278.0 189.2 226.0 126.0C207.0 210.1 240.4 323.6 302.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat1d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M334.0 384.0C395.6 323.6 429.0 210.1 410.0 126.0C358.0 189.2 324.6 302.7 334.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat2i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat2d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-centro-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-hoja-i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 426.0C280.0 473.0 280.0 547.0 318.0 594.0C356.0 547.0 356.0 473.0 318.0 426.0Z" fill="#000"/></mask><mask id="m-hoja-d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 426.0C280.0 473.0 280.0 547.0 318.0 594.0C356.0 547.0 356.0 473.0 318.0 426.0Z" fill="#000"/></mask><symbol id="loto-s" viewBox="60 46 520 564"><g fill="none" stroke="currentColor" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"><path d="M292.0 388.0C262.1 324.7 187.3 255.2 122.0 230.0C146.5 299.1 221.3 368.7 292.0 388.0Z" mask="url(#m-lat0i-s)"/><path d="M344.0 388.0C414.7 368.7 489.5 299.1 514.0 230.0C448.7 255.2 373.9 324.7 344.0 388.0Z" mask="url(#m-lat0d-s)"/><path d="M296.0 386.0C280.6 313.2 219.8 223.4 158.0 182.0C165.2 260.4 225.9 350.2 296.0 386.0Z" mask="url(#m-lat1i-s)"/><path d="M340.0 386.0C410.1 350.2 470.8 260.4 478.0 182.0C416.2 223.4 355.4 313.2 340.0 386.0Z" mask="url(#m-lat1d-s)"/><path d="M302.0 384.0C311.4 302.7 278.0 189.2 226.0 126.0C207.0 210.1 240.4 323.6 302.0 384.0Z" mask="url(#m-lat2i-s)"/><path d="M334.0 384.0C395.6 323.6 429.0 210.1 410.0 126.0C358.0 189.2 324.6 302.7 334.0 384.0Z" mask="url(#m-lat2d-s)"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" mask="url(#m-centro-s)"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" mask="url(#m-hoja-i-s)"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" mask="url(#m-hoja-d-s)"/><path d="M318.0 426.0C280.0 473.0 280.0 547.0 318.0 594.0C356.0 547.0 356.0 473.0 318.0 426.0Z"/></g></symbol></defs></svg>
+<header class="cabecera" id="cabecera">
+  <div class="cabecera__barra">
+    <a class="marca" href="./" aria-label="Marina Spa, inicio"><svg class="marca__loto" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg><span class="marca__nombre">MARINA SPA</span></a>
+    <nav class="navegacion" id="navegacion" aria-label="Principal">
+      <ul class="navegacion__principal">
+        <li><a href="centro-estetica-zafra">El centro</a></li>
+        <li><a href="./#tratamientos">Tratamientos</a></li>
+        <li><a href="indiba-zafra">Indiba</a></li>
+        <li><a href="contacto">Contacto</a></li>
+      </ul>
+      <ul class="navegacion__areas" aria-label="Tratamientos">
+        <li><a href="tratamientos-faciales-zafra">Rituales faciales</a></li>
+        <li><a href="indiba-zafra">Indiba</a></li>
+        <li><a href="tratamientos-corporales-zafra" aria-current="page">Corporales</a></li>
+        <li><a href="spa-relax-masajes-zafra">Spa y masajes</a></li>
+        <li><a href="depilacion-fotodepilacion-zafra">Depilación</a></li>
+        <li><a href="estetica-general-zafra">Estética general</a></li>
+      </ul>
+      <p class="navegacion__datos"><a href="tel:+34644799000">644 79 90 00</a> · <a href="https://wa.me/34644799000" target="_blank" rel="noopener">WhatsApp</a></p>
+    </nav>
+    <a class="boton boton--oro boton--peq cabecera__cita" href="tel:+34644799000">Pedir cita</a>
+    <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="navegacion"><span class="hamburguesa__rayas" aria-hidden="true"></span><span class="visualmente-oculto">Abrir menú</span></button>
+  </div>
+</header>
+<main id="contenido">
+<section class="cab-pagina" aria-labelledby="cab-h1">
+  <div class="cab-pagina__texto">
+    <nav class="migas" aria-label="Migas"><ol><li><a href="./">Inicio</a></li><li><a href="./#tratamientos">Tratamientos</a></li><li aria-current="page">Corporales</li></ol></nav>
+    <h1 class="cab-pagina__h1" id="cab-h1" data-revelar>Tratamientos Corporales Zafra</h1>
+    <p class="cab-pagina__sub">Remodela tu silueta, elimina celulitis y mejora tu circulación en nuestro centro de belleza</p>
+    <div class="acciones"><a class="boton boton--oro iman" href="tel:+34644799000">Pedir cita · 644 79 90 00</a><a class="boton boton--linea iman" href="https://wa.me/34644799000" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <div class="cab-pagina__arco"><div class="arco arco--nitida" style="--ar:3/4.2" data-cursor="Ver"><div class="arco__foto"><picture data-foto="corporales"><source type="image/avif" srcset="assets/fotos/corporales-640.avif 640w, assets/fotos/corporales-1232.avif 1232w" sizes="(max-width: 760px) 70vw, 320px"><source type="image/webp" srcset="assets/fotos/corporales-640.webp 640w, assets/fotos/corporales-1232.webp 1232w" sizes="(max-width: 760px) 70vw, 320px"><img src="assets/fotos/corporales-1232.jpg" srcset="assets/fotos/corporales-640.jpg 640w, assets/fotos/corporales-1232.jpg 1232w" sizes="(max-width: 760px) 70vw, 320px" width="1232" height="928" alt="Masaje de espalda con aceite sobre la camilla" decoding="async" fetchpriority="high" style="object-position:40% 50%"></picture></div><svg class="filete" viewBox="0 0 300 420" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 420 V150 A148.5 148.5 0 0 1 298.5 150 V420" pathLength="1"/></svg><span class="cab-pagina__loto"><svg class="loto-peq" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg></span></div></div>
+</section>
+
+<section class="carta-pagina" aria-label="Carta de corporales">
+  
+  <div class="carta-pagina__grupos">
+    <section class="grupo" id="g-silueta-corporal-y-programas" aria-labelledby="g-silueta-corporal-y-programas-t">
+      <h2 class="grupo__titulo" id="g-silueta-corporal-y-programas-t">Silueta Corporal y Programas</h2>
+      <p class="grupo__entrada">Nuestros tratamientos corporales promueven una piel más saludable, tonificada y reafirmada, abordando también problemas de salud como edemas y celulitis. Mejoran la circulación y estimulan la eliminación de toxinas, transformando la apariencia y contribuyendo al bienestar general.</p>
+      <article class="linea" id="t-envoltura-de-algas-cura-detox" data-linea="Envoltura de Algas | Cura Detox">
+        <div class="linea__fila"><h3 class="linea__nombre">Envoltura de Algas | Cura Detox</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">45<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Sumérgete en una experiencia de bienestar profunda, donde la riqueza mineral y el alto poder de penetración de las algas ayudan a drenar y desintoxicar el organismo, eliminando desechos y favoreciendo la relajación total. El tratamiento se completa con una bañera de hidromasaje, potenciando sus beneficios revitalizantes.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Envoltura%20de%20Algas%20%7C%20Cura%20Detox" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Envoltura de Algas | Cura Detox</span></a>
+      </article>
+      <article class="linea" id="t-tratamiento-body-sculpt" data-linea="Tratamiento Body Sculpt">
+        <div class="linea__fila"><h3 class="linea__nombre">Tratamiento Body Sculpt</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio">Consultar Bonos</span></div>
+        <p class="linea__desc">Favorece la pérdida de grasa, remodela y tonifica.</p>
+        <p class="linea__bonos"><b>Bonos</b> Bono 6 curas: <span class="eu">180<span class="ef"> </span>€</span> · 10 curas: <span class="eu">350<span class="ef"> </span>€</span></p>
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Tratamiento%20Body%20Sculpt" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Tratamiento Body Sculpt</span></a>
+      </article>
+      <article class="linea" id="t-maderoterapia" data-linea="Maderoterapia">
+        <div class="linea__fila"><h3 class="linea__nombre">Maderoterapia</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span>/sesión</span></div>
+        <p class="linea__desc">Elimina la grasa acumulada en abdomen, muslos y caderas.</p>
+        <p class="linea__bonos"><b>Bonos</b> Bono 8 sesiones: <span class="eu">388<span class="ef"> </span>€</span></p>
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Maderoterapia" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Maderoterapia</span></a>
+      </article>
+      <article class="linea" id="t-presoterapia" data-linea="Presoterapia">
+        <div class="linea__fila"><h3 class="linea__nombre">Presoterapia</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">15<span class="ef"> </span>€</span>/sesión</span></div>
+        <p class="linea__desc">Estimula y mejora la circulación. Esto suele conllevar otros efectos positivos, como la mejora de la oxigenación, el tono y la firmeza de la piel.</p>
+        <p class="linea__bonos"><b>Bonos</b> Bono 10 sesiones: <span class="eu">100<span class="ef"> </span>€</span></p>
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Presoterapia" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Presoterapia</span></a>
+      </article>
+      <article class="linea" id="t-criolipolisis-presoterapia" data-linea="Criolipólisis + Presoterapia">
+        <div class="linea__fila"><h3 class="linea__nombre">Criolipólisis + Presoterapia</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span>/sesión</span></div>
+        <p class="linea__desc">Este tratamiento destruye las células adiposas de la grasa localizada. Se trata de definir la figura aplicando frío intenso.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Criolip%C3%B3lisis%20%2B%20Presoterapia" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Criolipólisis + Presoterapia</span></a>
+      </article>
+      <article class="linea" id="t-indiba-corporal" data-linea="Indiba Corporal">
+        <div class="linea__fila"><h3 class="linea__nombre">Indiba Corporal</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">60<span class="ef"> </span>€</span>/sesión</span></div>
+        <p class="linea__desc">Tecnología que actúa en profundidad, beneficiando a todas las células mediante la activación de fibroblastos, colágeno y elastina.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Indiba%20Corporal" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Indiba Corporal</span></a>
+      </article>
+      <article class="linea" id="t-wonder" data-linea="Wonder">
+        <div class="linea__fila"><h3 class="linea__nombre">Wonder</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span>/sesión</span></div>
+        <p class="linea__desc">Tonifica tus músculos y quema grasa.</p>
+        <p class="linea__bonos"><b>Bonos</b> Bono 4 sesiones: <span class="eu">200<span class="ef"> </span>€</span> · 8 sesiones: <span class="eu">320<span class="ef"> </span>€</span></p>
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Wonder" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Wonder</span></a>
+      </article>
+      <article class="linea" id="t-rollation" data-linea="Rollation">
+        <div class="linea__fila"><h3 class="linea__nombre">Rollation</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span>/sesión</span></div>
+        <p class="linea__desc">Tratamiento anticelulítico y remodelador que se basa en un concepto de amasamiento dérmico-muscular fisio-activo.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Rollation" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Rollation</span></a>
+      </article>
+      <article class="linea" id="t-programa-integral-personalizado" data-linea="Programa Integral Personalizado">
+        <div class="linea__fila"><h3 class="linea__nombre">Programa Integral Personalizado</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio">Desde <span class="eu">450<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">10 sesiones de acción global sobre grasas profundas y superficiales, remodela la silueta y reduce la celulitis. 1 zona: <span class="eu">450<span class="ef"> </span>€</span> | 2 zonas: <span class="eu">700<span class="ef"> </span>€</span>.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Programa%20Integral%20Personalizado" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Programa Integral Personalizado</span></a>
+      </article>
+      <article class="linea" id="t-mantenimiento-corporal" data-linea="Mantenimiento Corporal">
+        <div class="linea__fila"><h3 class="linea__nombre">Mantenimiento Corporal</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">59<span class="ef"> </span>€</span>/sesión</span></div>
+        
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Mantenimiento%20Corporal" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Mantenimiento Corporal</span></a>
+      </article>
+      
+    </section>
+  </div>
+</section>
+
+
+<section class="cita-cierre" aria-labelledby="cierre-titulo">
+  <p class="eti">No esperes más</p>
+  <h2 class="titulo-sec" id="cierre-titulo" data-revelar>¿Lista para <em>renovarte</em>?</h2>
+  <p>Reserva tu cita hoy y descubre el tratamiento perfecto para tu bienestar. Estaremos encantadas de atenderte.</p>
+  <div class="acciones"><a class="boton boton--oro iman" href="tel:+34644799000">Llamar · 644 79 90 00</a><a class="boton boton--linea iman" href="https://wa.me/34644799000" target="_blank" rel="noopener">WhatsApp</a></div>
+</section>
+<section class="otros" aria-labelledby="otros-titulo">
+  <h2 class="titulo-peq" id="otros-titulo">Otros tratamientos</h2>
+  <ul class="otros__lista"><li><a class="ar ar--peq" href="tratamientos-faciales-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="facial"><source type="image/avif" srcset="assets/fotos/facial-640.avif 640w, assets/fotos/facial-1280.avif 1280w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/facial-640.webp 640w, assets/fotos/facial-1280.webp 1280w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/facial-1280.jpg" srcset="assets/fotos/facial-640.jpg 640w, assets/fotos/facial-1280.jpg 1280w" sizes="(max-width: 760px) 30vw, 12vw" width="1280" height="853" alt="Masaje facial con las manos sobre el rostro y el cuello" decoding="async" loading="lazy" style="object-position:58% 50%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Rituales faciales</span><span class="ar__desde">desde <span class="precio"><span class="eu">40<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="indiba-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="indiba"><source type="image/avif" srcset="assets/fotos/indiba-640.avif 640w, assets/fotos/indiba-960.avif 960w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/indiba-640.webp 640w, assets/fotos/indiba-960.webp 960w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/indiba-960.jpg" srcset="assets/fotos/indiba-640.jpg 640w, assets/fotos/indiba-960.jpg 960w" sizes="(max-width: 760px) 30vw, 12vw" width="960" height="1200" alt="Perfil de una mujer con la piel luminosa" decoding="async" loading="lazy" style="object-position:45% 45%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Indiba</span><span class="ar__desde">desde <span class="precio"><span class="eu">39<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="spa-relax-masajes-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="bienestar"><source type="image/avif" srcset="assets/fotos/bienestar-640.avif 640w, assets/fotos/bienestar-1280.avif 1280w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/bienestar-640.webp 640w, assets/fotos/bienestar-1280.webp 1280w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/bienestar-1280.jpg" srcset="assets/fotos/bienestar-640.jpg 640w, assets/fotos/bienestar-1280.jpg 1280w" sizes="(max-width: 760px) 30vw, 12vw" width="1280" height="718" alt="Vela, sales, aceite esencial y piedras sobre madera con eucalipto" decoding="async" loading="lazy" style="object-position:70% 55%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Spa y masajes</span><span class="ar__desde">desde <span class="precio"><span class="eu">19<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="depilacion-fotodepilacion-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="depilacion"><source type="image/avif" srcset="assets/fotos/depilacion-640.avif 640w, assets/fotos/depilacion-928.avif 928w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/depilacion-640.webp 640w, assets/fotos/depilacion-928.webp 928w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/depilacion-928.jpg" srcset="assets/fotos/depilacion-640.jpg 640w, assets/fotos/depilacion-928.jpg 928w" sizes="(max-width: 760px) 30vw, 12vw" width="928" height="1232" alt="Piernas depiladas sobre fondo claro" decoding="async" loading="lazy" style="object-position:50% 40%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Depilación</span><span class="ar__desde">desde <span class="precio"><span class="eu">3<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="estetica-general-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="estetica"><source type="image/avif" srcset="assets/fotos/estetica-640.avif 640w, assets/fotos/estetica-1280.avif 1280w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/estetica-640.webp 640w, assets/fotos/estetica-1280.webp 1280w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/estetica-1280.jpg" srcset="assets/fotos/estetica-640.jpg 640w, assets/fotos/estetica-1280.jpg 1280w" sizes="(max-width: 760px) 30vw, 12vw" width="1280" height="1280" alt="Manicura semipermanente en tono lila" decoding="async" loading="lazy" style="object-position:45% 45%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Estética general</span><span class="ar__desde">desde <span class="precio"><span class="eu">15<span class="ef"> </span>€</span></span></span></a></li></ul>
+</section>
+</main>
+<footer class="pie">
+  <div class="pie__cuerpo">
+    <div class="pie__marca"><a class="marca" href="./" aria-label="Marina Spa, inicio"><svg class="marca__loto" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg><span class="marca__nombre">MARINA SPA</span></a><p>Un santuario de belleza y bienestar en Zafra. Fusionamos técnica, tecnología y pasión para realzar tu mejor versión.</p></div>
+    <nav class="pie__col" aria-label="Tratamientos"><h2>Tratamientos</h2><ul><li><a href="tratamientos-faciales-zafra">Rituales faciales</a></li><li><a href="indiba-zafra">Indiba</a></li><li><a href="tratamientos-corporales-zafra">Corporales</a></li><li><a href="spa-relax-masajes-zafra">Spa y masajes</a></li><li><a href="depilacion-fotodepilacion-zafra">Depilación</a></li><li><a href="estetica-general-zafra">Estética general</a></li></ul></nav>
+    <div class="pie__col"><h2>Contacto</h2><address><a href="https://www.google.com/maps/search/?api=1&query=Marina+Spa+Zafra" target="_blank" rel="noopener">C. Reyes Huertas, 8<br>06300 Zafra, Badajoz</a><br><a href="tel:+34644799000">644 79 90 00</a><br><a href="mailto:info@marinaspa.es">info@marinaspa.es</a></address></div>
+    <div class="pie__col"><h2>Síguenos</h2><ul><li><a href="https://www.instagram.com/marinaspazafra/" target="_blank" rel="noopener">Instagram @marinaspazafra</a></li><li><a href="https://www.facebook.com/marinaspazafra/" target="_blank" rel="noopener">Facebook /marinaspazafra</a></li></ul></div>
+  </div>
+  <div class="pie__legal"><span>© 2026 Marina Spa</span><a href="aviso-legal">Aviso legal</a><a href="politica-privacidad">Política de privacidad</a><a href="politica-cookies">Política de cookies</a><button type="button" class="pie__cookies" id="cookies-reabrir">Aviso de cookies</button></div>
+</footer>
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Esta web no usa cookies de analítica ni de publicidad. Solo recuerda en tu navegador que has visto este aviso y, si pulsas «Ver mapa», Google Maps puede instalar las suyas. <a href="politica-cookies">Política de cookies</a></p>
+  <button class="boton boton--oro boton--peq" type="button" id="cookies-aceptar">Entendido</button>
+</div>
+<!-- ═══ [MANDO DE MAQUETA] — SOLO REVISIÓN. Se enseña con ?revision. Lo quita scripts/quitar-mando.mjs ═══ -->
+<aside class="mando" id="mando" aria-label="Versión de la maqueta" hidden>
+  <p class="mando__titulo">Versión <small>Dos versiones de la misma web</small></p>
+  <div class="mando__botones" role="group" aria-label="Densidad">
+    <button type="button" data-densidad="boveda" aria-pressed="true">Bóveda</button>
+    <button type="button" data-densidad="sobria" aria-pressed="false">Sobria</button>
+  </div>
+  <details class="mando__avisos"><summary>Pendientes <span id="mando-cuenta"></span></summary><ul id="mando-lista"></ul></details>
+  <script type="application/json" id="mando-datos">{"avisos":[["Logo redibujado desde 64 px","El loto es un redibujado del logo de su web, que solo existe a 64 px. Pedir el vector original."],["Fotos provisionales: 9","De banco, las mismas que usa su web hoy: facial, indiba, corporales, bienestar, depilacion, estetica, aceite, masaje-facial, zen. Del local hay 3 reales (vela, portón, cabina). La sesión de fotos está pedida."],["Titular y NIF","Su aviso legal no los tiene y la LSSI (art. 10) los pide. Van como [PENDIENTE] en el aviso legal."],["Precios sin fecha","Son los de su web, que no dice de cuándo son. Confirmar que siguen."],["¿Láser o fotodepilación?","Su web dice «Láser» en el subtítulo y en la description, pero su tarifa se llama «Fotodepilación». Aquí sale «fotodepilación» en todo: preguntar si es láser o IPL."],["El peeling «Polinesia»","Su web lo llama solo «Polinesia». Se queda así hasta que diga el nombre completo."],["Tres cambios de texto (regla 3)","<title> de El centro sin «El mejor…»; la description de corporales empieza por «Mejora tu silueta en nuestro centro de estética de Zafra…»; en la de Indiba, «oficial» pasa a «Centro certificado Indiba®», como dice su página de El centro. El superlativo solo queda en la cita de Ana M."],["El vídeo lleva rótulos de Instagram","El recorrido y el vídeo tour de El centro son el vídeo de su web, con rótulos e iconos de Instagram encima. Pedir uno limpio."],["La opinión de Ana M.","Con su nombre, como en su web. Confirmar que se puede seguir usando."]]}</script>
+</aside>
+<!-- ═══ fin del bloque [MANDO DE MAQUETA] ═══ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="module" src="js/main.js?v=4b5d7005"></script>
+
+</body>
+</html>

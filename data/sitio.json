@@ -1,0 +1,18 @@
+{
+ "nombre": "Marina Spa",
+ "dominio": "https://marinaspa.es",
+ "lema": "Tu viaje hacia la serenidad",
+ "telefono": "644 79 90 00",
+ "tel": "+34644799000",
+ "whatsapp": "34644799000",
+ "email": "info@marinaspa.es",
+ "direccion": { "calle": "C. Reyes Huertas, 8", "cp": "06300", "ciudad": "Zafra", "provincia": "Badajoz" },
+ "geo": { "lat": 38.4255, "lon": -6.4187 },
+ "instagram": "https://www.instagram.com/marinaspazafra/",
+ "instagramUsuario": "@marinaspazafra",
+ "facebook": "https://www.facebook.com/marinaspazafra/",
+ "opinionesGoogle": "https://www.google.com/maps/search/?api=1&query=Marina+Spa+Zafra",
+ "mapaEmbed": "https://www.google.com/maps?q=Marina+Spa,+C.+Reyes+Huertas+8,+Zafra&output=embed",
+ "actualizadoLegal": "10 de octubre de 2026",
+ "modulos": { "opinion": true, "beauty-party": true, "cinta": true, "recorrido": true }
+}
