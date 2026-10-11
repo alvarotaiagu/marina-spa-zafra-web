@@ -1,0 +1,12 @@
+/* Módulo «cinta» (data-modulo="cinta"): nombres reales de la carta, en dos filas que
+   corren en sentidos opuestos y aceleran con el scroll. En oro sobre Noche y en
+   Cormorant cursiva, separados por el loto pequeño. Se quita con scripts/quitar-cinta.mjs. */
+.cinta { background: var(--noche); border-block: 1px solid rgba(212, 175, 55, .2); padding: clamp(28px, 5vw, 54px) 0; overflow: clip; }
+.cinta__fila { display: flex; width: max-content; white-space: nowrap; will-change: transform; }
+.cinta__fila + .cinta__fila { margin-top: 6px; }
+.cinta__pista { display: flex; align-items: center; flex: none; }
+.cinta__pista li { font: italic 300 clamp(2rem, 5.4vw, 4.2rem)/1.15 var(--serif); color: var(--oro-cl); padding: 0 .38em; }
+.cinta__fila[data-fila="-1"] .cinta__pista li { color: var(--texto-osc); }
+.cinta__sep { display: flex; }
+.cinta__sep .loto-peq { width: .62em; color: var(--oro); }
+.cinta__marcas { display: none; text-align: center; font: italic 300 clamp(1.6rem, 3.6vw, 2.6rem)/1.2 var(--serif); color: var(--oro-cl); padding: 0 var(--lado); }

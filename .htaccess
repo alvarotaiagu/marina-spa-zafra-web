@@ -1,0 +1,40 @@
+# Marina Spa · IONOS (Apache). Lo escribe scripts/construir.mjs.
+# Mismas URL que hoy: sin .html y sin barra final.
+Options -MultiViews
+RewriteEngine On
+DirectorySlash Off
+
+# 1 · rutas viejas de su JSON-LD → las buenas (301)
+RewriteRule ^quienes\-somos/?$ /centro-estetica-zafra [R=301,L]
+RewriteRule ^indiba/?$ /indiba-zafra [R=301,L]
+RewriteRule ^depilacion/?$ /depilacion-fotodepilacion-zafra [R=301,L]
+RewriteRule ^rituales\-faciales/?$ /tratamientos-faciales-zafra [R=301,L]
+RewriteRule ^corporales/?$ /tratamientos-corporales-zafra [R=301,L]
+RewriteRule ^spa/?$ /spa-relax-masajes-zafra [R=301,L]
+RewriteRule ^estetica\-general/?$ /estetica-general-zafra [R=301,L]
+
+# 2 · /x.html → /x (301), sin tocar las peticiones internas
+RewriteCond %{THE_REQUEST} \s/+([^?\s]*?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+RewriteRule ^index$ / [R=301,L]
+
+# 3 · /x/ → /x (301)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# 4 · /x → x.html (interno)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^.]+)$ /$1.html [L]
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(woff2|avif|webp|jpg|png|svg|mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

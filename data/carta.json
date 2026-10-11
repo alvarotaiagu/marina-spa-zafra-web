@@ -1,0 +1,455 @@
+{
+ "fuente": "https://marinaspa.es (rastreo 2026-10-10)",
+ "paginas": [
+  {
+   "url": "/tratamientos-faciales-zafra",
+   "h1": "Rituales y Programas Faciales",
+   "subtitulo": "Higiene, oxigenación y la mejor tecnología anti-edad en nuestro centro de estética en Zafra",
+   "grupos": [
+    {
+     "grupo": "Higiene Facial Oxigenante",
+     "entradilla": "Los rituales y programas faciales son una forma excepcional de cuidar tu piel y rejuvenecer tu rostro. Estos tratamientos están diseñados para ofrecer una atención personalizada que se adapta a las necesidades específicas de tu piel, lo que resulta en un cutis radiante y saludable.",
+     "tratamientos": [
+      {
+       "nombre": "Limpieza en Profundidad de la piel con cosmética profesional",
+       "precio": "44€",
+       "duracion": null,
+       "descripcion": "Este tratamiento se centra en una limpieza exhaustiva de la piel utilizando productos de alta calidad. Se eliminan impurezas, se desobstruyen los poros y se prepara la piel para recibir los siguientes pasos del cuidado facial. Ideal para mantener la piel fresca y saludable."
+      },
+      {
+       "nombre": "Higiene Facial profunda con microdermoabrasión con punta de Diamante",
+       "precio": "50€",
+       "duracion": null,
+       "descripcion": "Un tratamiento indoloro que utiliza tecnología avanzada para exfoliar la piel suavemente. La microdermoabrasión elimina las células muertas, promoviendo la regeneración celular y dejando la piel suave y radiante. Además, ayuda a reafirmar el rostro y a disminuir la visibilidad de las líneas de expresión."
+      },
+      {
+       "nombre": "Hidravacuum",
+       "precio": "55€",
+       "duracion": null,
+       "descripcion": "Este ritual combina varias técnicas para ofrecer una experiencia completa. La tecnología Hidravacuum realiza una limpieza profunda, seguida de un proceso detox que elimina toxinas y proporciona una exfoliación efectiva. Finalmente, se nutre la piel con productos específicos que hidratan y revitalizan, dejando un aspecto saludable y luminoso."
+      },
+      {
+       "nombre": "Ritual de Regeneración y Luminosidad",
+       "precio": "55€",
+       "duracion": null,
+       "descripcion": "Un tratamiento diseñado para devolverle a tu piel su brillo natural. A través de técnicas específicas, se estimula la regeneración celular y se mejora la textura de la piel. Ideal para quienes buscan un rostro radiante y rejuvenecido."
+      },
+      {
+       "nombre": "Ritual Equilibrio y Purificador",
+       "precio": "49€",
+       "duracion": null,
+       "descripcion": "Este tratamiento está especialmente formulado para las pieles mixtas y grasas. Ayuda a restablecer el equilibrio natural de la piel, eliminando imperfecciones y reduciendo brillos no deseados. Es perfecto para quienes desean una piel más limpia, fresca y libre de impurezas."
+      }
+     ]
+    },
+    {
+     "grupo": "Faciales Anti-Aging",
+     "entradilla": "Los activos más eficaces y las técnicas manuales más avanzadas se unen para lograr un resultado excepcional en los tratamientos de belleza anti-edad.",
+     "tratamientos": [
+      {
+       "nombre": "Ritual Biocelular",
+       "precio": "52€",
+       "duracion": null,
+       "descripcion": "Regenera la piel, estimula la producción de colágeno y elastina, mejorando la textura y luminosidad."
+      },
+      {
+       "nombre": "Ritual Ácido Hialurónico",
+       "precio": "52€",
+       "duracion": null,
+       "descripcion": "Hidratación profunda con efecto lifting natural, suavizando líneas de expresión y mejorando el contorno facial."
+      },
+      {
+       "nombre": "Ritual de Perlas",
+       "precio": "52€",
+       "duracion": null,
+       "descripcion": "Aporta luminosidad y juventud a la piel con extractos de perlas, ofreciendo propiedades antioxidantes y una apariencia radiante."
+      }
+     ]
+    },
+    {
+     "grupo": "Tratamientos Faciales Avanzados",
+     "entradilla": "Soluciones de vanguardia tecnológica para problemas específicos de la piel, garantizando resultados visibles desde la primera sesión.",
+     "tratamientos": [
+      {
+       "nombre": "Tratamiento Facial Dermapen",
+       "precio": "70€",
+       "duracion": null,
+       "descripcion": "Estimula el colágeno y elastina, reduce las líneas de expresión y el tamaño del poro, disminuye la apariencia de cicatrices, mejora la firmeza de la piel."
+      },
+      {
+       "nombre": "Tratamiento MESOECLAT",
+       "precio": "65€",
+       "duracion": null,
+       "descripcion": "Es una solución avanzada para quienes buscan revitalizar su piel de manera rápida y efectiva. Este tratamiento está diseñado para combatir los signos del envejecimiento, mejorar la textura y unificar el tono de la piel, dejando un acabado radiante y rejuvenecido."
+      },
+      {
+       "nombre": "Masaje ENERGILIFT",
+       "precio": "40€",
+       "duracion": null,
+       "descripcion": "Técnica de lifting manual que transforma la apariencia de tu rostro de manera natural. Este tratamiento exclusivo está diseñado para remodelar la estructura de la piel, reposicionar los volúmenes y redefinir el contorno facial, logrando un efecto rejuvenecedor inmediato."
+      },
+      {
+       "nombre": "Programa Facial Personalizado (6 sesiones)",
+       "precio": "330€",
+       "duracion": null,
+       "descripcion": null
+      },
+      {
+       "nombre": "Mantenimiento Facial",
+       "precio": "59€",
+       "duracion": null,
+       "descripcion": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "url": "/indiba-zafra",
+   "h1": "Tratamientos Indiba en Zafra",
+   "subtitulo": "Regeneración celular profunda, belleza sin dolor y resultados visibles en Marina Spa",
+   "grupos": [
+    {
+     "grupo": "Indiba Facial",
+     "entradilla": "El tratamiento más avanzado para la regeneración y revitalización celular de la piel. Combina tecnología de radiofrecuencia con un enfoque terapéutico que mejora la apariencia y promueve la salud de la piel, sin efectos secundarios.",
+     "tratamientos": [
+      {
+       "nombre": "Indiba Facial Exprés",
+       "precio": "39€",
+       "duracion": "30 min",
+       "descripcion": "El Indiba Facial Exprés es un tratamiento innovador que utiliza la tecnología de Indiba para ofrecer resultados visibles en tan solo 30 minutos. Este procedimiento se centra exclusivamente en la aplicación de Indiba, proporcionando un efecto rejuvenecedor y revitalizante para tu piel."
+      },
+      {
+       "nombre": "Indiba Facial Pro",
+       "precio": "62€",
+       "duracion": "60 min",
+       "descripcion": "Programa facial, trabajamos todos los aspectos de tu piel en una sola sesión, combinando 2 tratamientos en 1, como ácido + Indiba, Dermapen + Indiba, o Indiba Ona + Indiba. Todo complementado con nuestra mejor cosmética y personalizada según caso. Esto asegura resultados más completos y efectivos."
+      },
+      {
+       "nombre": "Indiba Monográfico Antienvejecimiento",
+       "precio": "75€",
+       "duracion": null,
+       "descripcion": "Monográfico que profundiza en los objetivos del tratamiento facial completo, aportando más luminosidad y condición general de la piel del rostro."
+      },
+      {
+       "nombre": "Indiba ONA",
+       "precio": "70€",
+       "duracion": null,
+       "descripcion": "Tratamiento facial 4 en 1 que combina la hidrodermoabrasión, electroporación, LED y electroterapia de baja frecuencia para llevar la piel a otro nivel."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "url": "/tratamientos-corporales-zafra",
+   "h1": "Tratamientos Corporales Zafra",
+   "subtitulo": "Remodela tu silueta, elimina celulitis y mejora tu circulación en nuestro centro de belleza",
+   "grupos": [
+    {
+     "grupo": "Silueta Corporal y Programas",
+     "entradilla": "Nuestros tratamientos corporales promueven una piel más saludable, tonificada y reafirmada, abordando también problemas de salud como edemas y celulitis. Mejoran la circulación y estimulan la eliminación de toxinas, transformando la apariencia y contribuyendo al bienestar general.",
+     "tratamientos": [
+      {
+       "nombre": "Envoltura de Algas | Cura Detox",
+       "precio": "45€",
+       "duracion": null,
+       "descripcion": "Sumérgete en una experiencia de bienestar profunda, donde la riqueza mineral y el alto poder de penetración de las algas ayudan a drenar y desintoxicar el organismo, eliminando desechos y favoreciendo la relajación total. El tratamiento se completa con una bañera de hidromasaje, potenciando sus beneficios revitalizantes."
+      },
+      {
+       "nombre": "Tratamiento Body Sculpt",
+       "precio": "Consultar Bonos",
+       "duracion": null,
+       "descripcion": "Favorece la pérdida de grasa, remodela y tonifica. (Bono 6 curas: 180€ | 10 curas: 350€)"
+      },
+      {
+       "nombre": "Maderoterapia",
+       "precio": "52€/sesión",
+       "duracion": null,
+       "descripcion": "Elimina la grasa acumulada en abdomen, muslos y caderas. (Bono 8 sesiones: 388€)"
+      },
+      {
+       "nombre": "Presoterapia",
+       "precio": "15€/sesión",
+       "duracion": null,
+       "descripcion": "Estimula y mejora la circulación. Esto suele conllevar otros efectos positivos, como la mejora de la oxigenación, el tono y la firmeza de la piel. (Bono 10 sesiones: 100€)"
+      },
+      {
+       "nombre": "Criolipólisis + Presoterapia",
+       "precio": "52€/sesión",
+       "duracion": null,
+       "descripcion": "Este tratamiento destruye las células adiposas de la grasa localizada. Se trata de definir la figura aplicando frío intenso."
+      },
+      {
+       "nombre": "Indiba Corporal",
+       "precio": "60€/sesión",
+       "duracion": null,
+       "descripcion": "Tecnología que actúa en profundidad, beneficiando a todas las células mediante la activación de fibroblastos, colágeno y elastina."
+      },
+      {
+       "nombre": "Wonder",
+       "precio": "52€/sesión",
+       "duracion": null,
+       "descripcion": "Tonifica tus músculos y quema grasa. (Bono 4 sesiones: 200€ | 8 sesiones: 320€)"
+      },
+      {
+       "nombre": "Rollation",
+       "precio": "52€/sesión",
+       "duracion": null,
+       "descripcion": "Tratamiento anticelulítico y remodelador que se basa en un concepto de amasamiento dérmico-muscular fisio-activo."
+      },
+      {
+       "nombre": "Programa Integral Personalizado",
+       "precio": "Desde 450€",
+       "duracion": null,
+       "descripcion": "10 sesiones de acción global sobre grasas profundas y superficiales, remodela la silueta y reduce la celulitis. 1 zona: 450€ | 2 zonas: 700€."
+      },
+      {
+       "nombre": "Mantenimiento Corporal",
+       "precio": "59€/sesión",
+       "duracion": null,
+       "descripcion": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "url": "/spa-relax-masajes-zafra",
+   "h1": "Bienestar y Relajación en Zafra",
+   "subtitulo": "Desconecta para reconectar: masajes, bañeras y rituales sensoriales en Marina Spa",
+   "grupos": [
+    {
+     "grupo": "Bañeras de Hidromasaje",
+     "entradilla": "Sumérgete en un mar de relax absoluto con nuestros baños terapéuticos de 20 minutos.",
+     "tratamientos": [
+      {
+       "nombre": "Baño Sensación Océano",
+       "precio": "19€",
+       "duracion": "20 min",
+       "descripcion": "Sumérgete en un mar de relax absoluto."
+      },
+      {
+       "nombre": "Baño Aromaceane",
+       "precio": "19€",
+       "duracion": "20 min",
+       "descripcion": "Drenante, ayuda a eliminar líquidos."
+      }
+     ]
+    },
+    {
+     "grupo": "Peelings Corporales",
+     "entradilla": "Renueva tu piel eliminando células muertas y nutriendo en profundidad. Duración 35 minutos.",
+     "tratamientos": [
+      {
+       "nombre": "Peeling Vivificante",
+       "precio": "39€",
+       "duracion": "35 min",
+       "descripcion": "Elimina el estrés."
+      },
+      {
+       "nombre": "Peeling Hidratante",
+       "precio": "39€",
+       "duracion": "35 min",
+       "descripcion": "Piel más suave y súper hidratada."
+      },
+      {
+       "nombre": "Polinesia",
+       "precio": "39€",
+       "duracion": "35 min",
+       "descripcion": "Piel aterciopelada y con una luminosidad natural."
+      }
+     ]
+    },
+    {
+     "grupo": "Masajes",
+     "entradilla": "Técnicas manuales para aliviar la tensión y revitalizar el cuerpo.",
+     "tratamientos": [
+      {
+       "nombre": "Masaje Antiestrés",
+       "precio": "29€ / 49€",
+       "duracion": "30min / 50min",
+       "descripcion": "Desconecta de la rutina y libera tensiones."
+      },
+      {
+       "nombre": "Masajes Piernas Cansadas + Presoterapia",
+       "precio": "45€",
+       "duracion": "50 min",
+       "descripcion": "Alivio inmediato para la pesadez y retención de líquidos."
+      }
+     ]
+    },
+    {
+     "grupo": "Rituales de Bienestar",
+     "entradilla": "Experiencias sensoriales completas que combinan exfoliación, masaje y tratamientos especializados.",
+     "tratamientos": [
+      {
+       "nombre": "Ritual Polinesia",
+       "precio": "80€",
+       "duracion": "100 min",
+       "descripcion": "Aromas tropicales y experiencia de relajación (bañera, exfoliación y masaje)."
+      },
+      {
+       "nombre": "Ritual Ártico",
+       "precio": "80€",
+       "duracion": "100 min",
+       "descripcion": "Experiencia estimulante nacida de la fusión del calor y el frío para una profunda relajación."
+      },
+      {
+       "nombre": "Ritual Termal",
+       "precio": "90€",
+       "duracion": "100 min",
+       "descripcion": "Exfoliante, bañera, masaje corporal y tratamiento iluminador facial."
+      },
+      {
+       "nombre": "Ritual de la Alegría con Cítricos by Alquimia",
+       "precio": "90€",
+       "duracion": "100 min",
+       "descripcion": "Tratamiento vitalizante y energético."
+      }
+     ]
+    },
+    {
+     "grupo": "Envolturas",
+     "entradilla": "Tratamientos nutritivos que subliman la piel.",
+     "tratamientos": [
+      {
+       "nombre": "Envoltura de Algas",
+       "precio": "45€",
+       "duracion": null,
+       "descripcion": "Detox y relajación."
+      },
+      {
+       "nombre": "Envoltura Indoceane + 30 minutos de masaje",
+       "precio": "50€",
+       "duracion": null,
+       "descripcion": "Enriquecida en activos nutritivos."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "url": "/depilacion-fotodepilacion-zafra",
+   "h1": "Depilación y Fotodepilación Zafra",
+   "subtitulo": "Soluciones eficaces para la eliminación del vello: Láser, Cera y Hilo",
+   "grupos": [
+    {
+     "grupo": "Depilación y Fotodepilación",
+     "entradilla": "Soluciones eficaces para la eliminación del vello, desde cera tradicional hasta tecnología avanzada.",
+     "tratamientos": [
+      {
+       "nombre": "Depilación y diseño de cejas",
+       "precio": "6€",
+       "duracion": null,
+       "descripcion": null
+      },
+      {
+       "nombre": "Depilación Cera",
+       "precio": "Desde 3€",
+       "duracion": null,
+       "descripcion": "Zonas XS (3€), S (7€), M (15€), L (17€) y XL (30€)."
+      },
+      {
+       "nombre": "Depilación con Hilo",
+       "precio": "Desde 7€",
+       "duracion": null,
+       "descripcion": "Cejas (7€), labio superior (7€), labio y cejas (12€), facial completo (20€)."
+      },
+      {
+       "nombre": "Fotodepilación",
+       "precio": "Desde 15€",
+       "duracion": null,
+       "descripcion": "Zona XS (15€), ingles normal (20€), axilas (20€), facial completo (30€), ingles brasileñas o completas con inter glúteos (35€), medias piernas (38€), brazos (40€), espalda (45€), pecho (45€), piernas completas (50€)."
+      },
+      {
+       "nombre": "Bonos 5 sesiones",
+       "precio": "Desde 80€",
+       "duracion": null,
+       "descripcion": "Piernas completas (200€), axilas + ingles completas (200€), axilas + ingles normales (175€), espalda (175€), pecho (175€), medias piernas (170€), brazos (170€), ingles completas + perianal (150€), axilas (80€)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "url": "/estetica-general-zafra",
+   "h1": "Estética General en Zafra",
+   "subtitulo": "Completa tu cuidado personal con servicios esenciales que realcen tu belleza y bienestar.",
+   "grupos": [
+    {
+     "grupo": "Manicura",
+     "entradilla": "Cuidado completo para manos, con esmaltados de alta calidad.",
+     "tratamientos": [
+      {
+       "nombre": "Manicura Normal",
+       "precio": "15€",
+       "duracion": null,
+       "descripcion": null
+      },
+      {
+       "nombre": "Manicura con Esmaltado Semipermanente",
+       "precio": "22€",
+       "duracion": null,
+       "descripcion": null
+      },
+      {
+       "nombre": "Manicura Spa",
+       "precio": "30€",
+       "duracion": null,
+       "descripcion": "Tratamiento completo de belleza en tus manos."
+      }
+     ]
+    },
+    {
+     "grupo": "Pedicura",
+     "entradilla": "Cuidado completo para pies, con esmaltados de alta calidad.",
+     "tratamientos": [
+      {
+       "nombre": "Pedicura con Esmaltado Semipermanente",
+       "precio": "22€",
+       "duracion": null,
+       "descripcion": null
+      },
+      {
+       "nombre": "Pedicura Spa",
+       "precio": "30€",
+       "duracion": null,
+       "descripcion": "Tratamiento completo de belleza en tus pies."
+      }
+     ]
+    },
+    {
+     "grupo": "Maquillaje",
+     "entradilla": "Realza tu belleza natural para eventos especiales.",
+     "tratamientos": [
+      {
+       "nombre": "Maquillaje Social",
+       "precio": "40€",
+       "duracion": null,
+       "descripcion": "Día, tarde o noche."
+      },
+      {
+       "nombre": "Maquillaje de Novia",
+       "precio": "150€",
+       "duracion": null,
+       "descripcion": "Incluye fijación flash de larga duración y prueba de maquillaje. No incluye desplazamiento."
+      },
+      {
+       "nombre": "Lifting de Pestañas + Tinte",
+       "precio": "38€",
+       "duracion": null,
+       "descripcion": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "erratasCorregidas": [
+  "«recibirlos siguientes pasos» → «recibir los siguientes pasos»",
+  "«Este tratamiento esta diseñado» → «Este tratamiento está diseñado»",
+  "«El Indiba Facial Express» → «El Indiba Facial Exprés»",
+  "Entradilla de «Higiene Facial Oxigenante»: se añade el punto final"
+ ]
+}

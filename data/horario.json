@@ -1,0 +1,12 @@
+{
+ "fuente": "marinaspa.es/contacto (rastreo 2026-10-10)",
+ "dias": [
+  { "d": 1, "nombre": "Lunes", "schema": "Monday", "franjas": [] },
+  { "d": 2, "nombre": "Martes", "schema": "Tuesday", "franjas": [["10:00", "20:30"]] },
+  { "d": 3, "nombre": "Miércoles", "schema": "Wednesday", "franjas": [["10:00", "20:30"]] },
+  { "d": 4, "nombre": "Jueves", "schema": "Thursday", "franjas": [["10:00", "20:30"]] },
+  { "d": 5, "nombre": "Viernes", "schema": "Friday", "franjas": [["10:00", "14:00"], ["16:30", "20:30"]] },
+  { "d": 6, "nombre": "Sábado", "schema": "Saturday", "franjas": [["10:00", "14:00"]] },
+  { "d": 0, "nombre": "Domingo", "schema": "Sunday", "franjas": [] }
+ ]
+}

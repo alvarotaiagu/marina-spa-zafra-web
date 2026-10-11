@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--
+  Marina Spa · C. Reyes Huertas, 8 · 06300 Zafra (Badajoz) · 644 79 90 00
+  Concepto: «Bóveda». El centro está bajo bóvedas de ladrillo de medio punto, con
+  un portón claveteado, velas y penumbra cálida; su marca es un loto dorado de
+  línea fina. La web es entrar ahí: oscura donde se siente, clara donde se lee,
+  las fotos en arcos de medio punto con filete dorado y el loto como la luz.
+
+  Generado por scripts/construir.mjs desde data/*.json: no se edita a mano.
+  Módulos que se pueden quitar: opinión, Beauty Party, cinta y recorrido (README).
+-->
+<html lang="es" class="sin-js densidad-boveda">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tratamientos Faciales en Zafra | Centro de Estética Marina Spa</title>
+<meta name="description" content="Rejuvenece tu piel en nuestro centro de belleza en Zafra. Higiene facial, anti-aging, dermapen y tratamientos personalizados para una piel radiante.">
+<link rel="canonical" href="https://marinaspa.es/tratamientos-faciales-zafra">
+<meta name="theme-color" content="#1C1917">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MARINA SPA">
+<meta property="og:title" content="Tratamientos Faciales en Zafra | Centro de Estética Marina Spa">
+<meta property="og:description" content="Rejuvenece tu piel en nuestro centro de belleza en Zafra. Higiene facial, anti-aging, dermapen y tratamientos personalizados para una piel radiante.">
+<meta property="og:url" content="https://marinaspa.es/tratamientos-faciales-zafra">
+<meta property="og:image" content="https://marinaspa.es/assets/og-marina-spa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/marca/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preload" href="assets/fuentes/cormorant-garamond-300-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/lato-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/estilos.css?v=78101ff5">
+<script>
+/* Bloqueante a propósito: la clase de JS, la cortina (una vez por visita) y la
+   densidad de la maqueta se resuelven antes del primer pintado. */
+(function () {
+  var h = document.documentElement, vista = null;
+  h.classList.remove('sin-js');
+  h.classList.add('con-js');
+  try { vista = sessionStorage.getItem('ms-visita'); sessionStorage.setItem('ms-visita', '1'); } catch (e) {}
+  var conCortina = false;
+  if (!conCortina) h.classList.add('sin-cortina');
+  if (!conCortina && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    h.classList.add('entrada');
+    /* sin cortina, el loto de la portada florece: solo si aún no se formó en esta visita */
+    try { if (!sessionStorage.getItem('ms-loto')) h.classList.add('florece'); } catch (e) {}
+  }
+  /* red de seguridad: si main.js no llega, la cortina se va igual */
+  setTimeout(function () { h.classList.add('cortina-fuera'); }, 6500);
+})();
+</script>
+<noscript><style>.cortina{display:none!important}</style></noscript>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "@id": "https://marinaspa.es/tratamientos-faciales-zafra#service",
+ "name": "Rituales y Programas Faciales",
+ "url": "https://marinaspa.es/tratamientos-faciales-zafra",
+ "description": "Rejuvenece tu piel en nuestro centro de belleza en Zafra. Higiene facial, anti-aging, dermapen y tratamientos personalizados para una piel radiante.",
+ "serviceType": "Rituales faciales",
+ "provider": {
+  "@type": "DaySpa",
+  "@id": "https://marinaspa.es/#beautysalon",
+  "name": "Marina Spa"
+ },
+ "areaServed": {
+  "@type": "City",
+  "name": "Zafra"
+ },
+ "hasOfferCatalog": {
+  "@type": "OfferCatalog",
+  "name": "Rituales faciales",
+  "itemListElement": [
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Limpieza en Profundidad de la piel con cosmética profesional",
+     "description": "Este tratamiento se centra en una limpieza exhaustiva de la piel utilizando productos de alta calidad. Se eliminan impurezas, se desobstruyen los poros y se prepara la piel para recibir los siguientes pasos del cuidado facial. Ideal para mantener la piel fresca y saludable."
+    },
+    "priceCurrency": "EUR",
+    "price": 44
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Higiene Facial profunda con microdermoabrasión con punta de Diamante",
+     "description": "Un tratamiento indoloro que utiliza tecnología avanzada para exfoliar la piel suavemente. La microdermoabrasión elimina las células muertas, promoviendo la regeneración celular y dejando la piel suave y radiante. Además, ayuda a reafirmar el rostro y a disminuir la visibilidad de las líneas de expresión."
+    },
+    "priceCurrency": "EUR",
+    "price": 50
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Hidravacuum",
+     "description": "Este ritual combina varias técnicas para ofrecer una experiencia completa. La tecnología Hidravacuum realiza una limpieza profunda, seguida de un proceso detox que elimina toxinas y proporciona una exfoliación efectiva. Finalmente, se nutre la piel con productos específicos que hidratan y revitalizan, dejando un aspecto saludable y luminoso."
+    },
+    "priceCurrency": "EUR",
+    "price": 55
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Ritual de Regeneración y Luminosidad",
+     "description": "Un tratamiento diseñado para devolverle a tu piel su brillo natural. A través de técnicas específicas, se estimula la regeneración celular y se mejora la textura de la piel. Ideal para quienes buscan un rostro radiante y rejuvenecido."
+    },
+    "priceCurrency": "EUR",
+    "price": 55
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Ritual Equilibrio y Purificador",
+     "description": "Este tratamiento está especialmente formulado para las pieles mixtas y grasas. Ayuda a restablecer el equilibrio natural de la piel, eliminando imperfecciones y reduciendo brillos no deseados. Es perfecto para quienes desean una piel más limpia, fresca y libre de impurezas."
+    },
+    "priceCurrency": "EUR",
+    "price": 49
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Ritual Biocelular",
+     "description": "Regenera la piel, estimula la producción de colágeno y elastina, mejorando la textura y luminosidad."
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Ritual Ácido Hialurónico",
+     "description": "Hidratación profunda con efecto lifting natural, suavizando líneas de expresión y mejorando el contorno facial."
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Ritual de Perlas",
+     "description": "Aporta luminosidad y juventud a la piel con extractos de perlas, ofreciendo propiedades antioxidantes y una apariencia radiante."
+    },
+    "priceCurrency": "EUR",
+    "price": 52
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Tratamiento Facial Dermapen",
+     "description": "Estimula el colágeno y elastina, reduce las líneas de expresión y el tamaño del poro, disminuye la apariencia de cicatrices, mejora la firmeza de la piel."
+    },
+    "priceCurrency": "EUR",
+    "price": 70
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Tratamiento MESOECLAT",
+     "description": "Es una solución avanzada para quienes buscan revitalizar su piel de manera rápida y efectiva. Este tratamiento está diseñado para combatir los signos del envejecimiento, mejorar la textura y unificar el tono de la piel, dejando un acabado radiante y rejuvenecido."
+    },
+    "priceCurrency": "EUR",
+    "price": 65
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Masaje ENERGILIFT",
+     "description": "Técnica de lifting manual que transforma la apariencia de tu rostro de manera natural. Este tratamiento exclusivo está diseñado para remodelar la estructura de la piel, reposicionar los volúmenes y redefinir el contorno facial, logrando un efecto rejuvenecedor inmediato."
+    },
+    "priceCurrency": "EUR",
+    "price": 40
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Programa Facial Personalizado (6 sesiones)"
+    },
+    "priceCurrency": "EUR",
+    "price": 330
+   },
+   {
+    "@type": "Offer",
+    "itemOffered": {
+     "@type": "Service",
+     "name": "Mantenimiento Facial"
+    },
+    "priceCurrency": "EUR",
+    "price": 59
+   }
+  ]
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Inicio",
+   "item": "https://marinaspa.es/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Tratamientos",
+   "item": "https://marinaspa.es/#tratamientos"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Rituales faciales",
+   "item": "https://marinaspa.es/tratamientos-faciales-zafra"
+  }
+ ]
+}
+</script>
+</head>
+<body class="pagina-area pagina-faciales">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><mask id="m-lat0i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M296.0 386.0C280.6 313.2 219.8 223.4 158.0 182.0C165.2 260.4 225.9 350.2 296.0 386.0Z" fill="#000"/><path d="M302.0 384.0C311.4 302.7 278.0 189.2 226.0 126.0C207.0 210.1 240.4 323.6 302.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat0d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M340.0 386.0C410.1 350.2 470.8 260.4 478.0 182.0C416.2 223.4 355.4 313.2 340.0 386.0Z" fill="#000"/><path d="M334.0 384.0C395.6 323.6 429.0 210.1 410.0 126.0C358.0 189.2 324.6 302.7 334.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat1i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M302.0 384.0C311.4 302.7 278.0 189.2 226.0 126.0C207.0 210.1 240.4 323.6 302.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat1d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M334.0 384.0C395.6 323.6 429.0 210.1 410.0 126.0C358.0 189.2 324.6 302.7 334.0 384.0Z" fill="#000"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat2i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-lat2d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" fill="#000"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-centro-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z" fill="#000"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" fill="#000"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" fill="#000"/></mask><mask id="m-hoja-i-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 426.0C280.0 473.0 280.0 547.0 318.0 594.0C356.0 547.0 356.0 473.0 318.0 426.0Z" fill="#000"/></mask><mask id="m-hoja-d-s" maskUnits="userSpaceOnUse" x="60" y="46" width="520" height="564"><rect x="60" y="46" width="520" height="564" fill="#fff"/><path d="M318.0 426.0C280.0 473.0 280.0 547.0 318.0 594.0C356.0 547.0 356.0 473.0 318.0 426.0Z" fill="#000"/></mask><symbol id="loto-s" viewBox="60 46 520 564"><g fill="none" stroke="currentColor" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"><path d="M292.0 388.0C262.1 324.7 187.3 255.2 122.0 230.0C146.5 299.1 221.3 368.7 292.0 388.0Z" mask="url(#m-lat0i-s)"/><path d="M344.0 388.0C414.7 368.7 489.5 299.1 514.0 230.0C448.7 255.2 373.9 324.7 344.0 388.0Z" mask="url(#m-lat0d-s)"/><path d="M296.0 386.0C280.6 313.2 219.8 223.4 158.0 182.0C165.2 260.4 225.9 350.2 296.0 386.0Z" mask="url(#m-lat1i-s)"/><path d="M340.0 386.0C410.1 350.2 470.8 260.4 478.0 182.0C416.2 223.4 355.4 313.2 340.0 386.0Z" mask="url(#m-lat1d-s)"/><path d="M302.0 384.0C311.4 302.7 278.0 189.2 226.0 126.0C207.0 210.1 240.4 323.6 302.0 384.0Z" mask="url(#m-lat2i-s)"/><path d="M334.0 384.0C395.6 323.6 429.0 210.1 410.0 126.0C358.0 189.2 324.6 302.7 334.0 384.0Z" mask="url(#m-lat2d-s)"/><path d="M318.0 386.0C416.0 317.5 416.0 223.4 318.0 172.0C220.0 223.4 220.0 317.5 318.0 386.0Z" mask="url(#m-centro-s)"/><path d="M318.0 172.0C358.0 142.3 358.0 95.7 318.0 66.0C278.0 95.7 278.0 142.3 318.0 172.0Z"/><path d="M318.0 418.0C260.6 375.0 156.8 376.7 82.0 422.0C158.0 450.7 261.9 449.0 318.0 418.0Z" mask="url(#m-hoja-i-s)"/><path d="M318.0 418.0C374.1 449.0 478.0 450.7 554.0 422.0C479.2 376.7 375.4 375.0 318.0 418.0Z" mask="url(#m-hoja-d-s)"/><path d="M318.0 426.0C280.0 473.0 280.0 547.0 318.0 594.0C356.0 547.0 356.0 473.0 318.0 426.0Z"/></g></symbol></defs></svg>
+<header class="cabecera" id="cabecera">
+  <div class="cabecera__barra">
+    <a class="marca" href="./" aria-label="Marina Spa, inicio"><svg class="marca__loto" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg><span class="marca__nombre">MARINA SPA</span></a>
+    <nav class="navegacion" id="navegacion" aria-label="Principal">
+      <ul class="navegacion__principal">
+        <li><a href="centro-estetica-zafra">El centro</a></li>
+        <li><a href="./#tratamientos">Tratamientos</a></li>
+        <li><a href="indiba-zafra">Indiba</a></li>
+        <li><a href="contacto">Contacto</a></li>
+      </ul>
+      <ul class="navegacion__areas" aria-label="Tratamientos">
+        <li><a href="tratamientos-faciales-zafra" aria-current="page">Rituales faciales</a></li>
+        <li><a href="indiba-zafra">Indiba</a></li>
+        <li><a href="tratamientos-corporales-zafra">Corporales</a></li>
+        <li><a href="spa-relax-masajes-zafra">Spa y masajes</a></li>
+        <li><a href="depilacion-fotodepilacion-zafra">Depilación</a></li>
+        <li><a href="estetica-general-zafra">Estética general</a></li>
+      </ul>
+      <p class="navegacion__datos"><a href="tel:+34644799000">644 79 90 00</a> · <a href="https://wa.me/34644799000" target="_blank" rel="noopener">WhatsApp</a></p>
+    </nav>
+    <a class="boton boton--oro boton--peq cabecera__cita" href="tel:+34644799000">Pedir cita</a>
+    <button class="hamburguesa" id="hamburguesa" type="button" aria-expanded="false" aria-controls="navegacion"><span class="hamburguesa__rayas" aria-hidden="true"></span><span class="visualmente-oculto">Abrir menú</span></button>
+  </div>
+</header>
+<main id="contenido">
+<section class="cab-pagina" aria-labelledby="cab-h1">
+  <div class="cab-pagina__texto">
+    <nav class="migas" aria-label="Migas"><ol><li><a href="./">Inicio</a></li><li><a href="./#tratamientos">Tratamientos</a></li><li aria-current="page">Rituales faciales</li></ol></nav>
+    <h1 class="cab-pagina__h1" id="cab-h1" data-revelar>Rituales y Programas Faciales</h1>
+    <p class="cab-pagina__sub">Higiene, oxigenación y la mejor tecnología anti-edad en nuestro centro de estética en Zafra</p>
+    <div class="acciones"><a class="boton boton--oro iman" href="tel:+34644799000">Pedir cita · 644 79 90 00</a><a class="boton boton--linea iman" href="https://wa.me/34644799000" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <div class="cab-pagina__arco"><div class="arco arco--nitida" style="--ar:3/4.2" data-cursor="Ver"><div class="arco__foto"><picture data-foto="facial"><source type="image/avif" srcset="assets/fotos/facial-640.avif 640w, assets/fotos/facial-1280.avif 1280w" sizes="(max-width: 760px) 70vw, 320px"><source type="image/webp" srcset="assets/fotos/facial-640.webp 640w, assets/fotos/facial-1280.webp 1280w" sizes="(max-width: 760px) 70vw, 320px"><img src="assets/fotos/facial-1280.jpg" srcset="assets/fotos/facial-640.jpg 640w, assets/fotos/facial-1280.jpg 1280w" sizes="(max-width: 760px) 70vw, 320px" width="1280" height="853" alt="Masaje facial con las manos sobre el rostro y el cuello" decoding="async" fetchpriority="high" style="object-position:58% 50%"></picture></div><svg class="filete" viewBox="0 0 300 420" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 420 V150 A148.5 148.5 0 0 1 298.5 150 V420" pathLength="1"/></svg><span class="cab-pagina__loto"><svg class="loto-peq" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg></span></div></div>
+</section>
+
+<section class="carta-pagina carta-pagina--indice" aria-label="Carta de rituales faciales">
+  <nav class="indice" id="indice" aria-label="Grupos de la carta">
+      <p class="indice__titulo">En esta página</p>
+      <ol><li><a href="#g-higiene-facial-oxigenante">Higiene Facial Oxigenante</a></li><li><a href="#g-faciales-anti-aging">Faciales Anti-Aging</a></li><li><a href="#g-tratamientos-faciales-avanzados">Tratamientos Faciales Avanzados</a></li></ol>
+    </nav>
+  <div class="carta-pagina__grupos">
+    <section class="grupo" id="g-higiene-facial-oxigenante" aria-labelledby="g-higiene-facial-oxigenante-t">
+      <h2 class="grupo__titulo" id="g-higiene-facial-oxigenante-t">Higiene Facial Oxigenante</h2>
+      <p class="grupo__entrada">Los rituales y programas faciales son una forma excepcional de cuidar tu piel y rejuvenecer tu rostro. Estos tratamientos están diseñados para ofrecer una atención personalizada que se adapta a las necesidades específicas de tu piel, lo que resulta en un cutis radiante y saludable.</p>
+      <article class="linea" id="t-limpieza-en-profundidad-de-la-piel-con-cosmetica-profesional" data-linea="Limpieza en Profundidad de la piel con cosmética profesional">
+        <div class="linea__fila"><h3 class="linea__nombre">Limpieza en Profundidad de la piel con cosmética profesional</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">44<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Este tratamiento se centra en una limpieza exhaustiva de la piel utilizando productos de alta calidad. Se eliminan impurezas, se desobstruyen los poros y se prepara la piel para recibir los siguientes pasos del cuidado facial. Ideal para mantener la piel fresca y saludable.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Limpieza%20en%20Profundidad%20de%20la%20piel%20con%20cosm%C3%A9tica%20profesional" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Limpieza en Profundidad de la piel con cosmética profesional</span></a>
+      </article>
+      <article class="linea" id="t-higiene-facial-profunda-con-microdermoabrasion-con-punta-de-diamante" data-linea="Higiene Facial profunda con microdermoabrasión con punta de Diamante">
+        <div class="linea__fila"><h3 class="linea__nombre">Higiene Facial profunda con microdermoabrasión con punta de Diamante</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">50<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Un tratamiento indoloro que utiliza tecnología avanzada para exfoliar la piel suavemente. La microdermoabrasión elimina las células muertas, promoviendo la regeneración celular y dejando la piel suave y radiante. Además, ayuda a reafirmar el rostro y a disminuir la visibilidad de las líneas de expresión.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Higiene%20Facial%20profunda%20con%20microdermoabrasi%C3%B3n%20con%20punta%20de%20Diamante" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Higiene Facial profunda con microdermoabrasión con punta de Diamante</span></a>
+      </article>
+      <article class="linea" id="t-hidravacuum" data-linea="Hidravacuum">
+        <div class="linea__fila"><h3 class="linea__nombre">Hidravacuum</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">55<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Este ritual combina varias técnicas para ofrecer una experiencia completa. La tecnología Hidravacuum realiza una limpieza profunda, seguida de un proceso detox que elimina toxinas y proporciona una exfoliación efectiva. Finalmente, se nutre la piel con productos específicos que hidratan y revitalizan, dejando un aspecto saludable y luminoso.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Hidravacuum" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Hidravacuum</span></a>
+      </article>
+      <article class="linea" id="t-ritual-de-regeneracion-y-luminosidad" data-linea="Ritual de Regeneración y Luminosidad">
+        <div class="linea__fila"><h3 class="linea__nombre">Ritual de Regeneración y Luminosidad</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">55<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Un tratamiento diseñado para devolverle a tu piel su brillo natural. A través de técnicas específicas, se estimula la regeneración celular y se mejora la textura de la piel. Ideal para quienes buscan un rostro radiante y rejuvenecido.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Ritual%20de%20Regeneraci%C3%B3n%20y%20Luminosidad" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Ritual de Regeneración y Luminosidad</span></a>
+      </article>
+      <article class="linea" id="t-ritual-equilibrio-y-purificador" data-linea="Ritual Equilibrio y Purificador">
+        <div class="linea__fila"><h3 class="linea__nombre">Ritual Equilibrio y Purificador</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">49<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Este tratamiento está especialmente formulado para las pieles mixtas y grasas. Ayuda a restablecer el equilibrio natural de la piel, eliminando imperfecciones y reduciendo brillos no deseados. Es perfecto para quienes desean una piel más limpia, fresca y libre de impurezas.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Ritual%20Equilibrio%20y%20Purificador" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Ritual Equilibrio y Purificador</span></a>
+      </article>
+      
+    </section>
+    <section class="grupo" id="g-faciales-anti-aging" aria-labelledby="g-faciales-anti-aging-t">
+      <h2 class="grupo__titulo" id="g-faciales-anti-aging-t">Faciales Anti-Aging</h2>
+      <p class="grupo__entrada">Los activos más eficaces y las técnicas manuales más avanzadas se unen para lograr un resultado excepcional en los tratamientos de belleza anti-edad.</p>
+      <article class="linea" id="t-ritual-biocelular" data-linea="Ritual Biocelular">
+        <div class="linea__fila"><h3 class="linea__nombre">Ritual Biocelular</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Regenera la piel, estimula la producción de colágeno y elastina, mejorando la textura y luminosidad.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Ritual%20Biocelular" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Ritual Biocelular</span></a>
+      </article>
+      <article class="linea" id="t-ritual-acido-hialuronico" data-linea="Ritual Ácido Hialurónico">
+        <div class="linea__fila"><h3 class="linea__nombre">Ritual Ácido Hialurónico</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Hidratación profunda con efecto lifting natural, suavizando líneas de expresión y mejorando el contorno facial.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Ritual%20%C3%81cido%20Hialur%C3%B3nico" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Ritual Ácido Hialurónico</span></a>
+      </article>
+      <article class="linea" id="t-ritual-de-perlas" data-linea="Ritual de Perlas">
+        <div class="linea__fila"><h3 class="linea__nombre">Ritual de Perlas</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">52<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Aporta luminosidad y juventud a la piel con extractos de perlas, ofreciendo propiedades antioxidantes y una apariencia radiante.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Ritual%20de%20Perlas" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Ritual de Perlas</span></a>
+      </article>
+      
+    </section>
+    <section class="grupo" id="g-tratamientos-faciales-avanzados" aria-labelledby="g-tratamientos-faciales-avanzados-t">
+      <h2 class="grupo__titulo" id="g-tratamientos-faciales-avanzados-t">Tratamientos Faciales Avanzados</h2>
+      <p class="grupo__entrada">Soluciones de vanguardia tecnológica para problemas específicos de la piel, garantizando resultados visibles desde la primera sesión.</p>
+      <article class="linea" id="t-tratamiento-facial-dermapen" data-linea="Tratamiento Facial Dermapen">
+        <div class="linea__fila"><h3 class="linea__nombre">Tratamiento Facial Dermapen</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">70<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Estimula el colágeno y elastina, reduce las líneas de expresión y el tamaño del poro, disminuye la apariencia de cicatrices, mejora la firmeza de la piel.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Tratamiento%20Facial%20Dermapen" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Tratamiento Facial Dermapen</span></a>
+      </article>
+      <article class="linea" id="t-tratamiento-mesoeclat" data-linea="Tratamiento MESOECLAT">
+        <div class="linea__fila"><h3 class="linea__nombre">Tratamiento MESOECLAT</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">65<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Es una solución avanzada para quienes buscan revitalizar su piel de manera rápida y efectiva. Este tratamiento está diseñado para combatir los signos del envejecimiento, mejorar la textura y unificar el tono de la piel, dejando un acabado radiante y rejuvenecido.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Tratamiento%20MESOECLAT" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Tratamiento MESOECLAT</span></a>
+      </article>
+      <article class="linea" id="t-masaje-energilift" data-linea="Masaje ENERGILIFT">
+        <div class="linea__fila"><h3 class="linea__nombre">Masaje ENERGILIFT</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">40<span class="ef"> </span>€</span></span></div>
+        <p class="linea__desc">Técnica de lifting manual que transforma la apariencia de tu rostro de manera natural. Este tratamiento exclusivo está diseñado para remodelar la estructura de la piel, reposicionar los volúmenes y redefinir el contorno facial, logrando un efecto rejuvenecedor inmediato.</p>
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Masaje%20ENERGILIFT" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Masaje ENERGILIFT</span></a>
+      </article>
+      <article class="linea" id="t-programa-facial-personalizado-6-sesiones" data-linea="Programa Facial Personalizado (6 sesiones)">
+        <div class="linea__fila"><h3 class="linea__nombre">Programa Facial Personalizado (6 sesiones)</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">330<span class="ef"> </span>€</span></span></div>
+        
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Programa%20Facial%20Personalizado%20(6%20sesiones)" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Programa Facial Personalizado (6 sesiones)</span></a>
+      </article>
+      <article class="linea" id="t-mantenimiento-facial" data-linea="Mantenimiento Facial">
+        <div class="linea__fila"><h3 class="linea__nombre">Mantenimiento Facial</h3><span class="linea__puntos" aria-hidden="true"></span><span class="precio"><span class="eu">59<span class="ef"> </span>€</span></span></div>
+        
+        
+        <a class="linea__cita" href="https://wa.me/34644799000?text=Hola,%20me%20gustar%C3%ADa%20pedir%20cita%20para%20Mantenimiento%20Facial" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: Mantenimiento Facial</span></a>
+      </article>
+      
+    </section>
+  </div>
+</section>
+
+
+<section class="cita-cierre" aria-labelledby="cierre-titulo">
+  <p class="eti">No esperes más</p>
+  <h2 class="titulo-sec" id="cierre-titulo" data-revelar>¿Lista para <em>renovarte</em>?</h2>
+  <p>Reserva tu cita hoy y descubre el tratamiento perfecto para tu bienestar. Estaremos encantadas de atenderte.</p>
+  <div class="acciones"><a class="boton boton--oro iman" href="tel:+34644799000">Llamar · 644 79 90 00</a><a class="boton boton--linea iman" href="https://wa.me/34644799000" target="_blank" rel="noopener">WhatsApp</a></div>
+</section>
+<section class="otros" aria-labelledby="otros-titulo">
+  <h2 class="titulo-peq" id="otros-titulo">Otros tratamientos</h2>
+  <ul class="otros__lista"><li><a class="ar ar--peq" href="indiba-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="indiba"><source type="image/avif" srcset="assets/fotos/indiba-640.avif 640w, assets/fotos/indiba-960.avif 960w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/indiba-640.webp 640w, assets/fotos/indiba-960.webp 960w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/indiba-960.jpg" srcset="assets/fotos/indiba-640.jpg 640w, assets/fotos/indiba-960.jpg 960w" sizes="(max-width: 760px) 30vw, 12vw" width="960" height="1200" alt="Perfil de una mujer con la piel luminosa" decoding="async" loading="lazy" style="object-position:45% 45%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Indiba</span><span class="ar__desde">desde <span class="precio"><span class="eu">39<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="tratamientos-corporales-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="corporales"><source type="image/avif" srcset="assets/fotos/corporales-640.avif 640w, assets/fotos/corporales-1232.avif 1232w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/corporales-640.webp 640w, assets/fotos/corporales-1232.webp 1232w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/corporales-1232.jpg" srcset="assets/fotos/corporales-640.jpg 640w, assets/fotos/corporales-1232.jpg 1232w" sizes="(max-width: 760px) 30vw, 12vw" width="1232" height="928" alt="Masaje de espalda con aceite sobre la camilla" decoding="async" loading="lazy" style="object-position:40% 50%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Corporales</span><span class="ar__desde">desde <span class="precio"><span class="eu">15<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="spa-relax-masajes-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="bienestar"><source type="image/avif" srcset="assets/fotos/bienestar-640.avif 640w, assets/fotos/bienestar-1280.avif 1280w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/bienestar-640.webp 640w, assets/fotos/bienestar-1280.webp 1280w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/bienestar-1280.jpg" srcset="assets/fotos/bienestar-640.jpg 640w, assets/fotos/bienestar-1280.jpg 1280w" sizes="(max-width: 760px) 30vw, 12vw" width="1280" height="718" alt="Vela, sales, aceite esencial y piedras sobre madera con eucalipto" decoding="async" loading="lazy" style="object-position:70% 55%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Spa y masajes</span><span class="ar__desde">desde <span class="precio"><span class="eu">19<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="depilacion-fotodepilacion-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="depilacion"><source type="image/avif" srcset="assets/fotos/depilacion-640.avif 640w, assets/fotos/depilacion-928.avif 928w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/depilacion-640.webp 640w, assets/fotos/depilacion-928.webp 928w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/depilacion-928.jpg" srcset="assets/fotos/depilacion-640.jpg 640w, assets/fotos/depilacion-928.jpg 928w" sizes="(max-width: 760px) 30vw, 12vw" width="928" height="1232" alt="Piernas depiladas sobre fondo claro" decoding="async" loading="lazy" style="object-position:50% 40%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Depilación</span><span class="ar__desde">desde <span class="precio"><span class="eu">3<span class="ef"> </span>€</span></span></span></a></li><li><a class="ar ar--peq" href="estetica-general-zafra"><div class="arco " style="--ar:3/4" data-cursor="Ver"><div class="arco__foto"><picture data-foto="estetica"><source type="image/avif" srcset="assets/fotos/estetica-640.avif 640w, assets/fotos/estetica-1280.avif 1280w" sizes="(max-width: 760px) 30vw, 12vw"><source type="image/webp" srcset="assets/fotos/estetica-640.webp 640w, assets/fotos/estetica-1280.webp 1280w" sizes="(max-width: 760px) 30vw, 12vw"><img src="assets/fotos/estetica-1280.jpg" srcset="assets/fotos/estetica-640.jpg 640w, assets/fotos/estetica-1280.jpg 1280w" sizes="(max-width: 760px) 30vw, 12vw" width="1280" height="1280" alt="Manicura semipermanente en tono lila" decoding="async" loading="lazy" style="object-position:45% 45%"></picture></div><svg class="filete" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M1.5 400 V150 A148.5 148.5 0 0 1 298.5 150 V400" pathLength="1"/></svg></div><span class="ar__nombre">Estética general</span><span class="ar__desde">desde <span class="precio"><span class="eu">15<span class="ef"> </span>€</span></span></span></a></li></ul>
+</section>
+</main>
+<footer class="pie">
+  <div class="pie__cuerpo">
+    <div class="pie__marca"><a class="marca" href="./" aria-label="Marina Spa, inicio"><svg class="marca__loto" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg><span class="marca__nombre">MARINA SPA</span></a><p>Un santuario de belleza y bienestar en Zafra. Fusionamos técnica, tecnología y pasión para realzar tu mejor versión.</p></div>
+    <nav class="pie__col" aria-label="Tratamientos"><h2>Tratamientos</h2><ul><li><a href="tratamientos-faciales-zafra">Rituales faciales</a></li><li><a href="indiba-zafra">Indiba</a></li><li><a href="tratamientos-corporales-zafra">Corporales</a></li><li><a href="spa-relax-masajes-zafra">Spa y masajes</a></li><li><a href="depilacion-fotodepilacion-zafra">Depilación</a></li><li><a href="estetica-general-zafra">Estética general</a></li></ul></nav>
+    <div class="pie__col"><h2>Contacto</h2><address><a href="https://www.google.com/maps/search/?api=1&query=Marina+Spa+Zafra" target="_blank" rel="noopener">C. Reyes Huertas, 8<br>06300 Zafra, Badajoz</a><br><a href="tel:+34644799000">644 79 90 00</a><br><a href="mailto:info@marinaspa.es">info@marinaspa.es</a></address></div>
+    <div class="pie__col"><h2>Síguenos</h2><ul><li><a href="https://www.instagram.com/marinaspazafra/" target="_blank" rel="noopener">Instagram @marinaspazafra</a></li><li><a href="https://www.facebook.com/marinaspazafra/" target="_blank" rel="noopener">Facebook /marinaspazafra</a></li></ul></div>
+  </div>
+  <div class="pie__legal"><span>© 2026 Marina Spa</span><a href="aviso-legal">Aviso legal</a><a href="politica-privacidad">Política de privacidad</a><a href="politica-cookies">Política de cookies</a><button type="button" class="pie__cookies" id="cookies-reabrir">Aviso de cookies</button></div>
+</footer>
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Esta web no usa cookies de analítica ni de publicidad. Solo recuerda en tu navegador que has visto este aviso y, si pulsas «Ver mapa», Google Maps puede instalar las suyas. <a href="politica-cookies">Política de cookies</a></p>
+  <button class="boton boton--oro boton--peq" type="button" id="cookies-aceptar">Entendido</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script type="module" src="js/main.js?v=a0a97d9a"></script>
+
+</body>
+</html>

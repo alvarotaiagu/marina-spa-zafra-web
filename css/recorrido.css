@@ -1,0 +1,15 @@
+/* Módulo «recorrido» (data-modulo="recorrido"): el vídeo de su web en un arco alto con
+   doble filete y la lista de estancias, que se ilumina con el tiempo del vídeo. Pulsar
+   una estancia lleva el vídeo a ese momento: es un índice, no un scrub. */
+.recorrido { background: var(--noche-2); display: grid; gap: 48px; align-items: center; padding: var(--sec) var(--lado); }
+@media (min-width: 960px) { .recorrido { grid-template-columns: 1fr auto 1fr; gap: 64px; } }
+.recorrido__texto p:not(.eti) { color: var(--texto-osc); max-width: 38ch; margin-top: 18px; }
+.recorrido .titulo-sec { margin-top: 14px; }
+.recorrido .arco--video { width: min(300px, 70vw); justify-self: center; margin: 15px; }
+.estancias { display: grid; gap: 2px; counter-reset: e; }
+.estancias button { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; padding: 7px 0; font-size: 1rem; letter-spacing: .04em; color: var(--piedra-cl); transition: color .4s; }
+.estancias button::before { content: ""; width: 18px; height: 1px; background: currentColor; transition: width .4s var(--curva), background-color .4s; flex: none; }
+.estancias button:hover { color: var(--cal); }
+.estancias button.es-activo { color: var(--cal); }
+.estancias button.es-activo::before { width: 44px; background: var(--oro); }
+.recorrido__dir { margin-top: 26px; font-size: .9rem; color: var(--piedra-cl); }

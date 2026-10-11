@@ -1,0 +1,190 @@
+{
+ "nota": "Cada foto se referencia por su id. Cambiar una foto = dejar el original nuevo en «origen» (o cambiar esa línea) y pasar gradar.py → fotos.mjs → construir.mjs. Las de banco son las que ya usa su web y van marcadas provisional:true hasta la sesión de fotos.",
+ "fotos": [
+  {
+   "id": "vela",
+   "origen": "assets_instalaciones-CY89NHKI.png",
+   "tipo": "local",
+   "provisional": false,
+   "alt": "Vela encendida junto a una camilla, bajo la bóveda de ladrillo del centro",
+   "foco": "50% 45%",
+   "w": 960,
+   "h": 1280,
+   "anchos": [
+    640,
+    960
+   ]
+  },
+  {
+   "id": "porton",
+   "origen": "assets_instalaciones-2-BjXySQag.png",
+   "tipo": "local",
+   "provisional": false,
+   "alt": "Portón de madera claveteado de la entrada, con la cortina blanca",
+   "foco": "40% 50%",
+   "w": 960,
+   "h": 1280,
+   "anchos": [
+    640,
+    960
+   ]
+  },
+  {
+   "id": "cabina",
+   "origen": "assets_instalaciones-3-CD4jbTty.png",
+   "tipo": "local",
+   "provisional": false,
+   "alt": "Cabina bajo la bóveda de ladrillo, con lámpara de araña y luces",
+   "foco": "50% 40%",
+   "calido": 1,
+   "w": 1280,
+   "h": 960,
+   "anchos": [
+    640,
+    1280
+   ]
+  },
+  {
+   "id": "boveda-penumbra",
+   "origen": "assets_instalaciones-3-CD4jbTty.png",
+   "tipo": "local",
+   "provisional": false,
+   "alt": "",
+   "penumbra": true,
+   "foco": "50% 30%",
+   "w": 1280,
+   "h": 960,
+   "anchos": [
+    640,
+    1280
+   ]
+  },
+  {
+   "id": "facial",
+   "origen": "assets_tratamientos-faciales-5w2_WaeR.jpg",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Masaje facial con las manos sobre el rostro y el cuello",
+   "foco": "58% 50%",
+   "w": 1920,
+   "h": 1280,
+   "anchos": [
+    640,
+    1280
+   ]
+  },
+  {
+   "id": "indiba",
+   "origen": "assets_tratamientos-indiba-jIHyv4RI.png",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Perfil de una mujer con la piel luminosa",
+   "foco": "45% 45%",
+   "w": 960,
+   "h": 1200,
+   "anchos": [
+    640,
+    960
+   ]
+  },
+  {
+   "id": "corporales",
+   "origen": "assets_tratamientos-corporales-Dygq4Pwk.png",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Masaje de espalda con aceite sobre la camilla",
+   "foco": "40% 50%",
+   "w": 1232,
+   "h": 928,
+   "anchos": [
+    640,
+    1232
+   ]
+  },
+  {
+   "id": "bienestar",
+   "origen": "assets_tratamientos-bienestar-DM7doaGe.jpg",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Vela, sales, aceite esencial y piedras sobre madera con eucalipto",
+   "foco": "70% 55%",
+   "w": 1920,
+   "h": 1077,
+   "anchos": [
+    640,
+    1280
+   ]
+  },
+  {
+   "id": "depilacion",
+   "origen": "assets_tratamientos-depilacion-B06Q0esD.png",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Piernas depiladas sobre fondo claro",
+   "foco": "50% 40%",
+   "w": 928,
+   "h": 1232,
+   "anchos": [
+    640,
+    928
+   ]
+  },
+  {
+   "id": "estetica",
+   "origen": "assets_tratamientos-estetica-general-BJT-tWZs.png",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Manicura semipermanente en tono lila",
+   "foco": "45% 45%",
+   "lila": true,
+   "w": 1920,
+   "h": 1920,
+   "anchos": [
+    640,
+    1280
+   ]
+  },
+  {
+   "id": "aceite",
+   "origen": "assets_ritual-bienestar-marina-spa-zafra-BkG1bzyR.png",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Manos que sostienen un cuenco de aceite",
+   "foco": "45% 45%",
+   "w": 1344,
+   "h": 896,
+   "anchos": [
+    640,
+    1280
+   ]
+  },
+  {
+   "id": "masaje-facial",
+   "origen": "assets_masaje-facial-relax-spa-marina-zafra-BQq0tHJL.webp",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Mujer con turbante de toalla y los ojos cerrados durante un facial",
+   "foco": "50% 40%",
+   "w": 1232,
+   "h": 928,
+   "anchos": [
+    640,
+    1232
+   ]
+  },
+  {
+   "id": "zen",
+   "origen": "assets_spa-marina-zafra-bienestar-zen-BnD6Qzd5.png",
+   "tipo": "banco",
+   "provisional": true,
+   "alt": "Piedras apiladas sobre una losa, en luz suave",
+   "foco": "52% 55%",
+   "w": 1456,
+   "h": 816,
+   "anchos": [
+    640,
+    1280
+   ]
+  }
+ ]
+}
