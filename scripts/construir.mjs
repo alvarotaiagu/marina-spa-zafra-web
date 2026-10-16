@@ -116,8 +116,13 @@ function filete(w, h, clase = 'filete') {
   const H = +(300 * h / w).toFixed(1), s = 1.5, r = 150 - s;
   return `<svg class="${clase}" viewBox="0 0 300 ${H}" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M${s} ${H} V150 A${r} ${r} 0 0 1 ${300 - s} 150 V${H}" pathLength="1"/></svg>`;
 }
-function arco(id, { w = 3, h = 4.3, sizes = '(max-width: 760px) 46vw, 16vw', eager = false, clase = '', alt = null, cursor = 'Ver', extra = '', dentro = '', doble = false } = {}) {
-  return `<div class="arco ${clase}" style="--ar:${w}/${h}" data-cursor="${cursor}"><div class="arco__foto">${pic(id, { sizes, eager, alt })}${dentro}</div>${filete(w, h)}${doble ? filete(w, h, 'filete filete--2') : ''}${extra}</div>`;
+/* el cursor solo lleva texto donde al pulsar pasa algo: «Abrir» (dentro de un enlace),
+   «Reservar» (rituales) o «Ampliar» (abre el visor; ampliar:true añade el botón de verdad) */
+function arco(id, { w = 3, h = 4.3, sizes = '(max-width: 760px) 46vw, 16vw', eager = false, clase = '', alt = null, cursor = '', extra = '', dentro = '', doble = false, ampliar = false } = {}) {
+  const f = fotos[id];
+  const boton = ampliar ? `<button class="arco__ampliar" type="button" data-ampliar="assets/fotos/${id}-${f.anchos[f.anchos.length - 1]}.jpg" data-titulo="${esc(typeof ampliar === 'string' ? ampliar : '')}" data-alt="${esc(alt ?? f.alt)}"><span class="visualmente-oculto">Ampliar foto: ${esc(alt ?? f.alt)}</span></button>` : '';
+  const etiqueta = ampliar ? 'Ampliar' : cursor;
+  return `<div class="arco ${clase}" style="--ar:${w}/${h}"${etiqueta ? ` data-cursor="${etiqueta}"` : ''}><div class="arco__foto">${pic(id, { sizes, eager, alt })}${dentro}</div>${filete(w, h)}${doble ? filete(w, h, 'filete filete--2') : ''}${extra}${boton}</div>`;
 }
 
 /* las bóvedas de cañón al fondo: arcos de medio punto concéntricos con el de la vela (mismo
@@ -396,7 +401,7 @@ function cierreCita() {
 function otros(actual) {
   return `<section class="otros" aria-labelledby="otros-titulo">
   <h2 class="titulo-peq" id="otros-titulo">Otros tratamientos</h2>
-  <ul class="otros__lista">${AREAS.filter(a => a.url !== actual).map(a => `<li><a class="ar ar--peq" href="${enlace(a.url)}">${arco(a.foto, { w: 3, h: 4, sizes: '(max-width: 760px) 30vw, 12vw' })}<span class="ar__nombre">${a.nombre}</span><span class="ar__desde">desde ${precio(a.desde + '€')}</span></a></li>`).join('')}</ul>
+  <ul class="otros__lista">${AREAS.filter(a => a.url !== actual).map(a => `<li><a class="ar ar--peq" href="${enlace(a.url)}">${arco(a.foto, { cursor: 'Abrir', w: 3, h: 4, sizes: '(max-width: 760px) 30vw, 12vw' })}<span class="ar__nombre">${a.nombre}</span><span class="ar__desde">desde ${precio(a.desde + '€')}</span></a></li>`).join('')}</ul>
 </section>`;
 }
 function bloqueContacto({ pagina = false } = {}) {
@@ -448,7 +453,7 @@ function linea(t, { cita = true } = {}) {
 }
 function tarjetaRitual(t, { h = 'h3' } = {}) {
   return `<article class="ritual linea" id="t-${slug(t.nombre)}" data-linea="${esc(t.nombre)}">
-        ${arco(RITUALES_FOTO[t.nombre] || 'bienestar', { w: 4, h: 3, sizes: '(max-width: 760px) 80vw, 300px' })}
+        <a class="ritual__foto" href="${waCita(t.nombre)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">${arco(RITUALES_FOTO[t.nombre] || 'bienestar', { w: 4, h: 3, sizes: '(max-width: 760px) 80vw, 300px', cursor: 'Reservar' })}</a>
         <div class="ritual__cuerpo"><span class="ritual__min">${minutos(t.duracion)}</span><${h} class="ritual__nombre linea__nombre">${esc(t.nombre)}</${h}><p>${esc(t.descripcion)}</p>${precio(t.precio)}<a class="linea__cita" href="${waCita(t.nombre)}" target="_blank" rel="noopener">Pedir cita<span class="visualmente-oculto">: ${esc(t.nombre)}</span></a></div>
       </article>`;
 }
@@ -504,7 +509,7 @@ function paginaInicio() {
     <h2 class="titulo-sec" id="recorrido-titulo" data-revelar>Ven a <em>conocernos</em></h2>
     <p>Marina Spa nació con una visión clara: convertirse en el centro de estética en Zafra de referencia, donde la tecnología puntera se encuentra con el trato humano más cálido.</p>
   </div>
-  <div class="arco arco--video" style="--ar:9/16" data-cursor="Recorrido">
+  <div class="arco arco--video" style="--ar:9/16">
     <div class="arco__foto"><video id="tour" src="assets/video/tour.mp4" muted playsinline loop preload="none" poster="assets/fotos/porton-640.jpg" width="540" height="960" aria-label="Recorrido en vídeo por el centro"></video></div>
     ${filete(9, 16)}${filete(9, 16, 'filete filete--2')}
   </div>
@@ -570,7 +575,7 @@ function paginaInicio() {
   </div>
   ${buscador()}
   <ul class="arcos">
-    ${AREAS.map(a => `<li><a class="ar" href="${enlace(a.url)}">${arco(a.foto)}<span class="ar__eti">${esc(a.eti)}</span><span class="ar__nombre">${a.nombre}</span><span class="ar__desde">desde ${precio(a.desde + '€')}</span></a></li>`).join('\n    ')}
+    ${AREAS.map(a => `<li><a class="ar" href="${enlace(a.url)}">${arco(a.foto, { cursor: 'Abrir' })}<span class="ar__eti">${esc(a.eti)}</span><span class="ar__nombre">${a.nombre}</span><span class="ar__desde">desde ${precio(a.desde + '€')}</span></a></li>`).join('\n    ')}
   </ul>
 </section>
 
@@ -580,7 +585,7 @@ ${reco}
 
 <section class="carta" id="carta" aria-labelledby="carta-titulo">
   <div class="carta__foto">
-    <div class="arco arco--carta" style="--ar:3/4" data-cursor="Ver">
+    <div class="arco arco--carta" style="--ar:3/4">
       <div class="arco__foto">${pestanas.map(({ a, i }) => `<div class="carta__img${i === 0 ? ' es-activa' : ''}" data-area="${a.clave}">${pic(a.foto, { sizes: '(max-width: 760px) 90vw, 360px' })}</div>`).join('')}</div>
       ${filete(3, 4)}
     </div>
@@ -633,7 +638,7 @@ const CABINA = {
 function enCabina(a) {
   const c = CABINA[a.clave];
   if (!c) return '';
-  const video = (id, attrs) => `<div class="arco arco--video" style="--ar:9/16"><div class="arco__foto"><video ${attrs} src="assets/video/${id}.mp4" poster="assets/video/${id}.jpg" playsinline preload="none" width="720" height="1280"></video></div>${filete(9, 16)}</div>`;
+  const video = (id, attrs) => `<div class="arco arco--video" style="--ar:9/16"${attrs.includes('controls') ? ' data-cursor="▶"' : ''}><div class="arco__foto"><video ${attrs} src="assets/video/${id}.mp4" poster="assets/video/${id}.jpg" playsinline preload="none" width="720" height="1280"></video></div>${filete(9, 16)}</div>`;
   return `<section class="cabina-sec" aria-labelledby="cabina-titulo">
   <div class="cabina-sec__cab">
     <p class="eti">En cabina</p>
@@ -641,7 +646,7 @@ function enCabina(a) {
   </div>
   <div class="cabina-sec__rejilla">
     <div class="cabina-sec__bucle">${video(c.bucle, 'class="bucle" muted loop aria-hidden="true" tabindex="-1"')}</div>
-    ${c.fotos.map(id => arco(id, { w: 3, h: 4.6, sizes: '(max-width: 760px) 62vw, 22vw' })).join('\n    ')}
+    ${c.fotos.map(id => arco(id, { w: 3, h: 4.6, sizes: '(max-width: 760px) 62vw, 22vw', ampliar: a.nombre })).join('\n    ')}
   </div>
   <div class="cabina-sec__reels">
     ${c.reels.map(([id, nombre]) => `<figure class="cabina-sec__reel">${video(id, `controls aria-label="Vídeo del tratamiento: ${nombre}"`)}<figcaption>${nombre}</figcaption></figure>`).join('\n    ')}
@@ -735,7 +740,7 @@ function paginaCentro() {
 <section class="pila-sec" aria-label="Quiénes somos">
   <ol class="pila" id="pila">
     ${tarjetas.map(([foto, eti, tit, ps, grande], i) => `<li class="pila__item" style="--i:${i + 1}"><article class="tarjeta">
-      <div class="tarjeta__arco">${arco(foto, { w: 3, h: 4, sizes: '(max-width: 760px) 80vw, 320px' })}</div>
+      <div class="tarjeta__arco">${arco(foto, { w: 3, h: 4, sizes: '(max-width: 760px) 80vw, 320px', ampliar: tit })}</div>
       <div class="tarjeta__texto"><p class="tarjeta__num">0${i + 1} <span>/ 04</span></p><p class="eti eti--oscura">${eti}</p><h2 class="tarjeta__titulo">${tit}</h2>${grande ? `<p class="tarjeta__grande" aria-hidden="true">${grande}</p>` : ''}${ps.map(p => `<p>${p}</p>`).join('')}</div>
     </article></li>`).join('\n    ')}
   </ol>
@@ -745,7 +750,7 @@ function paginaCentro() {
     <p class="eti">Vídeo tour</p>
     <h2 class="titulo-sec" id="tour-titulo" data-revelar>Visítanos en <em>C. Reyes Huertas, 8</em></h2>
   </div>
-  <div class="arco arco--video" style="--ar:9/16" data-cursor="Recorrido">
+  <div class="arco arco--video" style="--ar:9/16" data-cursor="▶">
     <div class="arco__foto"><video src="assets/video/tour.mp4" controls playsinline preload="none" poster="assets/fotos/porton-640.jpg" width="540" height="960" aria-label="Recorrido en vídeo por el centro"></video></div>
     ${filete(9, 16)}${filete(9, 16, 'filete filete--2')}
   </div>
@@ -880,7 +885,7 @@ function pagina404() {
     <h1 class="titulo-sec" id="h1-404">Esta página <em>no existe</em></h1>
     <p>Puede que el enlace sea antiguo. Las seis áreas de la carta siguen aquí:</p>
     <ul class="arcos arcos--404">
-      ${AREAS.map(a => `<li><a class="ar ar--peq" href="${enlace(a.url)}">${arco(a.foto, { w: 3, h: 4, sizes: '(max-width: 760px) 30vw, 12vw' })}<span class="ar__nombre">${a.nombre}</span></a></li>`).join('\n      ')}
+      ${AREAS.map(a => `<li><a class="ar ar--peq" href="${enlace(a.url)}">${arco(a.foto, { cursor: 'Abrir', w: 3, h: 4, sizes: '(max-width: 760px) 30vw, 12vw' })}<span class="ar__nombre">${a.nombre}</span></a></li>`).join('\n      ')}
     </ul>
     <p><a class="boton boton--oro" href="./">Volver al inicio</a></p>
   </div>

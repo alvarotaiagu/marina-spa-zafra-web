@@ -463,7 +463,7 @@ try {
     const vd = await sobre('#recorrido .arco--video');
     await irA(page, '.mapa', 0.3);
     const mp = await sobre('.mapa');
-    comprobar(ft.texto === 'Ver' && vd.texto === 'Recorrido' && mp.texto === 'Mapa', 'cursor contextual: «Ver» sobre fotos, «Recorrido» sobre el vídeo y «Mapa» sobre el mapa (' + [ft.texto, vd.texto, mp.texto].join(' / ') + ')');
+    comprobar(ft.texto === 'Abrir' && vd.texto === '' && mp.texto === 'Mapa', 'cursor contextual: «Abrir» sobre las tarjetas que enlazan, nada sobre el vídeo del recorrido (no se pulsa) y «Mapa» sobre el mapa (' + [ft.texto, vd.texto || '—', mp.texto].join(' / ') + ')');
     await page.mouse.move(-5, 400); await page.mouse.move(-10, 400);
     await ctx.close();
     const t = await nuevaPagina({ ...devices['iPhone 13'] }, { visita: true });
@@ -586,7 +586,24 @@ try {
     comprobar(r2 > r1.n, 'checklist 10 · al girar el móvil (cambia el ancho) sí se rehace');
     await ctx.close();
   });
-  comprobar(true, 'checklist 11 · visor por nombre: no aplica (esta web no tiene visor de fotos)');
+  await bloque('checklist 11 · visor por nombre', async () => {
+    const mal = [];
+    for (const [ruta, movil] of [['indiba-zafra', false], ['centro-estetica-zafra', false], ['spa-relax-masajes-zafra', true]]) {
+      const { ctx, page } = await nuevaPagina(movil ? { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } : {});
+      await page.goto(BASE + ruta, { waitUntil: 'load' }); await page.waitForTimeout(600);
+      const n = await page.locator('.arco__ampliar').count();
+      for (let k = 0; k < n; k++) {
+        const b = page.locator('.arco__ampliar').nth(k);
+        await b.scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
+        const quiere = await b.getAttribute('data-ampliar');
+        if (movil) await b.tap(); else await b.click();
+        await page.waitForFunction(q => document.querySelector('dialog.visor img').src.endsWith(q), quiere, { timeout: 8000 }).catch(() => mal.push(ruta + ' #' + k));
+        await page.keyboard.press('Escape'); await page.waitForTimeout(250);
+      }
+      await ctx.close();
+    }
+    comprobar(!mal.length, 'checklist 11 · visor por nombre: cada foto ampliable abre la suya (también con tap en móvil)' + (mal.length ? ' · ' + mal.join(', ') : ''));
+  });
 
   /* ═══════════════ 5 · la carta ═══════════════ */
   await bloque('5 · la carta', async () => {
@@ -955,6 +972,25 @@ try {
     await m.page.goto(BASE + 'indiba-zafra', { waitUntil: 'load' }); await m.page.waitForTimeout(500);
     comprobar(await m.page.evaluate(() => getComputedStyle(document.getElementById('desplegable-flecha')).display === 'none' && document.querySelectorAll('.navegacion__areas a').length === 6), 'desplegable: en móvil no hay flecha; las 6 páginas siguen en el menú');
     await m.ctx.close();
+    /* el cursor no promete nada que no pase: cada etiqueta está en un enlace o tiene botón/vídeo con controles */
+    const mentiras = [];
+    for (const ruta of RUTAS) {
+      const { ctx: c2, page: p2 } = await nuevaPagina();
+      await p2.goto(BASE + ruta, { waitUntil: 'domcontentloaded' });
+      mentiras.push(...(await p2.evaluate(() => [...document.querySelectorAll('[data-cursor]')].filter(el => !el.closest('a') && !el.querySelector('a, button, video[controls]')).map(el => el.dataset.cursor))).map(t => (ruta || 'inicio') + ':' + t));
+      await c2.close();
+    }
+    comprobar(!mentiras.length, 'cursor: solo pone texto donde al pulsar pasa algo' + (mentiras.length ? ' · ' + mentiras.slice(0, 6).join(', ') : ''));
+    const v = await nuevaPagina();
+    await v.page.goto(BASE + 'indiba-zafra', { waitUntil: 'load' }); await irA(v.page, '.cabina-sec', 0.1, 1000);
+    await v.page.click('.cabina-sec .arco__ampliar >> nth=1'); await v.page.waitForTimeout(1100);
+    const a1 = await v.page.evaluate(() => { const d = document.querySelector('dialog.visor'); const im = d.querySelector('img'); return { open: d.open, num: d.querySelector('.visor__num').textContent, carga: im.complete && im.naturalWidth >= 1000, alt: !!im.alt }; });
+    await v.page.keyboard.press('ArrowRight'); await v.page.waitForTimeout(600);
+    const n2 = await v.page.evaluate(() => document.querySelector('.visor__num').textContent);
+    await v.page.keyboard.press('Escape'); await v.page.waitForTimeout(300);
+    const fin = await v.page.evaluate(() => ({ open: document.querySelector('dialog.visor').open, foco: document.activeElement.classList.contains('arco__ampliar') }));
+    comprobar(a1.open && a1.num === '2 / 3' && a1.carga && a1.alt && n2 === '3 / 3' && !fin.open && fin.foco, 'visor: abre la foto pulsada a 1080 px con su alt, → pasa a la siguiente, Esc cierra y devuelve el foco');
+    await v.ctx.close();
     const r = await nuevaPagina({ reducedMotion: 'reduce' });
     await r.page.goto(BASE + 'indiba-zafra', { waitUntil: 'load' }); await irA(r.page, '.cabina-sec', 0.1, 1200);
     comprobar(await r.page.evaluate(() => document.querySelector('video.bucle').paused), 'en cabina: con reduced-motion el cinemagraph no se mueve (póster)');
