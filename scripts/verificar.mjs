@@ -17,6 +17,7 @@
      8  · borrado de los cuatro módulos y del mando, en copias temporales
      9  · las dos densidades, el buscador de la sobria y sin ?revision no hay mando
      10 · textos prohibidos, noindex, consola limpia en las 13 páginas
+     12 · el blog (/blog y sus artículos): SEO, JSON-LD, textos vetados, enlaces, sitemap
    Con --capturas guarda screenshots/ (cada página a 6 tamaños y los fotogramas pedidos).
 
    node scripts/verificar.mjs [--capturas] [--solo=<parte del nombre de un bloque>]
@@ -122,7 +123,8 @@ try {
     comprobar(man.icons.every(i => fs.existsSync(path.join(raiz, i.src))), 'manifest.json: todos sus iconos existen');
     const sm = fs.readFileSync(path.join(raiz, 'sitemap.xml'), 'utf8');
     const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-    comprobar(locs.length === 12 && paginas.every(p => locs.includes(DOM + p.url)), 'sitemap.xml con las 12 URL de hoy (' + locs.length + ')');
+    const nBlog = 1 + leer('data/blog.json').articulos.length;
+    comprobar(locs.length === 12 + nBlog && paginas.every(p => locs.includes(DOM + p.url)), 'sitemap.xml con las 12 URL de hoy y el blog (' + locs.length + ')');
     comprobar(fs.readFileSync(path.join(raiz, 'robots.txt'), 'utf8') === 'User-agent: *\nAllow: /\n\nSitemap: https://marinaspa.es/sitemap.xml\n', 'robots.txt como el suyo');
     const hojas = ['css/estilos.css', 'css/opinion.css', 'css/cinta.css', 'css/recorrido.css', 'css/beauty-party.css'].map(f => fs.readFileSync(path.join(raiz, f), 'utf8')).join('\n');
     comprobar(!/(sepia|saturate|brightness|grayscale|contrast|hue-rotate)\(/.test(hojas), 'la gradación va horneada: ningún filter de color en CSS (sepia/saturate/brightness…)');
@@ -141,7 +143,7 @@ try {
       if (/cdnjs\.cloudflare\.com\/ajax\/libs\/lenis/.test(h)) malos.push(f + ' Lenis desde cdnjs');
       if (!/cdn\.jsdelivr\.net\/npm\/lenis@/.test(h)) malos.push(f + ' sin Lenis de jsDelivr');
     }
-    comprobar(malos.length === 0, '13 páginas: noindex justo tras el charset, Lenis desde jsDelivr y CSS/JS con ?v=<huella> al día' + (malos.length ? ' · ' + malos.slice(0, 4).join(' | ') : ''));
+    comprobar(malos.length === 0, 'todas las páginas (también el blog): noindex justo tras el charset, Lenis desde jsDelivr y CSS/JS con ?v=<huella> al día' + (malos.length ? ' · ' + malos.slice(0, 4).join(' | ') : ''));
     const tmp = tmpCopia('versionar');
     execFileSync(process.execPath, [path.join(tmp, 'scripts/versionar.mjs'), tmp]);
     const seg = execFileSync(process.execPath, [path.join(tmp, 'scripts/versionar.mjs'), tmp], { encoding: 'utf8' });
@@ -996,6 +998,70 @@ try {
     comprobar(await r.page.evaluate(() => document.querySelector('video.bucle').paused), 'en cabina: con reduced-motion el cinemagraph no se mueve (póster)');
     await r.ctx.close();
   });
+  /* ═══════════════ 12 · blog ═══════════════ */
+  await bloque('12 · blog', async () => {
+    const blog = leer('data/blog.json');
+    const rutas = ['blog', ...blog.articulos.map(a => 'blog-' + a.slug)];
+    const conocidas = new Set(RUTAS.concat(rutas));
+    const malas = [], prohibidos = [], rotos = [], consola = [];
+    for (const [opc, nom] of [[{}, 'escritorio'], [{ ...devices['iPhone 13'] }, 'móvil']]) {
+      for (const r of rutas) {
+        const { ctx, page } = await nuevaPagina(opc, { visita: true });
+        const resp = await page.goto(BASE + r, { waitUntil: 'load' });
+        await page.waitForTimeout(400);
+        if (nom === 'móvil') await bajarTactil(page); else await hastaAbajo(page, 900);
+        if (resp.status() !== 200) malas.push(r + ' → ' + resp.status());
+        const d = await page.evaluate(() => {
+          const limpio = (() => { const c = document.body.cloneNode(true); c.querySelectorAll('script, style, .sprite, #mando, template').forEach(x => x.remove()); return c.textContent; })();
+          return {
+            noindex: !!document.querySelector('meta[name="robots"][content="noindex, nofollow"]'),
+            canon: (document.querySelector('link[rel="canonical"]') || {}).href, h1s: document.querySelectorAll('h1').length,
+            titulo: document.title, desc: (document.querySelector('meta[name="description"]') || {}).content || '',
+            ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => { try { return JSON.parse(s.textContent); } catch (e) { return { error: e.message }; } }),
+            desborda: document.documentElement.scrollWidth - innerWidth, texto: limpio,
+            enlaces: [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')).filter(h => h && !/^(https?:|tel:|mailto:|#)/.test(h)),
+            sinAlt: [...document.querySelectorAll('main img')].filter(i => !i.hasAttribute('alt')).length
+          };
+        });
+        if (nom === 'escritorio') {
+          if (!d.noindex) malas.push(r + ' sin noindex');
+          if (d.canon !== DOM + '/' + r) malas.push(r + ' canonical ' + d.canon);
+          if (d.h1s !== 1) malas.push(r + ' tiene ' + d.h1s + ' h1');
+          if (d.titulo.length > 70 || d.desc.length < 80 || d.desc.length > 175) malas.push(`${r} title ${d.titulo.length} / description ${d.desc.length} caracteres`);
+          if (d.ld.some(x => x.error)) malas.push(r + ' JSON-LD no parsea');
+          if (r !== 'blog' && !d.ld.some(x => x['@type'] === 'BlogPosting' && x.datePublished && x.author && x.publisher && x.image)) malas.push(r + ' sin BlogPosting completo');
+          if (JSON.stringify(d.ld).match(/aggregateRating|"review"/)) malas.push(r + ' JSON-LD con reseñas');
+          const m = d.texto.match(/inolvidable|oasis|paraíso|Centro oficial|garantiz|\bcura\b|curar|sana\b|l[aá]ser|el mejor|sin dolor|\[PENDIENTE\]|lorem ipsum|€/i);
+          if (m) prohibidos.push(r + ': «' + m[0] + '»');
+          for (const h of d.enlaces) { const ruta = h.split('#')[0].replace(/^\.\/?/, ''); if (ruta && !conocidas.has(ruta) && !fs.existsSync(path.join(raiz, ruta))) rotos.push(r + ' → ' + h); }
+          if (d.sinAlt) malas.push(r + ' tiene imágenes sin alt');
+        }
+        if (d.desborda > 0) malas.push(`${r} desborda ${d.desborda} px (${nom})`);
+        consola.push(...page.errores.map(e => r + ': ' + e), ...page.respuestas.map(e => r + ': ' + e));
+        await ctx.close();
+      }
+    }
+    comprobar(malas.length === 0, `blog: ${rutas.length} páginas dan 200, noindex, canonical propio, un h1, title/description con longitud sana, BlogPosting completo, sin reseñas, alt y sin desbordamiento` + (malas.length ? ' · ' + malas.slice(0, 5).join(' | ') : ''));
+    comprobar(prohibidos.length === 0, 'blog: sin promesas de salud ni palabras vetadas (garantiza, cura, láser, «el mejor», precios, [PENDIENTE])' + (prohibidos.length ? ' · ' + prohibidos.join(' | ') : ''));
+    comprobar(rotos.length === 0, 'blog: ningún enlace interno roto' + (rotos.length ? ' · ' + rotos.slice(0, 5).join(' | ') : ''));
+    comprobar(consola.length === 0, 'blog: consola limpia y sin 4xx (escritorio y móvil)' + (consola.length ? ' · ' + consola.slice(0, 4).join(' | ') : ''));
+    /* enlazado interno: cada área enlaza a su artículo y el pie lleva el blog en todas las páginas */
+    const { ctx, page } = await nuevaPagina({}, { visita: true });
+    const sinEnlace = [];
+    for (const a of blog.articulos) {
+      await page.goto(BASE + a.area.slice(1), { waitUntil: 'domcontentloaded' });
+      if (!(await page.evaluate(sl => !!document.querySelector(`.notas-area a[href="blog-${sl}"]`), a.slug))) sinEnlace.push(a.area + ' → ' + a.slug);
+    }
+    for (const r of RUTAS.concat(rutas)) {
+      await page.goto(BASE + r, { waitUntil: 'domcontentloaded' });
+      if (!(await page.evaluate(() => !!document.querySelector('.pie__blog a[href="blog"]')))) sinEnlace.push(r + ' sin enlace al blog en el pie');
+    }
+    comprobar(sinEnlace.length === 0, 'blog: cada página de tratamientos enlaza a su artículo («Para saber más») y todas llevan el blog en el pie' + (sinEnlace.length ? ' · ' + sinEnlace.slice(0, 4).join(' | ') : ''));
+    /* el sitemap lleva el blog y sus artículos */
+    const sm = fs.readFileSync(path.join(raiz, 'sitemap.xml'), 'utf8');
+    comprobar(rutas.every(r => sm.includes(`<loc>${DOM}/${r}</loc>`)), 'blog: sitemap.xml con /blog y los ' + blog.articulos.length + ' artículos');
+    await ctx.close();
+  }, 300000);
   if (conCapturas) await bloque('capturas', async () => {
     for (const [w, h] of [[360, 640], [375, 667], [390, 844], [768, 1024], [1366, 768], [1440, 900]]) {
       const movil = w < 800;

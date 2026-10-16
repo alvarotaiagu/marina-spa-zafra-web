@@ -80,6 +80,7 @@ que se ilumina con el tiempo del vídeo) y el **carril de rituales** con arrastr
 | `/tratamientos-faciales-zafra`, `/indiba-zafra`, `/tratamientos-corporales-zafra`, `/spa-relax-masajes-zafra`, `/depilacion-fotodepilacion-zafra`, `/estetica-general-zafra` | una plantilla | cabecera oscura con migas, h1, subtítulo y foto en arco · índice de grupos (si hay más de uno; sticky al lado o barra fija en móvil) · carta de líneas con descripción literal, «Bonos» y «Pedir cita» por WhatsApp · lo propio de cada una · cita · otros cinco arcos |
 | `/contacto` | `contacto.html` | el contacto de la portada a página completa, teléfono grande y magnético |
 | `/aviso-legal`, `/politica-privacidad`, `/politica-cookies` | | sus textos, con la fecha actualizada; titular y NIF `[PENDIENTE]`; cookies ajustada a la web nueva |
+| `/blog` y `/blog-<slug>` (5 artículos) | `blog.html`, `blog-*.html` | índice de artículos con foto en arco · artículo con migas, meta, cuerpo, caja de cita y «Sigue leyendo» · JSON-LD `BlogPosting` |
 | (cualquier otra) | `404.html` | la bóveda en penumbra, el loto quieto y los seis arcos |
 
 Lo propio de cada página de tratamientos: **Indiba**, el bloque «Ciencia & belleza · El sistema
@@ -87,6 +88,23 @@ Proionic®» con el enlace a indiba.com, los seis beneficios con iconos de líne
 a mano (se trazan al entrar) y la línea «Indiba Corporal» enlazada a corporales. **Depilación**,
 cera, hilo, fotodepilación y bonos como tablas de zonas. **Estética general**, la Beauty Party.
 **Spa**, los rituales en tarjetas de arco y el resto como carta.
+
+## El blog (SEO local)
+
+Los textos viven en `data/blog.json` (un objeto por artículo: slug, title, description, h1,
+fecha, foto, tratamiento al que enlaza, cuerpo en bloques `h` / `p` / `ul`). Para añadir uno:
+copiar un objeto, cambiar el slug y `node scripts/construir.mjs`; el sitemap, el índice, el
+«Para saber más» de la página de tratamientos y el JSON-LD salen solos. `verificar.mjs` (bloque 12)
+comprueba SEO, enlaces, sitemap y que no haya palabras vetadas.
+
+- **URL planas** (`/blog-que-es-indiba-zafra`, no `/blog/...`): todos los enlaces de la web son
+  relativos y el `.htaccess` de IONOS no tiene que cambiar.
+- **Reglas de redacción**: sin garantizar resultados ni prometer curar nada («puede», «suele»,
+  «depende de cada persona»); sin precios (se quedan viejos, enlazan a la carta); sin «láser».
+- Los 5 artículos son **borrador** para que Marina los revise (datos de cabina, contraindicaciones).
+  La foto de «Fotodepilación» es provisional, como la de la página de depilación.
+- Con `noindex` como el resto, hasta que la web se publique en marinaspa.es.
+- El SEO local también se mueve con la ficha de Google Business y las reseñas, que no están aquí.
 
 ## Módulos que se pueden quitar
 

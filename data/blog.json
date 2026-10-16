@@ -1,0 +1,205 @@
+{
+  "indice": {
+    "url": "/blog",
+    "title": "Blog de Estética y Bienestar en Zafra | Marina Spa",
+    "description": "Guías claras sobre tratamientos faciales, Indiba, fotodepilación, masajes y cuidado de la piel, escritas por el equipo de Marina Spa, centro de estética en Zafra.",
+    "h1": "Blog de estética y bienestar",
+    "entradilla": "Guías sencillas para saber qué esperar de cada tratamiento, escritas desde la cabina de Marina Spa, en Zafra."
+  },
+  "autor": "Equipo de Marina Spa",
+  "articulos": [
+    {
+      "slug": "que-es-indiba-zafra",
+      "title": "Qué es Indiba y para qué sirve | Marina Spa Zafra",
+      "description": "Qué es la radiofrecuencia Indiba, cómo es una sesión en cabina y qué puedes esperar en rostro y cuerpo. Explicado por Marina Spa, centro Indiba en Zafra.",
+      "h1": "Qué es Indiba y qué puedes esperar de una sesión",
+      "entradilla": "Una tecnología de radiofrecuencia que se aplica con las manos de la profesional. Así es una sesión, paso a paso.",
+      "fecha": "2026-10-16",
+      "categoria": "Tecnología",
+      "lectura": 4,
+      "foto": "indiba-ona",
+      "area": "/indiba-zafra",
+      "areaTexto": "Ver los tratamientos Indiba",
+      "cita": "Indiba",
+      "cuerpo": [
+        { "h": "Una radiofrecuencia que se trabaja con las manos" },
+        { "p": "Indiba es un sistema de radiofrecuencia de uso estético. Un equipo genera una corriente de alta frecuencia y la profesional la transmite a la piel con un electrodo que desliza con movimientos suaves, parecidos a un masaje. No es un aparato que se deja encendido y se espera: lo importante es la mano que lo guía." },
+        { "p": "En Marina Spa trabajamos con el sistema Proionic®, que busca favorecer la actividad natural de las células de la piel. Si te interesa la parte técnica, la tienes explicada en la <a href=\"indiba-zafra\">página de Indiba</a>." },
+        { "h": "Cómo es una sesión" },
+        { "p": "Cada centro tiene su propio ritmo, y en cabina lo adaptamos a lo que necesita tu piel ese día. En líneas generales, una sesión sigue estos pasos:" },
+        { "ul": [
+          "Hablamos de lo que te preocupa y miramos tu piel con calma antes de empezar.",
+          "Limpiamos la zona y aplicamos una crema que ayuda a que el electrodo se deslice.",
+          "Se trabaja la zona con el electrodo en movimiento. La sensación habitual es de calor agradable, que se gradúa según lo que te resulte cómodo.",
+          "Se cierra con cosmética profesional y unas pautas sencillas para los días siguientes."
+        ] },
+        { "h": "Rostro y cuerpo: qué cambia" },
+        { "p": "En el rostro se usa sobre todo en programas de cuidado de la piel y en versiones breves, como el Indiba Facial Exprés, que dura unos 30 minutos. También se combina con otros tratamientos dentro de un mismo ritual, como en el Indiba Facial Pro." },
+        { "p": "En el cuerpo se emplea en tratamientos de silueta y bienestar, y se puede completar con otras técnicas. Puedes ver las opciones en la página de <a href=\"tratamientos-corporales-zafra\">tratamientos corporales</a>." },
+        { "h": "Qué resultados esperar" },
+        { "p": "La respuesta depende de cada persona, de su piel y de su punto de partida, así que no prometemos un resultado igual para todas. Lo que sí podemos decir es lo que muchas clientas valoran: una piel con aspecto más descansado y luminoso, y una sesión relajante. Cuántas sesiones convienen es algo que se decide en cabina, después de verte." },
+        { "h": "Antes de venir" },
+        { "ul": [
+          "Cuéntanos si estás embarazada, si llevas marcapasos o implantes metálicos, o si estás en tratamiento médico. En esos casos hay que valorar antes si es adecuado.",
+          "Si tienes dudas, escríbenos por WhatsApp y te orientamos sin compromiso."
+        ] }
+      ],
+      "relacionados": ["tratamiento-facial-segun-tu-piel-zafra", "preparar-la-piel-para-una-boda-zafra"]
+    },
+    {
+      "slug": "tratamiento-facial-segun-tu-piel-zafra",
+      "title": "Cómo elegir un tratamiento facial según tu piel | Marina Spa Zafra",
+      "description": "Piel mixta, seca, con poros visibles o con líneas de expresión: guía para elegir un tratamiento facial y qué preguntar antes de reservar. Marina Spa, Zafra.",
+      "h1": "Cómo elegir un tratamiento facial según tu tipo de piel",
+      "entradilla": "No todas las pieles piden lo mismo. Una guía corta para saber por dónde empezar y qué contarnos en la primera visita.",
+      "fecha": "2026-10-16",
+      "categoria": "Cuidado facial",
+      "lectura": 4,
+      "foto": "facial",
+      "area": "/tratamientos-faciales-zafra",
+      "areaTexto": "Ver los rituales faciales",
+      "cita": "un tratamiento facial",
+      "cuerpo": [
+        { "h": "Empieza por lo que ves, no por el nombre del tratamiento" },
+        { "p": "Es fácil perderse entre nombres de rituales. Antes de elegir, piensa en tres cosas: cómo se siente tu piel a media tarde (brillante, tirante, normal), qué te molesta cuando te miras al espejo y cuánto tiempo tienes para venir." },
+        { "h": "Si tu piel es mixta o grasa" },
+        { "p": "Lo habitual es buscar una limpieza a fondo que ayude a mantener los poros limpios y a controlar el brillo. En la carta tienes el <strong>Ritual Equilibrio y Purificador</strong>, pensado para este tipo de piel, y la limpieza en profundidad con cosmética profesional como punto de partida." },
+        { "h": "Si tu piel está apagada o cansada" },
+        { "p": "Cuando falta luminosidad suele ayudar un tratamiento que combine limpieza, exfoliación suave e hidratación. El <strong>Ritual de Regeneración y Luminosidad</strong> y la <strong>microdermoabrasión con punta de diamante</strong> van en esa línea." },
+        { "h": "Si te preocupan las líneas de expresión" },
+        { "p": "Aquí entran los rituales anti-aging, como el <strong>Ritual Ácido Hialurónico</strong> o el <strong>Ritual Biocelular</strong>, y los tratamientos avanzados, como el Dermapen o el masaje Energilift. Son opciones distintas para necesidades distintas: lo que mejor te viene depende de tu piel y de lo que busques." },
+        { "h": "Un programa o una sesión suelta" },
+        { "p": "Una sesión suelta es buena para probar o para un momento concreto. Un programa de varias sesiones tiene sentido cuando quieres constancia y seguimiento. En la carta hay un <strong>Programa Facial Personalizado de 6 sesiones</strong> y un <strong>Mantenimiento Facial</strong> para después." },
+        { "h": "Qué contarnos en la primera visita" },
+        { "ul": [
+          "Qué productos usas en casa y cada cuánto.",
+          "Si tienes alergias, piel muy sensible o has tenido reacciones a algún producto.",
+          "Si estás embarazada, en tratamiento médico o con algún procedimiento estético reciente.",
+          "Si tienes un evento cerca, para planificar los tiempos."
+        ] },
+        { "p": "Con eso, la profesional te propone un ritual a tu medida. Si prefieres consultarlo antes, escríbenos por WhatsApp y te orientamos." }
+      ],
+      "relacionados": ["que-es-indiba-zafra", "preparar-la-piel-para-una-boda-zafra"]
+    },
+    {
+      "slug": "fotodepilacion-sesiones-cuidados-zafra",
+      "title": "Fotodepilación: sesiones y cuidados | Marina Spa Zafra",
+      "description": "Cuántas sesiones suelen hacer falta, cómo prepararte y qué cuidados seguir antes y después de la fotodepilación. Guía de Marina Spa, centro de estética en Zafra.",
+      "h1": "Fotodepilación: cuántas sesiones y qué cuidados seguir",
+      "entradilla": "Dudas habituales antes de empezar, con respuestas honestas y sin promesas imposibles.",
+      "fecha": "2026-10-16",
+      "categoria": "Depilación",
+      "lectura": 4,
+      "foto": "depilacion",
+      "area": "/depilacion-fotodepilacion-zafra",
+      "areaTexto": "Ver depilación y fotodepilación",
+      "cita": "fotodepilación",
+      "cuerpo": [
+        { "h": "¿Cuántas sesiones hacen falta?" },
+        { "p": "No hay un número válido para todo el mundo. Depende de la zona, del tipo de vello, del tono de la piel y de cada persona. Por eso lo primero que hacemos es valorar tu caso y explicarte qué es razonable esperar, en lugar de darte una cifra al azar." },
+        { "p": "Lo normal es que el tratamiento se haga en varias sesiones separadas en el tiempo, porque el vello crece por fases. Para quien quiere constancia, tenemos <strong>bonos de 5 sesiones</strong> por zonas." },
+        { "h": "Cómo prepararte antes de la sesión" },
+        { "ul": [
+          "Rasura la zona el día anterior o ese mismo día. No uses cera ni pinzas entre sesiones, porque el vello necesita estar en la piel.",
+          "Evita el sol intenso y las cabinas de bronceado en los días previos; la piel muy morena requiere más cuidado.",
+          "Llega con la piel limpia y sin cremas, perfumes ni desodorante en la zona.",
+          "Avísanos si tomas medicación, si estás embarazada o si tienes algún lunar o mancha que te preocupe."
+        ] },
+        { "h": "Cuidados después" },
+        { "ul": [
+          "Hidrata la zona con productos suaves y evita rascarte.",
+          "Protege la piel del sol con protección alta durante los días siguientes.",
+          "Evita saunas, baños muy calientes y ejercicio intenso las primeras horas si notas la piel sensible.",
+          "Si ves enrojecimiento que no baja o cualquier molestia, escríbenos y lo revisamos."
+        ] },
+        { "h": "Fotodepilación, cera o hilo" },
+        { "p": "No son excluyentes. La cera es rápida y se hace por zonas; el hilo es ideal para cejas y rostro, por su precisión; y la fotodepilación es la opción para quien busca reducir el vello a lo largo de varias sesiones. Todas están en la <a href=\"depilacion-fotodepilacion-zafra\">carta de depilación</a>, con sus precios por zona." },
+        { "h": "Cuándo empezar" },
+        { "p": "Mucha gente prefiere empezar en otoño e invierno, cuando la piel ha tomado menos sol. Pero lo importante es que sea un momento en el que puedas cuidar la zona y venir con regularidad." }
+      ],
+      "relacionados": ["preparar-la-piel-para-una-boda-zafra", "tratamiento-facial-segun-tu-piel-zafra"]
+    },
+    {
+      "slug": "masaje-relajante-primera-visita-zafra",
+      "title": "Masaje relajante en Zafra: primera visita | Marina Spa",
+      "description": "Qué esperar de tu primer masaje en Marina Spa: cómo se desarrolla, qué elegir entre masaje, bañera y ritual, y consejos para disfrutarlo. Zafra, Badajoz.",
+      "h1": "Tu primer masaje relajante: qué esperar y cómo elegir",
+      "entradilla": "Del recibimiento a la despedida, cómo es una sesión de bienestar y cuál te conviene según el tiempo que tengas.",
+      "fecha": "2026-10-16",
+      "categoria": "Bienestar",
+      "lectura": 4,
+      "foto": "masaje-espalda",
+      "area": "/spa-relax-masajes-zafra",
+      "areaTexto": "Ver spa y masajes",
+      "cita": "un masaje",
+      "cuerpo": [
+        { "h": "Cómo es una sesión, de principio a fin" },
+        { "p": "Al llegar, te recibimos y te enseñamos el espacio. Trabajamos en una sala de ladrillo con luz cálida, pensada para que desconectes desde el primer minuto. Si es tu primera vez, te preguntamos si tienes zonas con tensión, molestias o algo que prefieras que evitemos." },
+        { "p": "Después te tumbas en la camilla, cubierta con una toalla, y la terapeuta trabaja por zonas con aceite tibio y presión que se ajusta a ti. Puedes decirnos en cualquier momento si quieres más o menos intensidad." },
+        { "h": "Masaje, bañera o ritual completo" },
+        { "ul": [
+          "<strong>Masaje Antiestrés</strong> (30 o 50 minutos): para soltar tensión de espalda, cuello y hombros cuando tienes poco tiempo.",
+          "<strong>Piernas cansadas + presoterapia</strong> (50 minutos): para quien pasa muchas horas de pie o sentada.",
+          "<strong>Bañeras de hidromasaje</strong> (20 minutos): un rato de agua y calma, solo o como parte de otro tratamiento.",
+          "<strong>Rituales de bienestar</strong> (100 minutos): combinan baño, exfoliación y masaje, como el Ritual Polinesia o el Ritual Termal."
+        ] },
+        { "h": "Consejos para disfrutarlo más" },
+        { "ul": [
+          "Llega con unos minutos de margen para no ir con prisa.",
+          "No vengas con el estómago muy lleno ni en ayunas.",
+          "Apaga el móvil o ponlo en silencio: es tu rato.",
+          "Después, bebe agua y, si puedes, no te lances de inmediato a una agenda cargada."
+        ] },
+        { "h": "Si no sabes cuál elegir" },
+        { "p": "Dínoslo al llegar o escríbenos antes por WhatsApp: te proponemos la opción que mejor encaje con el tiempo y las ganas que tengas ese día." }
+      ],
+      "relacionados": ["que-es-indiba-zafra", "tratamiento-facial-segun-tu-piel-zafra"]
+    },
+    {
+      "slug": "preparar-la-piel-para-una-boda-zafra",
+      "title": "Preparar la piel para una boda o evento | Marina Spa Zafra",
+      "description": "Calendario para llegar con la piel, las manos y el maquillaje a punto a una boda o evento: qué hacer semanas antes y qué dejar para los días previos. Zafra.",
+      "h1": "Cómo preparar tu piel para una boda o un evento",
+      "entradilla": "Un calendario sencillo, de las semanas previas al gran día, para llegar tranquila y sin sorpresas.",
+      "fecha": "2026-10-16",
+      "categoria": "Eventos",
+      "lectura": 5,
+      "foto": "ritual-oro",
+      "area": "/estetica-general-zafra",
+      "areaTexto": "Ver maquillaje y estética general",
+      "cita": "preparar un evento",
+      "cuerpo": [
+        { "h": "Cuanto antes empieces, menos prisa" },
+        { "p": "Si el evento es una boda, lo ideal es planificar con tiempo. Esto es solo una guía orientativa: cada persona y cada piel son distintas, y en cabina ajustamos los plazos a tu caso." },
+        { "h": "Dos o tres meses antes" },
+        { "ul": [
+          "Pide una primera visita para valorar tu piel y decidir si te conviene un programa de varias sesiones.",
+          "Si vas a hacer depilación con fotodepilación, empieza ya, porque se hace en sesiones espaciadas.",
+          "Prueba cualquier tratamiento nuevo con margen, por si tu piel necesita adaptarse."
+        ] },
+        { "h": "Un mes antes" },
+        { "ul": [
+          "Un ritual facial que deje la piel limpia, hidratada y luminosa.",
+          "Mantén tu rutina en casa sin cambiar de productos de golpe.",
+          "Cuida el sol: la protección diaria ayuda a evitar marcas de última hora."
+        ] },
+        { "h": "Una semana antes" },
+        { "ul": [
+          "Depilación con cera o hilo, para no depender del último día.",
+          "Un masaje o un ritual de bienestar para llegar con el cuerpo suelto.",
+          "Evita estrenar tratamientos intensos: es mejor lo que ya conoces."
+        ] },
+        { "h": "Los días previos y el día del evento" },
+        { "ul": [
+          "Manicura y pedicura 1 o 2 días antes. El esmaltado semipermanente aguanta bien las fotos y el ajetreo.",
+          "El diseño de cejas con hilo, un par de días antes.",
+          "El día del evento, el maquillaje: si es una boda, el <strong>Maquillaje de Novia</strong> incluye prueba previa y fijación flash de larga duración."
+        ] },
+        { "h": "Si eres invitada" },
+        { "p": "No hace falta tanto calendario. Con un facial unos días antes, la manicura y el <strong>Maquillaje Social</strong> (de día, de tarde o de noche) llegas muy bien. Reserva con tiempo, porque en fechas de bodas la agenda se llena." },
+        { "p": "Cuéntanos la fecha y lo que quieres, y te preparamos un plan a medida." }
+      ],
+      "relacionados": ["tratamiento-facial-segun-tu-piel-zafra", "fotodepilacion-sesiones-cuidados-zafra"]
+    }
+  ]
+}

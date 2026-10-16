@@ -1,4 +1,4 @@
-/* Escribe la web entera desde los datos. Las 13 páginas (12 URL de marinaspa.es + 404),
+/* Escribe la web entera desde los datos. Las 13 páginas (12 URL de marinaspa.es + 404), el blog,
    el sitemap, robots.txt, manifest.json y el .htaccess de IONOS salen de aquí:
 
      data/paginas.json     URL, <title>, description y h1 de hoy (lo que posiciona)
@@ -10,6 +10,8 @@
      data/beauty-party.json  el bloque de Estética general (módulo)
      data/fotos.json       cada <picture> por id (versiones de scripts/fotos.mjs)
      data/sitio.json       contacto, redes y qué módulos están puestos
+     data/blog.json        el blog (/blog y un /blog-<slug> por artículo; URL planas para que
+                           los enlaces relativos de todas las páginas sirvan sin tocarlos)
      assets/marca/loto-piezas.json  el loto (pétalos y máscaras) que se mete en línea
 
    Las páginas NO se editan a mano: se cambia el dato y se vuelve a pasar esto.
@@ -34,6 +36,8 @@ const fotosJson = leer('data/fotos.json');
 const fotos = Object.fromEntries(fotosJson.fotos.map(f => [f.id, f]));
 const loto = leer('assets/marca/loto-piezas.json');
 const MOD = sitio.modulos;
+const blog = leer('data/blog.json');
+const BA = blog.articulos.map(a => ({ ...a, url: '/blog-' + a.slug }));
 /* los datos de un módulo quitado pueden no estar: solo se leen si el módulo sigue */
 const recorrido = MOD.recorrido && fs.existsSync(path.join(raiz, 'data/recorrido.json')) ? leer('data/recorrido.json') : null;
 const beauty = MOD['beauty-party'] && fs.existsSync(path.join(raiz, 'data/beauty-party.json')) ? leer('data/beauty-party.json') : null;
@@ -233,7 +237,7 @@ function cabecera(actual) {
 function pie() {
   return `<footer class="pie">
   <div class="pie__cuerpo">
-    <div class="pie__marca">${marca()}<p>Un santuario de belleza y bienestar en Zafra. Fusionamos técnica, tecnología y pasión para realzar tu mejor versión.</p></div>
+    <div class="pie__marca">${marca()}<p>Un santuario de belleza y bienestar en Zafra. Fusionamos técnica, tecnología y pasión para realzar tu mejor versión.</p><p class="pie__blog"><a href="blog">Blog · guías de estética y bienestar</a></p></div>
     <nav class="pie__col" aria-label="Tratamientos"><h2>Tratamientos</h2><ul>${AREAS.map(a => `<li><a href="${enlace(a.url)}">${a.nombre}</a></li>`).join('')}</ul></nav>
     <div class="pie__col"><h2>Contacto</h2><address><a href="${sitio.opinionesGoogle}" target="_blank" rel="noopener">${sitio.direccion.calle}<br>${sitio.direccion.cp} ${sitio.direccion.ciudad}, ${sitio.direccion.provincia}</a><br><a href="tel:${sitio.tel}">${sitio.telefono}</a><br><a href="mailto:${sitio.email}">${sitio.email}</a></address></div>
     <div class="pie__col"><h2>Síguenos</h2><ul><li><a href="${sitio.instagram}" target="_blank" rel="noopener">Instagram ${sitio.instagramUsuario}</a></li><li><a href="${sitio.facebook}" target="_blank" rel="noopener">Facebook /marinaspazafra</a></li></ul></div>
@@ -715,6 +719,7 @@ ${proionic}
 ${enCabina(a)}
 ${a.clave === 'indiba' ? beneficios() : ''}
 ${party}
+${notasArea(a.url)}
 ${cierreCita()}
 ${otros(a.url)}`;
   return documento({ url: a.url, s, ld: ldArea(a, s), clase: 'pagina-area pagina-' + a.clave, modulos: party ? ['beauty-party'] : [], cuerpo: { main } });
@@ -893,12 +898,93 @@ function pagina404() {
   return documento({ url: '/404', s, clase: 'pagina-404', cuerpo: { main }, es404: true });
 }
 
+/* ═══════════════ BLOG ═══════════════ */
+const fechaLarga = f => new Date(f + 'T12:00:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+const cuerpoBlog = bloques => bloques.map(b => b.h ? `<h2>${esc(b.h)}</h2>` : b.p ? `<p>${b.p}</p>` : `<ul>${b.ul.map(x => `<li>${x}</li>`).join('')}</ul>`).join('\n    ');
+const fotoUrl = id => `${dominio}/assets/fotos/${id}-${fotos[id].anchos[fotos[id].anchos.length - 1]}.jpg`;
+function tarjetaNota(a, h = 'h2') {
+  return `<li><a class="nota" href="${enlace(a.url)}">${arco(a.foto, { cursor: 'Abrir', w: 3, h: 4, sizes: '(max-width: 760px) 80vw, 28vw' })}<span class="nota__eti">${esc(a.categoria)} · ${a.lectura} min de lectura</span><${h} class="nota__titulo">${esc(a.h1)}</${h}><span class="nota__texto">${esc(a.entradilla)}</span></a></li>`;
+}
+/* en cada página de tratamientos, un enlace a los artículos que hablan de ella */
+function notasArea(url) {
+  const l = BA.filter(x => x.area === url);
+  if (!l.length) return '';
+  return `<section class="notas-area" aria-labelledby="notas-area-t">
+  <h2 class="titulo-peq" id="notas-area-t">Para saber más</h2>
+  <ul>${l.map(x => `<li><a href="${enlace(x.url)}">${esc(x.h1)}</a></li>`).join('')}</ul>
+</section>`;
+}
+function paginaBlog() {
+  const i = blog.indice, url = i.url, s = { title: i.title, description: i.description };
+  const main = `<section class="cab-pagina cab-pagina--corta" aria-labelledby="cab-h1">
+  <div class="cab-pagina__texto">
+    <nav class="migas" aria-label="Migas"><ol><li><a href="./">Inicio</a></li><li aria-current="page">Blog</li></ol></nav>
+    <h1 class="cab-pagina__h1" id="cab-h1" data-revelar>${esc(i.h1)}</h1>
+    <p class="cab-pagina__sub">${esc(i.entradilla)}</p>
+  </div>
+</section>
+<section class="blog-lista" aria-label="Artículos">
+  <ul class="blog-rejilla">
+    ${BA.map(a => tarjetaNota(a)).join('\n    ')}
+  </ul>
+</section>
+${cierreCita()}`;
+  const ld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': dominio + url + '#blog', url: dominio + url, name: i.h1, description: i.description, inLanguage: 'es', isPartOf: { '@id': ID },
+    mainEntity: { '@type': 'ItemList', itemListElement: BA.map((a, n) => ({ '@type': 'ListItem', position: n + 1, url: dominio + a.url, name: a.h1 })) } }, migasLd(url, 'Blog')];
+  return documento({ url, s, ld, clase: 'pagina-blog', cuerpo: { main } });
+}
+function paginaArticulo(a) {
+  const s = { title: a.title, description: a.description };
+  const otras = a.relacionados.map(sl => BA.find(x => x.slug === sl));
+  const area = AREAS.find(x => x.url === a.area);
+  const main = `<section class="cab-pagina" aria-labelledby="cab-h1">
+  <div class="cab-pagina__texto">
+    <nav class="migas" aria-label="Migas"><ol><li><a href="./">Inicio</a></li><li><a href="blog">Blog</a></li><li aria-current="page">${esc(a.categoria)}</li></ol></nav>
+    <h1 class="cab-pagina__h1" id="cab-h1" data-revelar>${esc(a.h1)}</h1>
+    <p class="cab-pagina__sub">${esc(a.entradilla)}</p>
+    <p class="articulo__meta">Por ${esc(blog.autor)} · <time datetime="${a.fecha}">${fechaLarga(a.fecha)}</time> · ${a.lectura} min de lectura</p>
+  </div>
+  <div class="cab-pagina__arco">${arco(a.foto, { w: 3, h: 4.2, sizes: '(max-width: 760px) 70vw, 320px', eager: true, clase: 'arco--nitida', extra: `<span class="cab-pagina__loto">${lotoPeq()}</span>` })}</div>
+</section>
+<article class="articulo">
+  <div class="articulo__cuerpo">
+    ${cuerpoBlog(a.cuerpo)}
+  </div>
+  <aside class="articulo-cta" aria-label="Siguiente paso">
+    <p class="eti">${esc(area.nombre)}</p>
+    <p class="articulo-cta__texto">Si quieres saber qué te conviene a ti, te lo contamos en cabina, sin compromiso.</p>
+    <div class="acciones"><a class="boton boton--oro iman" href="${enlace(a.area)}">${esc(a.areaTexto)}</a><a class="boton boton--linea iman" href="${waCita(a.cita)}" target="_blank" rel="noopener">Pedir cita por WhatsApp</a></div>
+  </aside>
+</article>
+<section class="seguir" aria-labelledby="seguir-t">
+  <h2 class="titulo-peq" id="seguir-t">Sigue leyendo</h2>
+  <ul class="blog-rejilla">
+    ${otras.map(x => tarjetaNota(x, 'h3')).join('\n    ')}
+  </ul>
+</section>`;
+  const ld = [{
+    '@context': 'https://schema.org', '@type': 'BlogPosting', '@id': dominio + a.url + '#articulo', mainEntityOfPage: { '@type': 'WebPage', '@id': dominio + a.url },
+    headline: a.h1, description: a.description, inLanguage: 'es', datePublished: a.fecha, dateModified: a.fecha, image: fotoUrl(a.foto),
+    author: { '@type': 'Organization', '@id': ID, name: 'Marina Spa' }, publisher: { '@type': 'Organization', '@id': ID, name: 'Marina Spa', logo: { '@type': 'ImageObject', url: dominio + '/assets/marca/icono-512.png' } },
+    about: { '@type': 'Service', '@id': dominio + a.area + '#service' }
+  }, {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: dominio + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: dominio + '/blog' },
+      { '@type': 'ListItem', position: 3, name: a.h1, item: dominio + a.url }
+    ]
+  }];
+  return documento({ url: a.url, s, ld, clase: 'pagina-blog pagina-articulo', cuerpo: { main } });
+}
+
 /* ═══════════════ estáticos ═══════════════ */
 const URLS = paginas.map(p => p.url);
 function sitemap() {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${URLS.map(u => `  <url><loc>${dominio}${u}</loc></url>`).join('\n')}
+  <url><loc>${dominio}/blog</loc><lastmod>${BA.map(a => a.fecha).sort().pop()}</lastmod></url>
+${BA.map(a => `  <url><loc>${dominio}${a.url}</loc><lastmod>${a.fecha}</lastmod></url>`).join('\n')}
 </urlset>
 `;
 }
@@ -960,6 +1046,8 @@ AREAS.forEach(a => salidas.set(archivo(a.url), paginaArea(a)));
 salidas.set('centro-estetica-zafra.html', paginaCentro());
 salidas.set('contacto.html', paginaContacto());
 ['/aviso-legal', '/politica-privacidad', '/politica-cookies'].forEach(u => salidas.set(archivo(u), paginaLegal(u)));
+salidas.set('blog.html', paginaBlog());
+BA.forEach(a => salidas.set(archivo(a.url), paginaArticulo(a)));
 salidas.set('404.html', pagina404());
 salidas.set('sitemap.xml', sitemap());
 salidas.set('robots.txt', robots);
