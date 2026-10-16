@@ -102,9 +102,31 @@ html.has-motion [data-revelar].es-partido .letra, html.has-motion [data-revelar]
 .navegacion__principal { display: flex; gap: 30px; font: 700 .7rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; }
 .navegacion a { text-decoration: none; color: var(--texto-osc); transition: color .3s; }
 .navegacion a:hover, .navegacion a[aria-current="page"] { color: var(--oro-cl); }
+/* desplegable de tratamientos (solo escritorio; en móvil ya están en el menú) */
+.desplegable { display: flex; align-items: center; gap: 6px; }
+.navegacion a.es-seccion { color: var(--oro-cl); }
+.desplegable__flecha { width: 18px; height: 18px; display: grid; place-items: center; background: none; border: 0; padding: 0; cursor: pointer; color: var(--texto-osc); }
+.desplegable__flecha::before { content: ""; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.4px 1.4px 0; transform: translateY(-2px) rotate(45deg); transition: transform .3s var(--curva); }
+.desplegable__flecha[aria-expanded="true"]::before { transform: translateY(2px) rotate(225deg); }
+.desplegable__flecha:hover, .desplegable__flecha[aria-expanded="true"] { color: var(--oro-cl); }
+.panel-trat { position: absolute; top: var(--cab-alto); left: 0; right: 0; background: var(--noche); box-shadow: 0 1px 0 rgba(212, 175, 55, .25) inset, 0 24px 48px rgba(0, 0, 0, .35); padding: 30px var(--lado) 34px; letter-spacing: 0; text-transform: none; animation: panel-entra .35s var(--curva); }
+.panel-trat[hidden] { display: none; }
+.panel-trat::before { content: ""; position: absolute; left: 0; right: 0; top: -28px; height: 28px; } /* puente: el ratón baja sin cerrarlo */
+@keyframes panel-entra { from { opacity: 0; transform: translateY(-8px); } }
+.panel-trat__lista { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px; }
+.navegacion .panel-trat__item { display: grid; justify-items: center; text-align: center; gap: 8px; color: var(--cal); }
+.panel-trat__arco { width: 96px; aspect-ratio: 3 / 4; border-radius: 48px 48px 0 0; overflow: hidden; outline: 1px solid rgba(212, 175, 55, .55); outline-offset: 4px; margin-bottom: 8px; transition: outline-color .3s; }
+.panel-trat__arco img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--curva); }
+.panel-trat__item:hover .panel-trat__arco img, .panel-trat__item:focus-visible .panel-trat__arco img { transform: scale(1.06); }
+.panel-trat__item:hover .panel-trat__arco, .panel-trat__item[aria-current="page"] .panel-trat__arco { outline-color: var(--oro-cl); }
+.panel-trat__nombre { font: 400 1.15rem/1.15 var(--serif); }
+.panel-trat__item:hover .panel-trat__nombre, .panel-trat__item[aria-current="page"] .panel-trat__nombre { color: var(--oro-cl); }
+.panel-trat__texto { font: 400 .78rem/1.45 var(--sans); color: var(--piedra-cl); }
+@media (prefers-reduced-motion: reduce) { .panel-trat { animation: none; } .panel-trat__arco img { transition: none; } }
 .navegacion__areas, .navegacion__datos { display: none; }
 .hamburguesa { display: none; }
 @media (max-width: 999px) {
+  .desplegable__flecha, .panel-trat { display: none !important; }
   .cabecera__cita { margin-left: auto; position: relative; z-index: 3; }
   .hamburguesa { display: inline-flex; position: relative; z-index: 3; width: 46px; height: 46px; align-items: center; justify-content: center; }
   .hamburguesa__rayas, .hamburguesa__rayas::before, .hamburguesa__rayas::after { display: block; width: 22px; height: 1.5px; background: var(--cal); transition: transform .35s var(--curva), background-color .2s; }
@@ -295,6 +317,31 @@ html.has-motion .panel.es-entrando .linea--corta:nth-child(6) { animation-delay:
 .ritual { position: relative; flex: 0 0 min(320px, 80vw); scroll-snap-align: start; border: 1px solid rgba(212, 175, 55, .3); display: flex; flex-direction: column; background: var(--noche); }
 @media (min-width: 1200px) { .ritual { flex: 1 1 0; min-width: 250px; } }
 .ritual .arco { margin: 22px 22px 0; }
+.ritual__foto { display: block; }
+
+/* ampliar: botón que cubre la foto y abre el visor */
+.arco__ampliar { position: absolute; inset: 0; z-index: 2; border: 0; padding: 0; background: none; border-radius: 999px 999px 0 0; cursor: zoom-in; }
+.arco__ampliar:focus-visible { outline: 2px solid var(--oro-cl); outline-offset: 10px; }
+.arco:has(.arco__ampliar:hover) .arco__foto img { transform: scale(1.05); }
+.visor { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 4vh 4vw 3vh; border: 0; background: var(--noche); color: var(--cal); display: grid; grid-template-rows: 1fr auto; justify-items: center; align-items: center; opacity: 0; transition: opacity .45s; }
+.visor:not([open]) { display: none; }
+.visor.es-abierto { opacity: 1; }
+.visor::backdrop { background: transparent; }
+.visor__marco { position: relative; height: min(76dvh, 900px); aspect-ratio: 9 / 16; max-width: 78vw; border-radius: 999px 999px 0 0; overflow: hidden; outline: 1.3px solid var(--oro); outline-offset: 9px; background: var(--noche-2); }
+/* entrada: fundido y una subida corta del arco (nada de destapar desde abajo: decisión de la web) */
+.visor__marco { transform: translateY(24px); transition: transform .8s var(--curva); }
+.visor.es-abierto .visor__marco { transform: none; }
+.visor__marco img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+.visor__pie { margin-top: 22px; text-align: center; }
+.visor__titulo { font: 400 1.35rem/1.3 var(--serif); margin-bottom: 6px; }
+.visor__num { font: 700 .64rem/1 var(--sans); letter-spacing: .26em; color: var(--piedra-cl); }
+.visor__boton { position: absolute; width: 54px; height: 54px; border-radius: 50%; border: 1px solid rgba(212, 175, 55, .5); background: none; color: var(--oro-cl); font-size: 1.15rem; display: grid; place-items: center; cursor: pointer; transition: background-color .3s, color .3s; }
+.visor__boton:hover, .visor__boton:focus-visible { background: var(--oro); color: var(--noche); }
+.visor__ant, .visor__sig { top: 50%; transform: translateY(-50%); }
+.visor__ant { left: 4vw; } .visor__sig { right: 4vw; } .visor__cerrar { top: 3vh; right: 4vw; }
+@media (max-width: 760px) { .visor__ant, .visor__sig { top: auto; bottom: 3vh; transform: none; } .visor__marco { height: 68dvh; } }
+@media (prefers-reduced-motion: reduce) { .visor, .visor__marco, .visor__marco img { transition: none; } .visor__marco { transform: none; } }
+.cursor[data-texto="▶"]::after { font-size: 1.1rem; letter-spacing: 0; padding-left: 3px; }
 .ritual__cuerpo { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .ritual__min { font: 700 .68rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--oro); }
 .ritual__nombre { font: 400 1.7rem/1.08 var(--serif); }
@@ -454,6 +501,19 @@ html.has-motion .beneficios__lista li.es-visible:nth-child(3n) .icono path { tra
 .tour { background: var(--noche); position: relative; z-index: 1; margin-top: calc(-1 * var(--recorrido) + 2.6rem); padding: var(--sec) var(--lado); display: grid; gap: 44px; align-items: center; justify-items: center; text-align: center; }
 @media (min-width: 900px) { .tour { grid-template-columns: 1fr auto; text-align: left; justify-items: start; } }
 .tour .arco--video { width: min(300px, 70vw); margin: 15px; }
+/* en cabina (páginas de tratamiento): bucle + tres fotos en arco, y los vídeos con controles */
+.cabina-sec { background: var(--noche); color: var(--cal); padding: var(--sec) var(--lado); }
+.cabina-sec__cab { max-width: 1180px; margin: 0 auto 48px; }
+.cabina-sec__rejilla { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 36px); align-items: end; }
+.cabina-sec__rejilla > .arco, .cabina-sec__bucle { margin-top: 15px; }
+.cabina-sec__reels { max-width: 1180px; margin: 64px auto 0; display: flex; flex-wrap: wrap; gap: 44px; justify-content: center; }
+.cabina-sec__reel { width: min(260px, 70vw); margin: 0; }
+.cabina-sec__reel figcaption { margin-top: 18px; text-align: center; font: 700 .64rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--piedra-cl); }
+.cabina-sec video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 760px) {
+  .cabina-sec__rejilla { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 22px; padding: 0 8px 12px; margin: 0 calc(-1 * var(--lado)); padding-inline: var(--lado); scrollbar-width: none; }
+  .cabina-sec__rejilla > * { flex: 0 0 62vw; scroll-snap-align: center; }
+}
 .porque { text-align: center; padding: var(--sec) var(--lado); }
 .porque__loto { margin: 0 auto 20px; }
 .porque__texto { font: 300 clamp(1.6rem, 3vw, 2.4rem)/1.25 var(--serif); max-width: 36ch; margin: 16px auto 0; }
@@ -479,6 +539,42 @@ html.has-motion .beneficios__lista li.es-visible:nth-child(3n) .icono path { tra
 .tabla-legal th, .tabla-legal td { border: 1px solid var(--linea); padding: 8px 10px; text-align: left; vertical-align: top; }
 .tabla-legal th { background: var(--cal-2); }
 @media (max-width: 600px) { .tabla-legal { display: block; overflow-x: auto; } }
+
+/* blog: índice, artículo y el enlace «Para saber más» de cada página de tratamientos */
+.blog-lista, .articulo, .seguir, .notas-area { background: var(--cal); color: var(--noche); }
+.blog-lista :focus-visible, .articulo :focus-visible, .seguir :focus-visible, .notas-area :focus-visible { outline-color: var(--noche); }
+.pagina-blog .cab-pagina__h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); max-width: 22ch; }
+.blog-lista { padding: var(--sec) var(--lado); }
+.blog-rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 44px 28px; max-width: 1200px; margin: 0 auto; }
+.nota { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
+.nota .arco { margin: 7px 7px 0; }
+.nota__eti { margin-top: 20px; font: 700 .62rem/1.3 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--oro-texto); }
+.nota__titulo { margin-top: 8px; font: 400 1.6rem/1.15 var(--serif); }
+.nota__texto { margin-top: 10px; font-size: .94rem; color: var(--piedra); }
+.nota:hover .nota__titulo, .nota:focus-visible .nota__titulo { text-decoration: underline; text-decoration-color: var(--oro); text-underline-offset: 4px; }
+.nota:hover .arco__foto img, .nota:focus-visible .arco__foto img { transform: scale(1.07); }
+.articulo__meta { margin-top: 18px; font-size: .86rem; color: var(--texto-osc); }
+.articulo { padding: var(--sec) var(--lado) 40px; }
+.articulo__cuerpo { max-width: 68ch; margin: 0 auto; }
+.articulo__cuerpo h2 { margin: 44px 0 12px; font: 400 clamp(1.7rem, 3vw, 2.2rem)/1.15 var(--serif); }
+.articulo__cuerpo h2:first-child { margin-top: 0; }
+.articulo__cuerpo p, .articulo__cuerpo li { font-size: 1.05rem; line-height: 1.75; color: #44403C; }
+.articulo__cuerpo p + p { margin-top: 14px; }
+.articulo__cuerpo ul { list-style: disc; padding-left: 1.3em; margin: 12px 0; }
+.articulo__cuerpo li + li { margin-top: 6px; }
+.articulo__cuerpo a { color: var(--noche); text-decoration-color: var(--oro); text-underline-offset: 3px; }
+.articulo-cta { max-width: 68ch; margin: 56px auto 0; padding: clamp(24px, 4vw, 40px); background: var(--noche); color: var(--cal); text-align: center; }
+.articulo-cta__texto { max-width: 42ch; margin: 12px auto 24px; color: var(--texto-osc); }
+.articulo-cta .acciones { justify-content: center; }
+.seguir { padding: var(--sec) var(--lado); }
+.seguir .titulo-peq { max-width: 1200px; margin: 0 auto 30px; }
+.seguir .blog-rejilla { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 380px)); justify-content: start; }
+.notas-area { padding: 56px var(--lado) var(--sec); }
+.notas-area .titulo-peq { margin-bottom: 14px; }
+.notas-area a { color: var(--noche); text-decoration-color: var(--oro); text-underline-offset: 3px; font: 400 1.35rem/1.3 var(--serif); }
+.notas-area li + li { margin-top: 8px; }
+.pie__blog { margin-top: 14px; font-size: .9rem; }
+.pie__blog a { color: var(--oro-cl); text-decoration-color: var(--oro); text-underline-offset: 3px; }
 
 /* 404 */
 .portada--404 { align-items: center; justify-content: center; min-height: 100svh; }

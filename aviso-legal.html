@@ -33,7 +33,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="preload" href="assets/fuentes/cormorant-garamond-300-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fuentes/lato-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/estilos.css?v=78101ff5">
+<link rel="stylesheet" href="css/estilos.css?v=f6c2b989">
 <script>
 /* Bloqueante a propósito: la clase de JS, la cortina (una vez por visita) y la
    densidad de la maqueta se resuelven antes del primer pintado. */
@@ -84,7 +84,18 @@
     <nav class="navegacion" id="navegacion" aria-label="Principal">
       <ul class="navegacion__principal">
         <li><a href="centro-estetica-zafra">El centro</a></li>
-        <li><a href="./#tratamientos">Tratamientos</a></li>
+        <li class="desplegable" id="desplegable"><a href="./#tratamientos">Tratamientos</a><button class="desplegable__flecha" id="desplegable-flecha" type="button" aria-expanded="false" aria-controls="panel-trat"><span class="visualmente-oculto">Ver las páginas de tratamientos</span></button>
+          <div class="panel-trat" id="panel-trat" hidden>
+            <ul class="panel-trat__lista">
+              <li><a class="panel-trat__item" href="tratamientos-faciales-zafra"><span class="panel-trat__arco"><picture data-foto="facial"><source type="image/avif" srcset="assets/fotos/facial-640.avif 640w, assets/fotos/facial-1080.avif 1080w" sizes="96px"><source type="image/webp" srcset="assets/fotos/facial-640.webp 640w, assets/fotos/facial-1080.webp 1080w" sizes="96px"><img src="assets/fotos/facial-1080.jpg" srcset="assets/fotos/facial-640.jpg 640w, assets/fotos/facial-1080.jpg 1080w" sizes="96px" width="1080" height="1920" alt="" decoding="async" loading="lazy" style="object-position:50% 35%"></picture></span><span class="panel-trat__nombre">Rituales faciales</span><span class="panel-trat__texto">Rejuvenecimiento, higiene y luminosidad con alta cosmética.</span></a></li>
+              <li><a class="panel-trat__item" href="indiba-zafra"><span class="panel-trat__arco"><picture data-foto="indiba"><source type="image/avif" srcset="assets/fotos/indiba-640.avif 640w, assets/fotos/indiba-1080.avif 1080w" sizes="96px"><source type="image/webp" srcset="assets/fotos/indiba-640.webp 640w, assets/fotos/indiba-1080.webp 1080w" sizes="96px"><img src="assets/fotos/indiba-1080.jpg" srcset="assets/fotos/indiba-640.jpg 640w, assets/fotos/indiba-1080.jpg 1080w" sizes="96px" width="1080" height="1920" alt="" decoding="async" loading="lazy" style="object-position:50% 40%"></picture></span><span class="panel-trat__nombre">Indiba</span><span class="panel-trat__texto">Radiofrecuencia regenerativa celular para rostro y cuerpo.</span></a></li>
+              <li><a class="panel-trat__item" href="tratamientos-corporales-zafra"><span class="panel-trat__arco"><picture data-foto="corporales"><source type="image/avif" srcset="assets/fotos/corporales-640.avif 640w, assets/fotos/corporales-1080.avif 1080w" sizes="96px"><source type="image/webp" srcset="assets/fotos/corporales-640.webp 640w, assets/fotos/corporales-1080.webp 1080w" sizes="96px"><img src="assets/fotos/corporales-1080.jpg" srcset="assets/fotos/corporales-640.jpg 640w, assets/fotos/corporales-1080.jpg 1080w" sizes="96px" width="1080" height="1920" alt="" decoding="async" loading="lazy" style="object-position:50% 60%"></picture></span><span class="panel-trat__nombre">Corporales</span><span class="panel-trat__texto">Maderoterapia, criolipólisis y planes de adelgazamiento.</span></a></li>
+              <li><a class="panel-trat__item" href="spa-relax-masajes-zafra"><span class="panel-trat__arco"><picture data-foto="bienestar"><source type="image/avif" srcset="assets/fotos/bienestar-640.avif 640w, assets/fotos/bienestar-1080.avif 1080w" sizes="96px"><source type="image/webp" srcset="assets/fotos/bienestar-640.webp 640w, assets/fotos/bienestar-1080.webp 1080w" sizes="96px"><img src="assets/fotos/bienestar-1080.jpg" srcset="assets/fotos/bienestar-640.jpg 640w, assets/fotos/bienestar-1080.jpg 1080w" sizes="96px" width="1080" height="1920" alt="" decoding="async" loading="lazy" style="object-position:50% 35%"></picture></span><span class="panel-trat__nombre">Spa y masajes</span><span class="panel-trat__texto">Masajes relajantes, bañeras de hidromasaje y rituales sensoriales.</span></a></li>
+              <li><a class="panel-trat__item" href="depilacion-fotodepilacion-zafra"><span class="panel-trat__arco"><picture data-foto="depilacion"><source type="image/avif" srcset="assets/fotos/depilacion-640.avif 640w, assets/fotos/depilacion-928.avif 928w" sizes="96px"><source type="image/webp" srcset="assets/fotos/depilacion-640.webp 640w, assets/fotos/depilacion-928.webp 928w" sizes="96px"><img src="assets/fotos/depilacion-928.jpg" srcset="assets/fotos/depilacion-640.jpg 640w, assets/fotos/depilacion-928.jpg 928w" sizes="96px" width="928" height="1232" alt="" decoding="async" loading="lazy" style="object-position:50% 40%"></picture></span><span class="panel-trat__nombre">Depilación</span><span class="panel-trat__texto">Fotodepilación, cera y diseño de cejas con hilo. Resultados duraderos.</span></a></li>
+              <li><a class="panel-trat__item" href="estetica-general-zafra"><span class="panel-trat__arco"><picture data-foto="estetica"><source type="image/avif" srcset="assets/fotos/estetica-640.avif 640w, assets/fotos/estetica-1280.avif 1280w" sizes="96px"><source type="image/webp" srcset="assets/fotos/estetica-640.webp 640w, assets/fotos/estetica-1280.webp 1280w" sizes="96px"><img src="assets/fotos/estetica-1280.jpg" srcset="assets/fotos/estetica-640.jpg 640w, assets/fotos/estetica-1280.jpg 1280w" sizes="96px" width="1280" height="1280" alt="" decoding="async" loading="lazy" style="object-position:45% 45%"></picture></span><span class="panel-trat__nombre">Estética general</span><span class="panel-trat__texto">Manicura, pedicura y maquillaje para realzar tu belleza natural.</span></a></li>
+            </ul>
+          </div>
+        </li>
         <li><a href="indiba-zafra">Indiba</a></li>
         <li><a href="contacto">Contacto</a></li>
       </ul>
@@ -133,7 +144,7 @@
 </main>
 <footer class="pie">
   <div class="pie__cuerpo">
-    <div class="pie__marca"><a class="marca" href="./" aria-label="Marina Spa, inicio"><svg class="marca__loto" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg><span class="marca__nombre">MARINA SPA</span></a><p>Un santuario de belleza y bienestar en Zafra. Fusionamos técnica, tecnología y pasión para realzar tu mejor versión.</p></div>
+    <div class="pie__marca"><a class="marca" href="./" aria-label="Marina Spa, inicio"><svg class="marca__loto" viewBox="60 46 520 564" aria-hidden="true" focusable="false"><use href="#loto-s" x="60" y="46" width="520" height="564"/></svg><span class="marca__nombre">MARINA SPA</span></a><p>Un santuario de belleza y bienestar en Zafra. Fusionamos técnica, tecnología y pasión para realzar tu mejor versión.</p><p class="pie__blog"><a href="blog">Blog · guías de estética y bienestar</a></p></div>
     <nav class="pie__col" aria-label="Tratamientos"><h2>Tratamientos</h2><ul><li><a href="tratamientos-faciales-zafra">Rituales faciales</a></li><li><a href="indiba-zafra">Indiba</a></li><li><a href="tratamientos-corporales-zafra">Corporales</a></li><li><a href="spa-relax-masajes-zafra">Spa y masajes</a></li><li><a href="depilacion-fotodepilacion-zafra">Depilación</a></li><li><a href="estetica-general-zafra">Estética general</a></li></ul></nav>
     <div class="pie__col"><h2>Contacto</h2><address><a href="https://www.google.com/maps/search/?api=1&query=Marina+Spa+Zafra" target="_blank" rel="noopener">C. Reyes Huertas, 8<br>06300 Zafra, Badajoz</a><br><a href="tel:+34644799000">644 79 90 00</a><br><a href="mailto:info@marinaspa.es">info@marinaspa.es</a></address></div>
     <div class="pie__col"><h2>Síguenos</h2><ul><li><a href="https://www.instagram.com/marinaspazafra/" target="_blank" rel="noopener">Instagram @marinaspazafra</a></li><li><a href="https://www.facebook.com/marinaspazafra/" target="_blank" rel="noopener">Facebook /marinaspazafra</a></li></ul></div>
@@ -147,7 +158,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script type="module" src="js/main.js?v=a0a97d9a"></script>
+<script type="module" src="js/main.js?v=c7d497f0"></script>
 
 </body>
 </html>

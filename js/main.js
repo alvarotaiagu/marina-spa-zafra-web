@@ -53,6 +53,16 @@ function alVisible(nodos, fn, margen = '0px 0px -12% 0px') {
 }
 M.alVisible = alVisible;
 
+/* cinemagraphs «en cabina»: suenan nunca, corren solo a la vista; con reduced-motion, el póster */
+(() => {
+  const bucles = [...document.querySelectorAll('video.bucle')];
+  if (!bucles.length || reduce || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.preload = 'auto'; e.target.play().catch(() => {}); } else e.target.pause();
+  }), { rootMargin: '120px 0px' });
+  bucles.forEach(v => io.observe(v));
+})();
+
 /* resize: solo cuenta si cambia el ancho o el alto de verdad (no la barra del móvil) */
 let anchoVista = innerWidth, altoVista = innerHeight;
 const alCambiarVista = [];
@@ -606,6 +616,68 @@ if (cab) {
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && cab.classList.contains('es-menu-abierto')) { cerrarMenu(); hamb.focus(); } });
   $$('#navegacion a').forEach(a => a.addEventListener('click', cerrarMenu));
 }
+
+/* ───────── visor «Ampliar»: las fotos de una misma sección, en el arco grande ───────── */
+(function visor() {
+  const botones = $$('.arco__ampliar');
+  if (!botones.length || !window.HTMLDialogElement) return;
+  const d = document.createElement('dialog');
+  d.className = 'visor'; d.setAttribute('aria-label', 'Fotos ampliadas');
+  d.innerHTML = '<button class="visor__boton visor__cerrar" type="button" aria-label="Cerrar">✕</button><button class="visor__boton visor__ant" type="button" aria-label="Foto anterior">←</button><div class="visor__marco"><img alt=""></div><div class="visor__pie"><p class="visor__titulo"></p><p class="visor__num"></p></div><button class="visor__boton visor__sig" type="button" aria-label="Foto siguiente">→</button>';
+  document.body.appendChild(d);
+  const img = $('img', d), tit = $('.visor__titulo', d), num = $('.visor__num', d);
+  let grupo = [], i = 0, reloj;
+  const pintar = () => {
+    const b = grupo[i];
+    /* checklist 11: la serie es la misma lista de botones; primero la miniatura que ya está en caché
+       (la que pinta el arco) y la grande cuando llega, para que nunca se quede a la vista la anterior */
+    const peq = b.parentNode.querySelector('.arco__foto img');
+    img.style.opacity = 0; clearTimeout(reloj);
+    reloj = setTimeout(() => {
+      img.src = (peq && peq.currentSrc) || b.dataset.ampliar; img.alt = b.dataset.alt; img.style.opacity = 1;
+      const grande = new Image();
+      grande.onload = () => { if (grupo[i] === b) img.src = b.dataset.ampliar; };
+      grande.src = b.dataset.ampliar;
+    }, reduce ? 0 : 160);
+    tit.textContent = b.dataset.titulo; num.textContent = (i + 1) + ' / ' + grupo.length;
+    $$('.visor__ant, .visor__sig', d).forEach(x => { x.hidden = grupo.length < 2; });
+  };
+  const mover = paso => { i = (i + paso + grupo.length) % grupo.length; pintar(); };
+  let origen = null;
+  botones.forEach(b => b.addEventListener('click', () => {
+    origen = b;
+    grupo = $$('.arco__ampliar', b.closest('section') || document); i = grupo.indexOf(b);
+    pintar(); d.showModal(); requestAnimationFrame(() => d.classList.add('es-abierto'));
+    if (lenis) lenis.stop();
+  }));
+  const cerrar = () => d.close();
+  d.addEventListener('close', () => { d.classList.remove('es-abierto'); if (lenis) lenis.start(); if (origen) origen.focus(); });
+  $('.visor__cerrar', d).addEventListener('click', cerrar);
+  $('.visor__ant', d).addEventListener('click', () => mover(-1));
+  $('.visor__sig', d).addEventListener('click', () => mover(1));
+  d.addEventListener('click', e => { if (e.target === d) cerrar(); });
+  d.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') mover(-1); if (e.key === 'ArrowRight') mover(1); });
+  /* deslizar en móvil */
+  let x0 = null;
+  d.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  d.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) mover(dx < 0 ? 1 : -1); x0 = null; });
+})();
+
+/* ───────── desplegable de tratamientos (escritorio) ───────── */
+(function desplegable() {
+  const li = $('#desplegable'), boton = $('#desplegable-flecha'), panel = $('#panel-trat');
+  if (!li || !boton || !panel) return;
+  let reloj;
+  const poner = abierto => { clearTimeout(reloj); panel.hidden = !abierto; boton.setAttribute('aria-expanded', abierto ? 'true' : 'false'); };
+  boton.addEventListener('click', () => poner(panel.hidden));
+  if (!tactil) {
+    li.addEventListener('mouseenter', () => { clearTimeout(reloj); reloj = setTimeout(() => poner(true), 120); });
+    li.addEventListener('mouseleave', () => { clearTimeout(reloj); reloj = setTimeout(() => poner(false), 260); });
+  }
+  li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) poner(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { poner(false); boton.focus(); } });
+  document.addEventListener('click', e => { if (!panel.hidden && !li.contains(e.target)) poner(false); });
+})();
 
 /* ───────── mapa: Google solo bajo clic ───────── */
 (function mapa() {

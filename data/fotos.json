@@ -61,58 +61,58 @@
   },
   {
    "id": "facial",
-   "origen": "assets_tratamientos-faciales-5w2_WaeR.jpg",
-   "tipo": "banco",
-   "provisional": true,
-   "alt": "Masaje facial con las manos sobre el rostro y el cuello",
-   "foco": "58% 50%",
-   "w": 1920,
-   "h": 1280,
+   "origen": "DERMAPEN-17.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Esteticista con chaleco de lino aplicando un dermapen sobre el rostro de una clienta tumbada, con cortina cálida de fondo",
+   "foco": "50% 35%",
+   "w": 1080,
+   "h": 1920,
    "anchos": [
     640,
-    1280
+    1080
    ]
   },
   {
    "id": "indiba",
-   "origen": "assets_tratamientos-indiba-jIHyv4RI.png",
-   "tipo": "banco",
-   "provisional": true,
-   "alt": "Perfil de una mujer con la piel luminosa",
-   "foco": "45% 45%",
-   "w": 960,
-   "h": 1200,
+   "origen": "INDIBA FACIAL-15.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Esteticista aplicando el manipulo de radiofrecuencia sobre el rostro de una clienta tumbada, con cortina beige de fondo",
+   "foco": "50% 40%",
+   "w": 1080,
+   "h": 1920,
    "anchos": [
     640,
-    960
+    1080
    ]
   },
   {
    "id": "corporales",
-   "origen": "assets_tratamientos-corporales-Dygq4Pwk.png",
-   "tipo": "banco",
-   "provisional": true,
-   "alt": "Masaje de espalda con aceite sobre la camilla",
-   "foco": "40% 50%",
-   "w": 1232,
-   "h": 928,
+   "origen": "INDIBA CORPORAL-9.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Sala de tratamiento con bóveda de ladrillo donde una terapeuta trabaja el abdomen de una clienta tumbada, con el equipo de radiofrecuencia al fondo",
+   "foco": "50% 60%",
+   "w": 1080,
+   "h": 1920,
    "anchos": [
     640,
-    1232
+    1080
    ]
   },
   {
    "id": "bienestar",
-   "origen": "assets_tratamientos-bienestar-DM7doaGe.jpg",
-   "tipo": "banco",
-   "provisional": true,
-   "alt": "Vela, sales, aceite esencial y piedras sobre madera con eucalipto",
-   "foco": "70% 55%",
-   "w": 1920,
-   "h": 1077,
+   "origen": "PAREJA-25.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Dos terapeutas con chaleco de lino vierten aceite tibio sobre las piernas de dos clientes tumbados en camillas, en una sala de ladrillo y madera",
+   "foco": "50% 35%",
+   "w": 1080,
+   "h": 1920,
    "anchos": [
     640,
-    1280
+    1080
    ]
   },
   {
@@ -146,16 +146,16 @@
   },
   {
    "id": "aceite",
-   "origen": "assets_ritual-bienestar-marina-spa-zafra-BkG1bzyR.png",
-   "tipo": "banco",
-   "provisional": true,
-   "alt": "Manos que sostienen un cuenco de aceite",
-   "foco": "45% 45%",
-   "w": 1344,
-   "h": 896,
+   "origen": "PAREJA-1.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Hilo de aceite que cae desde un cuenco blanco sobre la espalda de un cliente",
+   "foco": "40% 30%",
+   "w": 1080,
+   "h": 1920,
    "anchos": [
     640,
-    1280
+    1080
    ]
   },
   {
@@ -184,6 +184,202 @@
    "anchos": [
     640,
     1280
+   ]
+  },
+  {
+   "id": "equipo",
+   "origen": "PAREJA-30.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Terapeuta con chaleco gris masajea las piernas de una clienta; otra terapeuta trabaja al fondo ante una pared de ladrillo",
+   "foco": "50% 40%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "dermapen-rostro",
+   "origen": "DERMAPEN-22.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Rostro de una clienta con los ojos cerrados mientras el dermapen recorre la frente",
+   "foco": "50% 60%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "dermapen-bandeja",
+   "origen": "DERMAPEN-1.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Bandeja dorada con ampollas y viales preparados para el tratamiento facial",
+   "foco": "40% 55%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "ritual-oro",
+   "origen": "RITUAL ORO-17.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Clienta tumbada de perfil con el rostro y el cuello cubiertos de pan de oro, junto a una pared de ladrillo con luz cálida",
+   "foco": "55% 50%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "indiba-ona",
+   "origen": "INDIBA ONA-25.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Terapeuta junto al equipo Indiba aplicando un cabezal con luz roja sobre el rostro de una clienta tumbada, en una sala de ladrillo",
+   "foco": "55% 50%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "indiba-electrodo",
+   "origen": "INDIBA FACIAL-13.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Esteticista guiando el electrodo de radiofrecuencia sobre la mejilla de una clienta, con el equipo Indiba detrás",
+   "foco": "55% 40%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "ona-cabezal",
+   "origen": "INDIBA ONA-21.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Primer plano del cabezal con luz roja y ámbar apoyado sobre la frente de una clienta",
+   "foco": "65% 55%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "corporal-abdomen",
+   "origen": "INDIBA CORPORAL-11.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Terapeuta aplicando un cabezal de radiofrecuencia sobre el abdomen de una clienta tumbada, en una sala de ladrillo con luz cálida",
+   "foco": "55% 45%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "corporal-crema",
+   "origen": "INDIBA CORPORAL-2.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Manos de la terapeuta extendiendo crema sobre el abdomen de una clienta cubierta con una toalla bordada",
+   "foco": "50% 45%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "corporal-electrodo",
+   "origen": "INDIBA CORPORAL-8.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Detalle del electrodo de radiofrecuencia apoyado sobre la piel mientras la terapeuta acompaña con la otra mano",
+   "foco": "35% 55%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "pareja-espalda",
+   "origen": "PAREJA-2.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Terapeuta de pelo largo y oscuro masajea con aceite la espalda de un cliente; al fondo, la segunda camilla junto a una puerta de madera",
+   "foco": "45% 40%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "masaje-espalda",
+   "origen": "PAREJA-18.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Una terapeuta masajea la espalda de una mujer tumbada boca abajo, con los ojos cerrados, junto a una pared de ladrillo con luz cálida",
+   "foco": "65% 50%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "ritual-oro-pan",
+   "origen": "RITUAL ORO-12.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Rostro con mascarilla blanca al que se le colocan láminas de pan de oro con las manos de la terapeuta",
+   "foco": "40% 35%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
+   ]
+  },
+  {
+   "id": "indiba-rostro",
+   "origen": "INDIBA FACIAL-23.jpg",
+   "tipo": "sesion",
+   "provisional": false,
+   "alt": "Rostro de una clienta con los ojos cerrados mientras el electrodo de radiofrecuencia se desliza por la mejilla",
+   "foco": "50% 60%",
+   "w": 1080,
+   "h": 1920,
+   "anchos": [
+    640,
+    1080
    ]
   }
  ]
