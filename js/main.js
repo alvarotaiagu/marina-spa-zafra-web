@@ -53,6 +53,16 @@ function alVisible(nodos, fn, margen = '0px 0px -12% 0px') {
 }
 M.alVisible = alVisible;
 
+/* cinemagraphs «en cabina»: suenan nunca, corren solo a la vista; con reduced-motion, el póster */
+(() => {
+  const bucles = [...document.querySelectorAll('video.bucle')];
+  if (!bucles.length || reduce || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.preload = 'auto'; e.target.play().catch(() => {}); } else e.target.pause();
+  }), { rootMargin: '120px 0px' });
+  bucles.forEach(v => io.observe(v));
+})();
+
 /* resize: solo cuenta si cambia el ancho o el alto de verdad (no la barra del móvil) */
 let anchoVista = innerWidth, altoVista = innerHeight;
 const alCambiarVista = [];
@@ -606,6 +616,22 @@ if (cab) {
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && cab.classList.contains('es-menu-abierto')) { cerrarMenu(); hamb.focus(); } });
   $$('#navegacion a').forEach(a => a.addEventListener('click', cerrarMenu));
 }
+
+/* ───────── desplegable de tratamientos (escritorio) ───────── */
+(function desplegable() {
+  const li = $('#desplegable'), boton = $('#desplegable-flecha'), panel = $('#panel-trat');
+  if (!li || !boton || !panel) return;
+  let reloj;
+  const poner = abierto => { clearTimeout(reloj); panel.hidden = !abierto; boton.setAttribute('aria-expanded', abierto ? 'true' : 'false'); };
+  boton.addEventListener('click', () => poner(panel.hidden));
+  if (!tactil) {
+    li.addEventListener('mouseenter', () => { clearTimeout(reloj); reloj = setTimeout(() => poner(true), 120); });
+    li.addEventListener('mouseleave', () => { clearTimeout(reloj); reloj = setTimeout(() => poner(false), 260); });
+  }
+  li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) poner(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) { poner(false); boton.focus(); } });
+  document.addEventListener('click', e => { if (!panel.hidden && !li.contains(e.target)) poner(false); });
+})();
 
 /* ───────── mapa: Google solo bajo clic ───────── */
 (function mapa() {

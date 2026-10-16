@@ -102,9 +102,31 @@ html.has-motion [data-revelar].es-partido .letra, html.has-motion [data-revelar]
 .navegacion__principal { display: flex; gap: 30px; font: 700 .7rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; }
 .navegacion a { text-decoration: none; color: var(--texto-osc); transition: color .3s; }
 .navegacion a:hover, .navegacion a[aria-current="page"] { color: var(--oro-cl); }
+/* desplegable de tratamientos (solo escritorio; en móvil ya están en el menú) */
+.desplegable { display: flex; align-items: center; gap: 6px; }
+.navegacion a.es-seccion { color: var(--oro-cl); }
+.desplegable__flecha { width: 18px; height: 18px; display: grid; place-items: center; background: none; border: 0; padding: 0; cursor: pointer; color: var(--texto-osc); }
+.desplegable__flecha::before { content: ""; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.4px 1.4px 0; transform: translateY(-2px) rotate(45deg); transition: transform .3s var(--curva); }
+.desplegable__flecha[aria-expanded="true"]::before { transform: translateY(2px) rotate(225deg); }
+.desplegable__flecha:hover, .desplegable__flecha[aria-expanded="true"] { color: var(--oro-cl); }
+.panel-trat { position: absolute; top: var(--cab-alto); left: 0; right: 0; background: var(--noche); box-shadow: 0 1px 0 rgba(212, 175, 55, .25) inset, 0 24px 48px rgba(0, 0, 0, .35); padding: 30px var(--lado) 34px; letter-spacing: 0; text-transform: none; animation: panel-entra .35s var(--curva); }
+.panel-trat[hidden] { display: none; }
+.panel-trat::before { content: ""; position: absolute; left: 0; right: 0; top: -28px; height: 28px; } /* puente: el ratón baja sin cerrarlo */
+@keyframes panel-entra { from { opacity: 0; transform: translateY(-8px); } }
+.panel-trat__lista { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 26px; }
+.navegacion .panel-trat__item { display: grid; justify-items: center; text-align: center; gap: 8px; color: var(--cal); }
+.panel-trat__arco { width: 96px; aspect-ratio: 3 / 4; border-radius: 48px 48px 0 0; overflow: hidden; outline: 1px solid rgba(212, 175, 55, .55); outline-offset: 4px; margin-bottom: 8px; transition: outline-color .3s; }
+.panel-trat__arco img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--curva); }
+.panel-trat__item:hover .panel-trat__arco img, .panel-trat__item:focus-visible .panel-trat__arco img { transform: scale(1.06); }
+.panel-trat__item:hover .panel-trat__arco, .panel-trat__item[aria-current="page"] .panel-trat__arco { outline-color: var(--oro-cl); }
+.panel-trat__nombre { font: 400 1.15rem/1.15 var(--serif); }
+.panel-trat__item:hover .panel-trat__nombre, .panel-trat__item[aria-current="page"] .panel-trat__nombre { color: var(--oro-cl); }
+.panel-trat__texto { font: 400 .78rem/1.45 var(--sans); color: var(--piedra-cl); }
+@media (prefers-reduced-motion: reduce) { .panel-trat { animation: none; } .panel-trat__arco img { transition: none; } }
 .navegacion__areas, .navegacion__datos { display: none; }
 .hamburguesa { display: none; }
 @media (max-width: 999px) {
+  .desplegable__flecha, .panel-trat { display: none !important; }
   .cabecera__cita { margin-left: auto; position: relative; z-index: 3; }
   .hamburguesa { display: inline-flex; position: relative; z-index: 3; width: 46px; height: 46px; align-items: center; justify-content: center; }
   .hamburguesa__rayas, .hamburguesa__rayas::before, .hamburguesa__rayas::after { display: block; width: 22px; height: 1.5px; background: var(--cal); transition: transform .35s var(--curva), background-color .2s; }
@@ -454,6 +476,19 @@ html.has-motion .beneficios__lista li.es-visible:nth-child(3n) .icono path { tra
 .tour { background: var(--noche); position: relative; z-index: 1; margin-top: calc(-1 * var(--recorrido) + 2.6rem); padding: var(--sec) var(--lado); display: grid; gap: 44px; align-items: center; justify-items: center; text-align: center; }
 @media (min-width: 900px) { .tour { grid-template-columns: 1fr auto; text-align: left; justify-items: start; } }
 .tour .arco--video { width: min(300px, 70vw); margin: 15px; }
+/* en cabina (páginas de tratamiento): bucle + tres fotos en arco, y los vídeos con controles */
+.cabina-sec { background: var(--noche); color: var(--cal); padding: var(--sec) var(--lado); }
+.cabina-sec__cab { max-width: 1180px; margin: 0 auto 48px; }
+.cabina-sec__rejilla { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 36px); align-items: end; }
+.cabina-sec__rejilla > .arco, .cabina-sec__bucle { margin-top: 15px; }
+.cabina-sec__reels { max-width: 1180px; margin: 64px auto 0; display: flex; flex-wrap: wrap; gap: 44px; justify-content: center; }
+.cabina-sec__reel { width: min(260px, 70vw); margin: 0; }
+.cabina-sec__reel figcaption { margin-top: 18px; text-align: center; font: 700 .64rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--piedra-cl); }
+.cabina-sec video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 760px) {
+  .cabina-sec__rejilla { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 22px; padding: 0 8px 12px; margin: 0 calc(-1 * var(--lado)); padding-inline: var(--lado); scrollbar-width: none; }
+  .cabina-sec__rejilla > * { flex: 0 0 62vw; scroll-snap-align: center; }
+}
 .porque { text-align: center; padding: var(--sec) var(--lado); }
 .porque__loto { margin: 0 auto 20px; }
 .porque__texto { font: 300 clamp(1.6rem, 3vw, 2.4rem)/1.25 var(--serif); max-width: 36ch; margin: 16px auto 0; }

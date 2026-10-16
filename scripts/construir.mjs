@@ -205,7 +205,13 @@ function cabecera(actual) {
     <nav class="navegacion" id="navegacion" aria-label="Principal">
       <ul class="navegacion__principal">
         ${item('/centro-estetica-zafra', 'El centro')}
-        <li><a href="./#tratamientos">Tratamientos</a></li>
+        <li class="desplegable" id="desplegable"><a href="./#tratamientos"${AREAS.some(a => a.url === actual) ? ' class="es-seccion"' : ''}>Tratamientos</a><button class="desplegable__flecha" id="desplegable-flecha" type="button" aria-expanded="false" aria-controls="panel-trat"><span class="visualmente-oculto">Ver las páginas de tratamientos</span></button>
+          <div class="panel-trat" id="panel-trat" hidden>
+            <ul class="panel-trat__lista">
+              ${AREAS.map(a => `<li><a class="panel-trat__item" href="${enlace(a.url)}"${actual === a.url ? ' aria-current="page"' : ''}><span class="panel-trat__arco">${pic(a.foto, { sizes: '96px', alt: '' })}</span><span class="panel-trat__nombre">${a.nombre}</span><span class="panel-trat__texto">${esc(a.texto)}</span></a></li>`).join('\n              ')}
+            </ul>
+          </div>
+        </li>
         ${item('/indiba-zafra', 'Indiba')}
         ${item('/contacto', 'Contacto')}
       </ul>
@@ -248,7 +254,7 @@ function datosMando() {
   return {
     avisos: [
       ['Logo redibujado desde 64 px', 'El loto es un redibujado del logo de su web, que solo existe a 64 px. Pedir el vector original.'],
-      [`Fotos provisionales: ${prov.length}`, 'De banco, las mismas que usa su web hoy: ' + prov.map(f => f.id).join(', ') + '. Del local hay 3 reales (vela, portón, cabina). La sesión de fotos está pedida.'],
+      [`Fotos provisionales: ${prov.length}`, 'De banco, las mismas que usa su web hoy: ' + prov.map(f => f.id).join(', ') + '. Las de la sesión de octubre de 2026 ya están en faciales, Indiba, corporales y spa; faltan depilación, estética y dos rituales (Ártico, Termal).'],
       ['Titular y NIF', 'Su aviso legal no los tiene y la LSSI (art. 10) los pide. Van como [PENDIENTE] en el aviso legal.'],
       ['Precios sin fecha', 'Son los de su web, que no dice de cuándo son. Confirmar que siguen.'],
       ['¿Láser o fotodepilación?', 'Su web dice «Láser» en el subtítulo y en la description, pero su tarifa se llama «Fotodepilación». Aquí sale «fotodepilación» en todo: preguntar si es láser o IPL.'],
@@ -615,6 +621,34 @@ ${bloqueContacto()}`;
   });
 }
 
+/* ───────── en cabina: sesión de fotos y vídeo de octubre de 2026 ─────────
+   Un cinemagraph en bucle (mudo, solo a la vista), tres fotos y el vídeo de cada tratamiento.
+   Depilación y estética no tienen sesión todavía: sin bloque. */
+const CABINA = {
+  faciales: { bucle: 'bucle-faciales', fotos: ['dermapen-rostro', 'dermapen-bandeja', 'ritual-oro'], reels: [['reel-dermapen', 'Dermapen'], ['reel-ritual-oro', 'Ritual de oro']] },
+  indiba: { bucle: 'bucle-indiba', fotos: ['indiba-rostro', 'indiba-ona', 'ona-cabezal'], reels: [['reel-indiba-facial', 'Indiba facial'], ['reel-indiba-ona', 'Indiba ONA']] },
+  corporales: { bucle: 'bucle-corporales', fotos: ['corporal-abdomen', 'corporal-crema', 'corporal-electrodo'], reels: [['reel-indiba-corporal', 'Indiba corporal']] },
+  spa: { bucle: 'bucle-spa', fotos: ['pareja-espalda', 'masaje-espalda', 'aceite'], reels: [['reel-pareja', 'Masaje en pareja'], ['reel-ritual-oro', 'Ritual de oro']] }
+};
+function enCabina(a) {
+  const c = CABINA[a.clave];
+  if (!c) return '';
+  const video = (id, attrs) => `<div class="arco arco--video" style="--ar:9/16"><div class="arco__foto"><video ${attrs} src="assets/video/${id}.mp4" poster="assets/video/${id}.jpg" playsinline preload="none" width="720" height="1280"></video></div>${filete(9, 16)}</div>`;
+  return `<section class="cabina-sec" aria-labelledby="cabina-titulo">
+  <div class="cabina-sec__cab">
+    <p class="eti">En cabina</p>
+    <h2 class="titulo-sec" id="cabina-titulo" data-revelar>Así se vive <em>en Marina Spa</em></h2>
+  </div>
+  <div class="cabina-sec__rejilla">
+    <div class="cabina-sec__bucle">${video(c.bucle, 'class="bucle" muted loop aria-hidden="true" tabindex="-1"')}</div>
+    ${c.fotos.map(id => arco(id, { w: 3, h: 4.6, sizes: '(max-width: 760px) 62vw, 22vw' })).join('\n    ')}
+  </div>
+  <div class="cabina-sec__reels">
+    ${c.reels.map(([id, nombre]) => `<figure class="cabina-sec__reel">${video(id, `controls aria-label="Vídeo del tratamiento: ${nombre}"`)}<figcaption>${nombre}</figcaption></figure>`).join('\n    ')}
+  </div>
+</section>`;
+}
+
 /* ═══════════════ TRATAMIENTOS (una plantilla, seis páginas) ═══════════════ */
 function paginaArea(a) {
   const s = seo(a.url);
@@ -673,6 +707,7 @@ ${proionic}
     ${todos.map(htmlGrupo).join('\n    ')}
   </div>
 </section>
+${enCabina(a)}
 ${a.clave === 'indiba' ? beneficios() : ''}
 ${party}
 ${cierreCita()}
@@ -687,7 +722,7 @@ function paginaCentro() {
     ['porton', 'Nuestra esencia', 'Historia y misión', ['Marina Spa nació con una visión clara: convertirse en el centro de estética en Zafra de referencia, donde la tecnología puntera se encuentra con el trato humano más cálido.', 'Entendemos la belleza como una consecuencia de la salud y el bienestar. Por ello, cada protocolo, desde un tratamiento facial hasta nuestros <a href="indiba-zafra">tratamientos Indiba en Zafra</a>, está diseñado para ofrecer resultados visibles respetando la biología de tu piel.'], ''],
     ['vela', 'Experiencia', 'Más de 10 años', ['Más de 10 años cuidando de ti.'], '+10'],
     ['cabina', 'Tecnología', 'Centro certificado Indiba® y Mesoestetic®', ['Centro certificado Indiba® y Mesoestetic®.'], ''],
-    ['aceite', 'Profesionales', 'Nuestro equipo certificado', ['Detrás de Marina Spa hay un equipo de esteticistas apasionadas y en constante formación. Especialistas en diagnóstico facial, remodelación corporal y técnicas de masaje, nuestro objetivo es personalizar cada visita para que te sientas única.'], '']
+    ['equipo', 'Profesionales', 'Nuestro equipo certificado', ['Detrás de Marina Spa hay un equipo de esteticistas apasionadas y en constante formación. Especialistas en diagnóstico facial, remodelación corporal y técnicas de masaje, nuestro objetivo es personalizar cada visita para que te sientas única.'], '']
   ];
   const main = `<section class="cab-pagina cab-pagina--centro" aria-labelledby="cab-h1">
   <div class="cab-pagina__texto">

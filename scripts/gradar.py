@@ -81,7 +81,17 @@ def gradar(im, lila=False, penumbra=False, calido=0.0):
     x = x + g[..., None]
     return Image.fromarray((np.clip(x, 0, 1) * 255 + 0.5).astype(np.uint8))
 
+SESION = os.path.join(RAIZ, '_originales', 'fotos')
+
 for f in datos['fotos']:
+    if f['tipo'] == 'sesion':
+        # sesión profesional (2026-10): ya viene etalonada; solo se reescala, sin gradar
+        im = Image.open(os.path.join(SESION, f['origen'])).convert('RGB')
+        antes = im.size
+        im.thumbnail((1080, 1920), Image.LANCZOS)
+        im.save(os.path.join(DESTINO, f['id'] + '.jpg'), quality=94, subsampling=0)
+        print(f"{f['id']:<16} {antes[0]}×{antes[1]} → {im.size[0]}×{im.size[1]} (sesión)")
+        continue
     im = Image.open(os.path.join(ACTIVOS, f['origen'])).convert('RGB')
     antes = im.size
     if max(im.size) > 2000: im.thumbnail((2000, 2000), Image.LANCZOS)

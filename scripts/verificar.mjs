@@ -853,7 +853,7 @@ try {
     await page.goto(BASE + '?revision', { waitUntil: 'load' }); await page.waitForTimeout(1200);
     const boveda = await page.evaluate(() => ({ polvo: window.Marina.polvo.activo, filas: getComputedStyle(document.querySelector('.cinta__fila')).display, marcas: getComputedStyle(document.querySelector('.cinta__marcas')).display, bus: getComputedStyle(document.getElementById('buscador')).display, avisos: window.Marina.mando.avisos }));
     comprobar(boveda.polvo && boveda.filas === 'flex' && boveda.marcas === 'none' && boveda.bus === 'none', '«Bóveda»: polvo dorado, marquee doble y sin buscador');
-    comprobar(['Logo redibujado desde 64 px', 'Fotos provisionales: 9', 'Titular y NIF', 'Precios sin fecha', '¿Láser o fotodepilación?', 'El peeling «Polinesia»', 'Tres cambios de texto (regla 3)', 'El vídeo lleva rótulos de Instagram'].every(a => boveda.avisos.includes(a)), 'el mando lista los avisos pendientes (' + boveda.avisos.length + '): logo, 9 fotos provisionales, NIF, precios, láser, «Polinesia», regla 3, vídeo');
+    comprobar(['Logo redibujado desde 64 px', 'Fotos provisionales: 4', 'Titular y NIF', 'Precios sin fecha', '¿Láser o fotodepilación?', 'El peeling «Polinesia»', 'Tres cambios de texto (regla 3)', 'El vídeo lleva rótulos de Instagram'].every(a => boveda.avisos.includes(a)), 'el mando lista los avisos pendientes (' + boveda.avisos.length + '): logo, 4 fotos provisionales, NIF, precios, láser, «Polinesia», regla 3, vídeo');
     if (conCapturas) await page.screenshot({ path: foto('densidad-boveda-1440.png'), fullPage: true, type: 'jpeg', quality: 70 });
     await page.click('[data-densidad="sobria"]'); await page.waitForTimeout(900);
     const s = await page.evaluate(() => ({
@@ -936,6 +936,30 @@ try {
   }, 420000);
 
   /* ═══════════════ capturas de cada página a seis tamaños ═══════════════ */
+  await bloque('11 · desplegable y en cabina', async () => {
+    const { ctx, page } = await nuevaPagina();
+    await page.goto(BASE + 'indiba-zafra', { waitUntil: 'load' }); await page.waitForTimeout(800);
+    const cerrado = await page.evaluate(() => document.getElementById('panel-trat').hidden && !performance.getEntriesByType('resource').some(r => /depilacion-/.test(r.name)));
+    await page.hover('#desplegable > a'); await page.waitForTimeout(600);
+    const d = await page.evaluate(() => ({ abierto: !document.getElementById('panel-trat').hidden, enlaces: document.querySelectorAll('#panel-trat a').length, actual: document.querySelector('#panel-trat [aria-current="page"]')?.getAttribute('href'), aria: document.getElementById('desplegable-flecha').getAttribute('aria-expanded') }));
+    await page.mouse.move(720, 330); await page.waitForTimeout(400);
+    const puente = await page.evaluate(() => !document.getElementById('panel-trat').hidden);
+    await page.keyboard.press('Escape'); await page.waitForTimeout(100);
+    const esc = await page.evaluate(() => document.getElementById('panel-trat').hidden && document.activeElement.id === 'desplegable-flecha');
+    comprobar(cerrado && d.abierto && d.enlaces === 6 && d.actual === 'indiba-zafra' && d.aria === 'true' && puente && esc, 'desplegable: cerrado y sin cargar fotos al entrar; con el ratón abre las 6 páginas (la actual marcada), sigue abierto al bajar y Esc lo cierra devolviendo el foco');
+    await irA(page, '.cabina-sec', 0.1, 1500);
+    const c = await page.evaluate(() => { const v = document.querySelector('video.bucle'); return { corre: !v.paused, mudo: v.muted, reels: document.querySelectorAll('.cabina-sec video[controls]').length }; });
+    comprobar(c.corre && c.mudo && c.reels === 2, 'en cabina: el cinemagraph corre mudo a la vista y hay 2 vídeos con controles en Indiba');
+    await ctx.close();
+    const m = await nuevaPagina({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+    await m.page.goto(BASE + 'indiba-zafra', { waitUntil: 'load' }); await m.page.waitForTimeout(500);
+    comprobar(await m.page.evaluate(() => getComputedStyle(document.getElementById('desplegable-flecha')).display === 'none' && document.querySelectorAll('.navegacion__areas a').length === 6), 'desplegable: en móvil no hay flecha; las 6 páginas siguen en el menú');
+    await m.ctx.close();
+    const r = await nuevaPagina({ reducedMotion: 'reduce' });
+    await r.page.goto(BASE + 'indiba-zafra', { waitUntil: 'load' }); await irA(r.page, '.cabina-sec', 0.1, 1200);
+    comprobar(await r.page.evaluate(() => document.querySelector('video.bucle').paused), 'en cabina: con reduced-motion el cinemagraph no se mueve (póster)');
+    await r.ctx.close();
+  });
   if (conCapturas) await bloque('capturas', async () => {
     for (const [w, h] of [[360, 640], [375, 667], [390, 844], [768, 1024], [1366, 768], [1440, 900]]) {
       const movil = w < 800;
