@@ -222,6 +222,7 @@ function cabecera(actual) {
           </div>
         </li>
         ${item('/indiba-zafra', 'Indiba')}
+        <li><a href="blog"${actual === '/blog' ? ' aria-current="page"' : actual.startsWith('/blog-') ? ' class="es-seccion"' : ''}>Blog</a></li>
         ${item('/contacto', 'Contacto')}
       </ul>
       <ul class="navegacion__areas" aria-label="Tratamientos">
