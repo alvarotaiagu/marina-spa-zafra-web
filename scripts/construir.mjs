@@ -936,7 +936,7 @@ ${cierreCita()}`;
 }
 function paginaArticulo(a) {
   const s = { title: a.title, description: a.description };
-  const otras = a.relacionados.map(sl => BA.find(x => x.slug === sl));
+  const otras = (a.relacionados || []).map(sl => BA.find(x => x.slug === sl)).filter(Boolean);
   const area = AREAS.find(x => x.url === a.area);
   const main = `<section class="cab-pagina" aria-labelledby="cab-h1">
   <div class="cab-pagina__texto">
@@ -956,13 +956,13 @@ function paginaArticulo(a) {
     <p class="articulo-cta__texto">Si quieres saber qué te conviene a ti, te lo contamos en cabina, sin compromiso.</p>
     <div class="acciones"><a class="boton boton--oro iman" href="${enlace(a.area)}">${esc(a.areaTexto)}</a><a class="boton boton--linea iman" href="${waCita(a.cita)}" target="_blank" rel="noopener">Pedir cita por WhatsApp</a></div>
   </aside>
-</article>
+</article>${otras.length ? `
 <section class="seguir" aria-labelledby="seguir-t">
   <h2 class="titulo-peq" id="seguir-t">Sigue leyendo</h2>
   <ul class="blog-rejilla">
     ${otras.map(x => tarjetaNota(x, 'h3')).join('\n    ')}
   </ul>
-</section>`;
+</section>` : ''}`;
   const ld = [{
     '@context': 'https://schema.org', '@type': 'BlogPosting', '@id': dominio + a.url + '#articulo', mainEntityOfPage: { '@type': 'WebPage', '@id': dominio + a.url },
     headline: a.h1, description: a.description, inLanguage: 'es', datePublished: a.fecha, dateModified: a.fecha, image: fotoUrl(a.foto),
